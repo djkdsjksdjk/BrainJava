@@ -1,6 +1,6 @@
 /**
  * 2018. 5. 1. Dev By Lee.M.H
-   뇌를 자극하는 자바
+   
    InDecExample1.java
  */
 
