@@ -22,19 +22,19 @@ class Person{
 		return Jumincd;
 	}
 	public void setJumincd(String jumincd) {
-		Jumincd = jumincd;
+		this.Jumincd = jumincd;
 	}
 	public String getPname() {
 		return Pname;
 	}
 	public void setPname(String pname) {
-		Pname = pname;
+		this.Pname = pname;
 	}
 	public String getGender() {
 		return Gender;
 	}
 	public void setGender(String gender) {
-		Gender = gender;
+		this.Gender = gender;
 	}
 	public int getAge() {
 		return age;
@@ -47,17 +47,20 @@ class Person{
 }
 
 
-public class JDBC_Person {
+class JDBC_Person {
 	
 public static void main(String[] args) {
 	
-	Person[] persons = new Person[3]; //배열 객체
+	Person[] persons;
+	persons = new Person[4]; //배열 객체
+	
 	for(int i = 0; i < persons.length; i++) {
-	   persons[i] =new Person(); //생성자 호출하여 배열 레퍼런스 대입
+	   persons[i] = new Person(); //생성자 호출하여 배열 레퍼런스 대입
 	}
 	
 	
 	/*for(int i = 0; i < persons.length; i++) {
+	 * 
 		System.out.println("주민번호: " + persons[i].getJumincd());
 		System.out.println("이름: " +  persons[i].getPname());
 		System.out.println("성별: " +  persons[i].getGender());
@@ -96,6 +99,7 @@ public static void main(String[] args) {
 		 Statement stmt = null;
 		 //ResultSet 인터페이스 - SQL 결과를 저장
 		 ResultSet rs = null;
+		 
 		 //try ~ catch문에서 DB연결중에 예외가 발생하는지를 검사
 	        try {
 //	        	String Jumincd = null;
@@ -103,13 +107,10 @@ public static void main(String[] args) {
 //	        	String Gender = null;
              	int age = 0;
 	        	
-	        	
-	        	
 	        	//2단계 : JDBC드라이버를 로드한다.
 	            Class.forName("com.mysql.jdbc.Driver");
 	            //3단계 : 드라이버 매니져 클래스는 getConnection 메소드로 DB를 연결한다.
 	            conn = DriverManager.getConnection(
-	            		//URL주소
 	               "jdbc:mysql://localhost:3306/mysql", "root", "12345");
 	            System.out.println("데이터베이스에 접속했습니다.");
 	            
@@ -140,7 +141,9 @@ public static void main(String[] args) {
 	            //4단계 : DB연결을 종료한다.
 	            conn.close();
 	            System.out.println("=================================");
+	            
 	            for(i = 0; i < persons.length; i++) {
+	            	
 	            	System.out.println("주민번호: " + persons[i].getJumincd());
 	        		System.out.println("이름: " +  persons[i].getPname());
 	        		System.out.println("성별: " +  persons[i].getGender());

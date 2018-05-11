@@ -5,7 +5,7 @@ import java.sql.*; //패키지
 	public static void main(String[] args) {
 		//1단계 : DB 연결을 위한 커넥션  인터페이스
 		 Connection conn = null;
-		 //try ~ catch문에서 DB연결중에 예외가 발생하는지를 검사.
+		 //try ~ catch문에서 DB연결중에 예외가 발생하는지를 검사
 	        try {
 	        	//2단계 : JDBC드라이버를 로드한다.
 	            Class.forName("com.mysql.jdbc.Driver");

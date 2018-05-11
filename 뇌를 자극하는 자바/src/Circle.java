@@ -13,13 +13,13 @@ public class Circle {
 	String name;
 	 //매개변수 없는 생성자
 	public Circle() { 
-		radius = 1;
-		name = "";
+		this.radius = 1;
+		this.name = "";
 	}
 	//매개변수를 가진 생성자
-	public Circle(int r, String n) {
-		radius = r;
-		name = n;
+	public Circle(int radius, String name) {
+		this.radius = radius;
+		this.name = name;
 	}
 	//메소드
 	public double getArea() {
