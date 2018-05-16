@@ -12,7 +12,7 @@ class Person {
 	
 	public Person(int money) {
 		this.money = money;
-		System.out.println("부모클래스에 Person(int money) 호출");
+		System.out.println("부모클래스에 Person(int money)생성자 호출");
 	}
 	public void displayMoney() {
 		System.out.println("재산:" + money);
