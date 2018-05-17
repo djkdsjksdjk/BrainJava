@@ -1,6 +1,6 @@
 package chap06;
 
-class Account { //부모클래스
+ class Account { //부모클래스
 	String accountNo;
 	String ownerName;
 	int balance;
@@ -57,6 +57,7 @@ class Account { //부모클래스
 		   public class InheritanceExample1{
 			   
 			public static void main(String args[]) {
+				
 				
 				CheckingAccount obj = new CheckingAccount("111-22-33333333", "홍길동", 0, "5555-6666-7777-8888");
 				//Account 클래스로부터 상속받은 필드 사용
