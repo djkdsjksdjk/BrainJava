@@ -30,7 +30,7 @@ public class WindowExample1 {
 		frame.setPreferredSize(new Dimension(300, 200));
 		Container contentPane = frame.getContentPane();
 		
-		JLabel lable = new JLabel("Hello, Java", SwingConstants.CENTER);
+		JLabel lable = new JLabel("日本語能力試験", SwingConstants.CENTER);
 		contentPane.add(lable);
 		
 		frame.pack();
