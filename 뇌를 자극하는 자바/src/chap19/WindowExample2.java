@@ -1,10 +1,15 @@
 package chap19;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -17,27 +22,60 @@ public class WindowExample2 {
 
 	public static void main(String[] args) {
 		
-		JFrame frame = new JFrame("Hello Program");
-		frame.setPreferredSize(new Dimension(200, 90));
+		JFrame jframe = new JFrame("Hello Program");
+		jframe.setPreferredSize(new Dimension(200, 90));
 		//frame.setPreferredSize(new Dimension(1000, 600));
 		//frame.setLocation(500, 400);
 		
 		//ImageIcon image = new ImageIcon("images/label.jpg");
 		//JLabel imageLabel = new JLabel(image);
 		
-		Container contentPane = frame.getContentPane();
+		Container container = jframe.getContentPane();
 		
 		JTextField text = new JTextField("이름을 입력하세요");
 		JButton button = new JButton("확인");
-		JLabel label = new JLabel("HAHA!");
+		JLabel label = new JLabel("Hello!");
 		
-		contentPane.add(text, BorderLayout.CENTER);
-		contentPane.add(button, BorderLayout.EAST);
-		contentPane.add(label, BorderLayout.SOUTH);
+		container.add(text, BorderLayout.CENTER);
+		container.add(button, BorderLayout.EAST);
+		container.add(label, BorderLayout.SOUTH);
 		
-		ActionListener listener = new ConfirButtonActionListener(text, label);
+		//ActionListener listener = new ConfirButtonActionListener(text, label);
+		//button.addActionListener(listener);
+		
+		button.addActionListener(new ConfirButtonActionListener(text, label));
+		text.addActionListener(new ConfirButtonActionListener(text, label));
+		
+		container.setFocusable(true);
+		
+		text.addFocusListener(new FocusListener() {
+			public void focusGained(FocusEvent e) {
+				text.setText("");
 				
-		button.addActionListener(listener);
+			}
+			
+			public void focusLost(FocusEvent e) { }
+		});
+		
+		text.addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent e) {}
+		
+			@Override
+			public void keyReleased(KeyEvent e) {}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				System.out.println("keypressed");
+				
+				if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+					System.out.println("VK_ENTER");
+			}
+			}
+		});
+			
+	
 		
 		//contentPane.add(imageLabel, BorderLayout.NORTH);
 		
@@ -45,13 +83,12 @@ public class WindowExample2 {
 		//text.setFocusable(false);//포커스 해제
 		
 		
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.pack();
-		frame.setVisible(true);
-		frame.setLocationRelativeTo(null);//화면 전중앙 배치
+		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jframe.pack();
+		jframe.setVisible(true);
+		jframe.setLocationRelativeTo(null);//화면 전중앙 배치
 		
 		
 
 	}
-
 }
