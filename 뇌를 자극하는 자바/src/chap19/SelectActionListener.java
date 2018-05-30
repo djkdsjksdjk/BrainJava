@@ -48,11 +48,11 @@ public class SelectActionListener implements ActionListener {
 		int columnCount = md.getColumnCount();
 		System.out.println("컬럼갯수: " + columnCount);
 		
-		rs.last();
+		rs.last();//레코드셋에 커서를 마지막 행으로 이동
 		
-		int rowCount = rs.getRow();
+		int rowCount = rs.getRow();//레코드 갯수
 		
-		rs.beforeFirst();
+		rs.beforeFirst();//레코드셋에 커서를 처음 행으로 이동
 		System.out.println("레코드 갯수: " + rowCount);
 		
 		//조회된 결과가 1건이상 있다면
@@ -60,21 +60,25 @@ public class SelectActionListener implements ActionListener {
 			while(rs.next()) {
 				arr[0] = rs.getString("Pname");
 				arr[1] = rs.getString("age");
-				arr[2] = rs.getString("Gender");
+				//arr[2] = rs.getString("Gender");
 				//성별을 남.여 구분값으로 변경
-				//arr[2] = rs.getString("gender").equals("m") ? "남":"여";
+				arr[2] = rs.getString("gender").equals("m") ? "남":"여";
 				System.out.println(arr[0] + " " + arr[1] + " " + arr[2]);
 				model.addRow(arr);//데이터를 테이블에 추가
 		}
 			
-		}else {
+		}else 
+		{
 		//조회된 결과가 없을때
 			JOptionPane.showMessageDialog(null, "조회된 결과가 없습니다.", "경고메세지", JOptionPane.WARNING_MESSAGE);
+			
 			System.out.println("조회된 결과가 없습니다.");
 		}
+		
 	}catch (Exception ex) {
 		ex.getMessage();
 	}
+		
 //		int row = table.getSelectedRow();
 //		int col = table.getSelectedColumn();
 //		object value = table.getValueAt(row, col);
