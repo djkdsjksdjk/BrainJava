@@ -8,17 +8,23 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import com.kosea.kmove30.JDBC_Manager;
+
 
 
  public class AddActionListener implements ActionListener {
+	 
 	JTable table;
 	JTextField text1, text2, text3;
-	AddActionListener(JTable table, JTextField text1,
+	JDBC_Manager jdbcManager;
+	
+	AddActionListener(JDBC_Manager jdbcManager, JTable table, JTextField text1,
 			 JTextField text2,  JTextField text3){
+		this.jdbcManager = jdbcManager;
 		this.table = table;
 		this.text1 = text1;
 		this.text2 = text2;
-		this.text3 = text3;		
+		this.text3 = text3;	
 	}
 	
 	public void actionPerformed(ActionEvent e) {
@@ -27,12 +33,14 @@ import javax.swing.table.DefaultTableModel;
 		arr[0] = text1.getText();
 		arr[1] = text2.getText();
 		arr[2] = text3.getText();
+		
 		DefaultTableModel model = (DefaultTableModel)table.getModel();
 		boolean isCheck = false; //입력창 체크상태
 		
 		for(int i = 0; i < arr.length; i++) {
 			if(arr[i].length() > 0)
 				isCheck = true;
+			
 			else
 				isCheck = false;
 			System.out.println("arr["+i+"]:" + arr[i]);
@@ -40,8 +48,13 @@ import javax.swing.table.DefaultTableModel;
 		}
 		
 		if(isCheck)
-		model.addRow(arr); // 레코드에 데이터 추가
-	
+		model.addRow(arr); // JTable 테이블에 데이터 추가
+		try {
+	//DB insert 추가 작업
+		jdbcManager.insertTable(arr);
+		}catch(Exception ex) {
+			ex.getMessage();
+		}
 		
 		//입력창 빈칸만들기
 		text1.setText("");
