@@ -13,3 +13,11 @@
 	     
  //4단계 : DB연결을 종료한다.
 	     conn.close();
+	     
+	     select 문 -> executeQuery();
+	     intsert, update, delete 문 -> excuteUpdate();
+	     
+	    JDBC 오류 날때
+	     원인: sql 문법 오류
+	     
+	     rs.next() -> 레코드가 있는지 확인

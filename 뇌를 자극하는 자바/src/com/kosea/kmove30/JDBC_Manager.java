@@ -52,7 +52,26 @@ public class JDBC_Manager {
 		return rs;
 		
 	}
-	
+	//query - "delete from person where nName = '홍길동'";
+	public void deleteTable(String deleteName)throws Exception {
+		
+		String query = "delete from person where Pname = '" + deleteName + "'";
+		stmt = conn.createStatement();
+		int deleteCount  = stmt.executeUpdate(query);
+		
+		if(deleteCount > 0)
+		System.out.println(deleteCount + "건이 삭제 되었습니다.");
+		
+		if(deleteCount > 0)
+			System.out.println(deleteCount + "건이 추가 되었습니다.");
+		
+		
+		/*//DB SQL 작업
+        stmt = conn.createStatement();
+        String sql = "delete from Person where Pname ='" +  args[0] + "'"; //이순신'
+        //delete from Person where Pname ='이순신' ;
+        		int chageRecord = stmt.executeUpdate(sql);*/
+	}
 	
 	//DB연결해제
 

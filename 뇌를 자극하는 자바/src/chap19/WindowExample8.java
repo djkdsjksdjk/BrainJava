@@ -19,6 +19,7 @@ public class WindowExample8 {
 
 	public static void main(String[] args) {
 		
+		//DB관리(연결, 조회, 삭제, 추가 클래스)
 		JDBC_Manager jdbcManager = new JDBC_Manager();
 		
 		JFrame frame = new JFrame("참가자 명단 프로그램");
@@ -59,7 +60,7 @@ public class WindowExample8 {
 				//selectBtn.addActionListener(null);
 				selectBtn.addActionListener(new SelectActionListener(jdbcManager, table));
 				button1.addActionListener(new AddActionListener(table, text1, text2, text3));
-				button2.addActionListener(new RemoveActionListener(table));
+				button2.addActionListener(new RemoveActionListener(jdbcManager, table));
 				
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.pack();
@@ -71,7 +72,8 @@ public class WindowExample8 {
 				
 				
 				try {
-					jdbcManager.DBConnection("com.mysql.jdbc.Driver","jdbc:mysql://localhost:3306/mysql", "root", "12345");
+					jdbcManager.DBConnection("com.mysql.jdbc.Driver","jdbc:mysql://localhost:3306/mysql?useUnicode=true&characterEncoding=utf8"  
+							, "root", "12345");
 				System.out.println("데이터 베이스에 접속했습니다.");
 				frame.setTitle("참가자 명단 프로그램 - DB접속 성공");
 				

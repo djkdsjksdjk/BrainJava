@@ -46,11 +46,11 @@ public class WindowExample2 {
 		button.addActionListener(new ConfirButtonActionListener(text, label));
 		text.addActionListener(new ConfirButtonActionListener(text, label));
 		
-		container.setFocusable(true);
+		container.setFocusable(true);                //컨테이너에 포커스를 설정
 		
 		text.addFocusListener(new FocusListener() {
-			public void focusGained(FocusEvent e) {
-				text.setText("");
+			public void focusGained(FocusEvent e) {  //텍스트 필드가 포커스를 얻을때
+				text.setText("");                    //이름을 입력하세요 문자열을 삭제
 				
 			}
 			
