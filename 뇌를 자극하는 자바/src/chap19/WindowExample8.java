@@ -63,7 +63,7 @@ public class WindowExample8 {
 				table.addMouseListener(new MyMouseListener(text1, text2, text3));
 				selectBtn.addActionListener(new SelectActionListener(jdbcManager, table));
 				button1.addActionListener(new AddActionListener(jdbcManager, table, text1, text2, text3));
-				updateBtn.addActionListener(new UpdateActionListener(jdbcManager, text1, text2));
+				updateBtn.addActionListener(new UpdateActionListener(jdbcManager, table, text1, text2));
 				button2.addActionListener(new RemoveActionListener(jdbcManager, table));
 				
 				

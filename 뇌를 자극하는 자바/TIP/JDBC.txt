@@ -17,6 +17,10 @@
 	     select 문 -> executeQuery();
 	     intsert, update, delete 문 -> excuteUpdate();
 	     
+	     숫자를 문자열로 변환 String strNum = valueOf
+	     
+	     문자열을 숫자로 변환  int num = Integer.parInt("123");
+	     
 	    JDBC 오류 날때
 	     원인: sql 문법 오류
 	     
