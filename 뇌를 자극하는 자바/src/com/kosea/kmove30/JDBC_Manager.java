@@ -22,6 +22,8 @@ public class JDBC_Manager {
 	//ResultSet 인터페이스 - SQL 결과를 저장
 	 ResultSet rs = null;
 	 
+	
+	 
 	 //생성자
 	public JDBC_Manager(Connection conn, Statement stmt, ResultSet rs) {
 		super();
@@ -38,7 +40,7 @@ public class JDBC_Manager {
 	//DB연결
 	public Connection DBConnection(String driver, String url, String user, String pass) throws Exception {
 		//Class.forName("com.mysql.jdbc.Driver");//JDBC드라이버 로드
-		Class.forName(driver);
+		Class.forName(driver);//JDBC드라이버를 로드
         
 		conn = DriverManager.getConnection(url,user,pass);
            
@@ -48,17 +50,25 @@ public class JDBC_Manager {
 	//select
 	//query - "select Pname, age, Gender from person
 	public ResultSet selectTable(String query) throws Exception {
+		System.out.println("query: - " + query);
 		stmt = conn.createStatement();
-		rs = stmt.executeQuery(query);
+		rs = stmt.executeQuery(query); // rs = stmt.executeQuery(select pname, age, gender from person);
+		
 		return rs;
 		
 	}
 	//Insert
 	//query - "INSERT INTO Person(PName, Gender, age)values('이민희', 'f', 21)";
 	public void insertTable(String[] arr) throws Exception {
-		String name = arr[0];
-		String age = arr[1];
-		String Gender = arr[2];
+		
+		String name = arr[0];    //이름
+		String age = arr[1];     //나이
+		String Gender = arr[2];  //성별
+		
+		//콤보박스에 '남'을 선택하면 -> "m" 
+		//        '여'를 선택하면 -> "f"
+		
+		Gender = Gender.equals("남")? "m" : "f";
 		
 		String query = "INSERT INTO Person(PName, age, Gender)values"
 				+ "('" + name + "'," + age + ",'" + Gender + "'"+")";
