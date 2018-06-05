@@ -1,0 +1,10 @@
+CREATE TABLE MEMBER(
+  ID VARCHAR(50),
+ Pass VARCHAR(50),
+ PRIMARY KEY(id) );
+
+select * from MEMBER;
+
+ INSERT INTO MEMBER(ID, Pass)
+VALUES('kosea', '12345');
+

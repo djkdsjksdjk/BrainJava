@@ -11,8 +11,9 @@ public class WindowExample4 {
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Fruit Basket Program");
 		frame.setLocation(500,  400);
-		Color color = new Color(0, 0, 0);
-		frame.getContentPane().setBackground(color);
+		frame.setBackground(Color.LIGHT_GRAY);
+		//Color color = new Color(184, 134, 011);
+		frame.getContentPane().setBackground(Color.GRAY);
 		
 		
 		Container contentPane = frame.getContentPane();
