@@ -1,6 +1,8 @@
 package com.kosea.kmove30;
 
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -21,16 +23,30 @@ public class MybatisTest {
 		
 		try {
 			
-		 // Blog blog = session.selectOne("org.mybatis.example.BlogMapper.selectBlog", 101);
-			//Member member = new Member();
+		 /////////전체조회///////////
+			List<Member> memberList = new ArrayList<Member>();
+			
+			memberList = session.selectList("org.mybatis.example.MemberMapper.selectAllMember");
+			
+			for(Member member : memberList) {
+				String logMessage = member.getId().toString() + "  " + 
+			                        member.getPass().toString() + "  " + 
+			                        member.getMno();
+				//System.out.println(member.getId() + "  " + member.getPass() + "  " + member.getMno());
+				member.printLog(logMessage);
+			}
+			
 			
 			////조회 시작////
-			
-		/*Member member = session.selectOne("org.mybatis.example.SelectMapper.selectMember", 105);
+			//Member member = new Member();
+//		Member member = (Member)session.selectOne("org.mybatis.example.MemberMapper.selectMember", 101);
+//		member.printLog("아이디:" + member.getId() + 
+//				        "패스" + member.getPass() + 
+//				        "mno" + member.getMno());
 		
-		System.out.println("회원 아이디: " + member.getId());
-		System.out.println("회원 비밀번호: " + member.getPass());
-		System.out.println("회원 번호: " + member.getMno());*/
+//		System.out.println("회원 아이디: " + member.getId());
+//		System.out.println("회원 비밀번호: " + member.getPass());
+//		System.out.println("회원 번호: " + member.getMno());
 			
 			////조회종료////
 		
@@ -51,7 +67,7 @@ public class MybatisTest {
 		
 		///////////수정시작//////////
 			
-			String queryMapping = "org.mybatis.example.SelectMapper.updateMember";
+			/*String queryMapping = "org.mybatis.example.SelectMapper.updateMember";
 			Member member = new Member();
 			member.setMno(105);
 			member.setId("aLEEM");
@@ -59,7 +75,7 @@ public class MybatisTest {
 			
 			//Member member = new Member(105, "LEEID", "123456pw");
 			int updateCount = session.update(queryMapping, member);
-			System.out.println("수정 건수: " + updateCount);
+			System.out.println("수정 건수: " + updateCount);*/
 			
 			
 			

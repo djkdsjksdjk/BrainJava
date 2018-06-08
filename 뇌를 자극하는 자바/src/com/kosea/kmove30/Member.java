@@ -1,7 +1,11 @@
 package com.kosea.kmove30;
 //DataAccess
 
+import org.apache.log4j.Logger;
+
 public class Member {
+	private final Logger logger = Logger.getLogger(LogTest1.class);
+	
 	int mno;
 	String id;
 	String pass;
@@ -16,6 +20,11 @@ public class Member {
 		this.id = id;
 		this.pass = pass;
 	}
+	public void printLog(String logMessage) {
+		
+		logger.info(logMessage);
+	}
+	
 	public int getMno() {
 		return mno;
 	}
@@ -36,5 +45,9 @@ public class Member {
 	}
 	
 	
+		
+		
+	}
+	
 
-}
+

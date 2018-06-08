@@ -8,7 +8,10 @@
   <insert id="insertMember" parameterType="Member">
   insert into member(mno, id, pass) values(#{mno}, #{id}, #{pass})
   </insert>         
-           
+      
+  <select id="selectAllMember" resultType="Member">
+    select * from member  
+  </select>     
                    
   <select id="selectMember" resultType="Member">
     select * from member where mno = #{mno}  
