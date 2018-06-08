@@ -13,13 +13,13 @@
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
         <property name="driver" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/mysql"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/mysql?useUnicode=true&amp;characterEncoding=utf8"/>
         <property name="username" value="root"/>
         <property name="password" value="12345"/>
       </dataSource>
     </environment>
   </environments>
   <mappers>
-    <mapper resource="com/kosea/kmove30/member.xml"/>	
+    <mapper resource="com/kosea/kmove30/member.xml"/>
   </mappers>
 </configuration>
