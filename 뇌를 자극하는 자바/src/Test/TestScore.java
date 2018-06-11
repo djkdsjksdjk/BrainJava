@@ -13,6 +13,8 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import chap19.AddActionListener;
+
 public  class  TestScore {
 	public  static  void  main ( String [] args , Container  contentPane, Container panel ) {
 	
@@ -50,6 +52,9 @@ public  class  TestScore {
     panel.add(text2);
     panel.add(new JLabel("평점"));
     panel.add(scoreCombox);
+    
+    JTable testScoreListener;
+	adBtn.addActionListener(new AddActionListeners(testScoreListener, table, text1, text2, scoreCombox));
     
     contentPane.add(panel, BorderLayout.NORTH);
     
