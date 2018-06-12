@@ -56,6 +56,7 @@ public class TestScore_Listener implements ActionListener {
 			
 			int total = num1 + num2 + num3 + num4 + num5;
 			
+			
 			if(strNum1.equals("")) {
 				JOptionPane.showMessageDialog(null, "학점을 입력해 주세요.", "경고 메세지", 
 						JOptionPane.WARNING_MESSAGE);

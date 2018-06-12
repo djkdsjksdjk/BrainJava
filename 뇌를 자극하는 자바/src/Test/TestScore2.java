@@ -121,7 +121,7 @@ public class TestScore2 {
 		panel.add(new JLabel("평점"));
 		panel.add (text12);
 	
-		
+	
 		
 		 JButton okBtn      =  new  JButton ("계산");
 		 panel.add(okBtn);
