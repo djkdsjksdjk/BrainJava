@@ -22,7 +22,7 @@ public class TestScore2 {
 
 	public static void main(String[] args) {
 		
-		TestScore_Listener testScore = new TestScore_Listener();
+		new TestScore_Listener();
 		
 		JFrame frame = new JFrame("학점 평균 계산 프로그램");
 		frame.setPreferredSize(new Dimension(320, 250));
@@ -35,8 +35,8 @@ public class TestScore2 {
 		          "C+", "C0", "D+","D0","F"};
 		
 		DefaultTableModel model = new DefaultTableModel(colName, 0);
-		DefaultTableModel model2 = new DefaultTableModel(colName2, 0);
-		JTable table = new JTable(model);
+		new DefaultTableModel(colName2, 0);
+		new JTable(model);
 		
 		GridLayout layout = new GridLayout();
 		contentPane.setLayout(layout);
