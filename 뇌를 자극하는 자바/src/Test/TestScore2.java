@@ -22,15 +22,13 @@ public class TestScore2 {
 		
 		new TestScore_Listener();
 		
-		JFrame frame = new JFrame("학점 평균 계산 프로그램");
-		frame.setPreferredSize(new Dimension(320, 300));
+		JFrame frame = new JFrame("학점 더하기 프로그램");
+		frame.setPreferredSize(new Dimension(220, 250));
 		frame.setLocation(350, 200);
 		
 		Container contentPane = frame.getContentPane();
-		String colName[] = {"과목", "학점", "평점"};
-		String colName2[] = {"총 학점", "평점"};
-		String score[] = {"선택", "A+", "A0", "B+", "B0",
-		          "C+", "C0", "D+","D0","F"};
+		String colName[] = {"과목", "학점"};
+		String colName2[] = {"총 학점"};
 		
 		
 		
@@ -44,37 +42,28 @@ public class TestScore2 {
 		JPanel panel = new JPanel();
 		
 		
-		
 		JTextField text1 =  new  JTextField(8);
 		JTextField text2 =  new  JTextField(2);
-		JComboBox<String>scoreCombox = new JComboBox<String>(score);
 		
 		JTextField text3 =  new  JTextField(8);
 		JTextField text4 =  new  JTextField(2);
-		JComboBox<String>scoreCombox2 = new JComboBox<String>(score);
 		
 		JTextField text5 =  new  JTextField(8);
 		JTextField text6 =  new  JTextField(2);
-		JComboBox<String>scoreCombox3 = new JComboBox<String>(score);
 		
 		JTextField text7 =  new  JTextField(8);
 		JTextField text8 =  new  JTextField(2);
-		JComboBox<String>scoreCombox4 = new JComboBox<String>(score);
 		
 		JTextField text9 =  new  JTextField(8);
 		JTextField text10 =  new  JTextField(2);
-		JComboBox<String>scoreCombox5 = new JComboBox<String>(score);
 		
 		JTextField text11 =  new  JTextField(8);
 		JTextField text12 =  new  JTextField(2);
-		JComboBox<String>scoreCombox6 = new JComboBox<String>(score);
 		
 		JTextField text13 =  new  JTextField(8);
 		JTextField text14 =  new  JTextField(2);
-		JComboBox<String>scoreCombox7 = new JComboBox<String>(score);
 		
 		JTextField text15 =  new  JTextField(3);
-		JTextField text16 =  new  JTextField(5);
 		
 		panel.add(new JLabel("1.과목"));
 		panel.add (text1);
@@ -82,72 +71,47 @@ public class TestScore2 {
 		panel.add(new JLabel("학점"));
 		panel.add (text2);
 		
-		panel.add(new JLabel("평점"));
-		panel.add(scoreCombox);
-		 
 		panel.add(new JLabel("2.과목"));
 		panel.add (text3);
 		
 		panel.add(new JLabel("학점"));
 		panel.add (text4);
-		
-		panel.add(new JLabel("평점"));
-	    panel.add(scoreCombox2);
-		 
+	
 		panel.add(new JLabel("3.과목"));
 		panel.add (text5);
 		
 		panel.add(new JLabel("학점"));
 		panel.add (text6);
-		
-		panel.add(new JLabel("평점"));
-		panel.add(scoreCombox3);
-		 
+	
 		panel.add(new JLabel("4.과목"));
 		panel.add (text7);
 		
 		panel.add(new JLabel("학점"));
 		panel.add (text8);
-		
-		panel.add(new JLabel("평점"));
-		panel.add(scoreCombox4);
-		 
+	
 		panel.add(new JLabel("5.과목"));
 		panel.add (text9);
 		
 		panel.add(new JLabel("학점"));
 		panel.add (text10);
-		
-		panel.add(new JLabel("평점"));
-		panel.add(scoreCombox5);
-		
+	
 		panel.add(new JLabel("6.과목"));
 		panel.add (text11);
 		
 		panel.add(new JLabel("학점"));
 		panel.add (text12);
-		
-		panel.add(new JLabel("평점"));
-		panel.add(scoreCombox6);
-		 
+
 		panel.add(new JLabel("7.과목"));
 		panel.add (text13);
 			
 		panel.add(new JLabel("학점"));
 		panel.add (text14);
-			
-		panel.add(new JLabel("평점"));
-		panel.add(scoreCombox7);
-		
+
 		contentPane.add(panel, BorderLayout.CENTER);
 		
 		panel.add(new JLabel("총 학점"));
 		panel.add (text15);
-		
-		panel.add(new JLabel("평점"));
-		panel.add (text16);
-	
-	
+
 		
 		 JButton okBtn      =  new  JButton ("계산");
 		 panel.add(okBtn);
