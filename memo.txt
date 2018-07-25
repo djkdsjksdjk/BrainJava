@@ -1,0 +1,613 @@
+
+메모1
+
+int a = 20, b = 30, max;
+		max = a < b ? ++a : ++b;
+		System.out.println(max);
+		System.out.println(a);
+		System.out.println(b);
+		
+		ConditionalOpExample
+		
+		ConditionalOrExample
+		
+		public static void main(String[] args) {
+		int num1 = 0, num2= 0;
+		if (++num1 > 0 || ++num2 > 0)
+			System.out.println("num1이  0보다 크거나 num2가 0보다 큽니다.");
+		System.out.println("num1 = " + num1);
+		System.out.println("num2 = " + num2);
+    
+    
+    메모2
+    
+    INSERT INTO	 이름 	,	주소					,	전화번호	
+values(	'김재영'	,	'서울시 서초구 FFF동 222-777호'	,	02-540-0000	);
+values(	'박철규'	,	'경기도 고양시 일산서구 HHH동 999-888호 ',	031-915-0000	);
+values(	'변재희'	,	'서울시 마포구 EEE동 555-333호'	,	02-715-0000	);
+values(	'김미경'	,	'서울시 서대문구 BCD동  888-999호',	02-326-0000	);
+values(	'진석영'	,	'서울시 노원구 III동 777-555호'	,02-977-0000);
+values(	'박지영'	,	'경기도 성남시 분당구 BBB동 333-444 I아파트 711동 707호',031-702-0000);
+values(	'최미화'	,	'인천시 계양구 DDD동 000-000호'	,	032-541-0000	);
+values(	'김철수'	,	'서울시 동대문구 AAA동 11-222호',	02-958-0000	);
+
+메모 3
+select Jumincd, Pname, Gender, age
+ from Person;
+ where gender  = 'm'
+ 
+ 
+ ROLLBACK;
+
+select Jumincd, Pname, Gender, age from Person;
+
+update Person
+set age = 30
+where jumincd = '9002241879632'
+
+where Jumincd = '9002241879632'
+
+메모4
+
+Person[] persons;
+persons = new Person[7]; //배열 객체
+System.out.println("persons:" + persons);
+
+catch (ArrayIndexOutOfBounds Exception arye){
+System.out.println("배열객체 용량초과 index:" + 
+
+	
+	for(int i = 0; i < persons.length; i++) {
+	   persons[i] = new Person(); //생성자 호출하여 배열 레퍼런스 대입
+	}
+	
+  
+  
+  
+  
+  
+  메모6
+  
+  // 패키지
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+class Person {
+		
+	String jumincd = null;
+	String pname   = null;
+	String gender  = null;
+	int age = 0;
+	
+	public Person() // 기본 생성자 
+	{
+		this.jumincd  = "주민번호 입력 누락";
+		this.pname    = "이름 입력 누락";
+		this.gender   = "성별 입력 누락";
+		this.age      = 0;
+	}
+	
+	public String getJumincd() {
+		return jumincd;
+	}
+	public void setJumincd(String jumincd) {  // "800511-1574310"
+		this.jumincd = jumincd;
+	}
+	public String getPname() {
+		return pname;
+	}
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+}
+
+class JDBC_Person_ArrayList {
+	
+    public static void main(String args[]) {
+    		
+    	ArrayList<Person> listPerson = new ArrayList<Person>();
+    	
+    	   	
+    	//////////////    JDBC 연결시작  //////////////   
+    	// 1단계: DB 연결을 위한 커넥션 인터페이스 
+    	Connection conn = null;
+    	// Statement 인터페이스 - SQL 실행.
+    	Statement stmt = null;
+    	// ResultSet 인터페이스 - SQL 결과를 저장
+    	ResultSet rs = null;
+    	
+        // try ~ catch 문에서 DB연결중에 예외가 발생하는지를 검사.
+    	try {
+//    		String jumincd = null;
+//    		String pname   = null;
+//    		String gender  = null;
+    		int age = 0;
+        	// 2단계: JDBC드라이버를 로드한다.
+            Class.forName("com.mysql.jdbc.Driver");
+            // 3단계: 드라이버매니져 클래스는 getConnection메소드로 DB를 연결한다.
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql", "root", "12345");
+            System.out.println("데이터베이스에 접속했습니다.");
+            
+            // 커넥션 객체가 Statement 객체를 생성
+            stmt = conn.createStatement();           
+            // DML SQL쿼리 실행후 결과를 저장
+            rs = stmt.executeQuery("select jumincd, pname,	gender, age  from person");
+            
+            System.out.println("주민번호         이름      성별    나이");
+            
+            while(rs.next()) {
+            	//Person person;
+            	///person = new Person();
+            	Person person = new Person();
+            	
+            	person.setJumincd(rs.getString(1)); //person.setGender(rs.getString("jumincd"));
+             	person.setPname(rs.getString(2));   // person.setGender(rs.getString("pname"));
+            	person.setGender(rs.getString(3));  // person.setGender(rs.getString("gender"));
+            	person.setAge(rs.getInt(4));
+            	
+            	listPerson.add(person);
+            }
+            // 4단계: DB연결을 종료한다.
+            conn.close();
+            System.out.println("============================================================");
+            
+            for(int i = 0; i < listPerson.size(); i++) {
+            	System.out.print(listPerson.get(i).getJumincd() + "    "); 
+            	System.out.print(listPerson.get(i).getPname()   + "     ");  
+            	System.out.print(listPerson.get(i).getGender()  + "      ");
+            	System.out.print(listPerson.get(i).getAge()     + "        ");
+            	System.out.println();
+            }
+            
+        	
+               
+        }
+        catch (ClassNotFoundException cnfe) {
+            System.out.println("해당 클래스를 찾을 수 없습니다." + 
+                               cnfe.getMessage());
+        }
+        catch (SQLException se) {
+            System.out.println(se.getMessage());
+        }
+    	
+    	//////////////JDBC 연결종료  //////////////
+   	
+    }
+}
+
+메모7
+
+class Account {
+	String accountNo;
+	String ownerName;
+	int balance;
+	
+	/*public Account() {
+		System.out.println("Account() 기본 생성자");
+	}*/
+	
+	void deposit(int amount) {
+		balance += amount;
+	}
+	int withdraw(int amount) throws Exception{
+		if (balance < amount)
+			throw new Exception("잔액이 부족합니다.");
+		balance -= amount;
+		return amount;
+	}
+}
+
+class CheckingAccount extends Account{
+	String cardNo;
+	
+	public CheckingAccount() {
+		System.out.println("CheckingAccount() 기본생성자 호출");
+	}
+	
+	public CheckingAccount(String accountNo, String ownerName, int balance, String cardNo) {
+		this.accountNo = accountNo;
+		this.ownerName = ownerName;
+		this.balance = balance;
+		this.cardNo = cardNo;
+		System.out.println("CheckingAccount()기본 생성자 호출");
+	}
+	
+	int pay(String cardNo, int amount) throws Exception{
+		if(!cardNo.equals(this.cardNo)) //(balance < amount))
+			throw new Exception("계좌번호가 틀립니다.");
+		if(balance < amount)
+			throw new Exception("pay(String cardNo, int amount) 잔액이 부족합니다.");
+		return withdraw(amount);
+	}
+}
+
+   class IntheritanceExample1{
+	   
+	public static void main(String args[]) {
+		
+		CheckingAccount obj = new CheckingAccount("111-22-33333333", "홍길동", 100000, "5555-6666-7777-8888");
+		
+		
+		//CheckingAccount obj = new CheckingAccount(); //기본 생성자
+		
+		/*obj.accountNo = "111-22-33333333";
+		obj.ownerName = "홍길동";
+		obj.cardNo = "5555-6666-7777-8888";*/
+		
+		obj.deposit(100000);//입금
+		
+		try {
+			int paidAmount = obj.pay("5555-6666-7777-8888", 147000);//출금
+			System.out.println("지불액:" + paidAmount);
+			System.out.println("잔액:" + obj.balance);
+		}
+		catch (Exception e) {
+			System.out.println(e.hashCode());
+			System.out.println(e);
+			String msg = e.getMessage();
+			System.out.println("예외메세지:" + msg);
+		}
+	}
+}
+
+메모8
+
+    GUI 코딩순서
+
+1. JFrame 상속
+2. 윈도우(프레임) 제목, 버튼 설정
+3. 컨테이너 등록
+4. 레이아웃 설정
+5. 콤포넌트(버튼, 텍스트 필드 등) 추가
+6. 콤포넌트 이벤트 등록 (인터페이스 구현)
+7. 이벤트 기능 구현
+8. 컨테이너에 콤포넌트 등록
+9. 화면 보이기 설정
+10. 화면 보이기 설정
+    
+    
+    메모9
+    
+    1. JDBC 전용 클래스
+2. GUI - Person 테이블 조회
+-----------------------------------
+3. 추가, 삭제
+
+
+"jdbc:mysql://localhost:3306/mysql", "root", "12345");
+
+delete from person
+
+마이바티스 MyBatis or 아이바티스 IBatis
+
+JDBC 에러
+
+1.
+2.Unhand exception
+
+INSERT INTO Person(PName, Gender, age)
+values('이민희'	,	'f'	,	21);
+
+table.addMouseListener(null);
+
+1.member (id, pass)테이블 설계
+
+2.로그인 창 GUI 디자인
+
+3.프로그램 작성
+
+102번 pc
+
+CPU : Core Duo CPU E8400 3.0GHz
+RAM 3GB
+
+bd.properties
+DB 연결정보 설정
+
+메모9
+
+C:\Users\kosea102\git\BrainJava\뇌를 자극하는 자바\src\chap20ds
+
+D:\Workspace\Work-java\.metadata\.plugins\org.eclipse.wst.server.core\tmp0
+
+메모10
+
+로그인 창  아이디, 비밀번호 칸에 정보를 입력하여 로그인
+기능 로그인 취소 회원가입
+회원가입은 회원가입 페이지로 이동해서 가입가능
+ 
+<?xml version="1.0" encoding="UTF-8" ?>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>복권 당첨 번호</title>
+</head>
+<body>
+  <c:forEach var="num" items="${ARR}">
+    ${num} <br/>
+  </c:forEach>
+
+</body>
+</html>
+
+메모11
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 위 3개의 메타 태그는 *반드시* head 태그의 처음에 와야합니다; 어떤 다른 콘텐츠들은 반드시 이 태그들 *다음에* 와야 합니다 -->
+    <title>부트스트랩 101 템플릿</title>
+
+    <!-- 부트스트랩 -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
+    <!-- WARNING: Respond.js 는 당신이 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+
+    <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
+
+서블릿 파일 찾는 법
+서버 파일 클릭 오픈 런치 
+아규먼트 D:\Workspace\Work-java\.metadata\.plugins\org.eclipse.wst.server.core\tmp0
+work D:\Workspace\Work-java\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catalina\localhost\JSP\org\apache\jsp
+자바 파일이 서블릿
+
+메모12
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@page import="java.util.GregorianCalendar"%>
+     <%
+    GregorianCalendar now = new GregorianCalendar();
+    String date = String.format("%TF", now);
+    String time = String.format("%TT", now);
+%>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>부트스트랩 101 템플릿</title>
+
+    <!-- 부트스트랩 -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
+    <!-- WARNING: Respond.js 는 당신이 file:// 을 통해 페이지를 볼 때는 동작하지 않습니다. -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="imges/T1.jpg" alt="...">
+      <div class="carousel-caption">
+       
+ 
+       오늘의 날짜: <%= date %><br/>
+       현재의 시각: <%= time %><br/>
+      </div>
+    </div>
+    <div class="item">
+      <img src="imges/T2.jpg" alt="...">
+      <div class="carousel-caption">
+        오늘의 날짜: <%= date %><br/>
+        현재의 시각: <%= time %><br/>
+      </div>
+    </div>
+    <div class="item">
+      <img src="imges/T3.jpg" alt="...">
+      <div class="carousel-caption">
+       오늘의 날짜: <%= date %><br/>
+       현재의 시각: <%= time %><br/>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+  
+  
+    <h1>Hello, world!</h1>
+    
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        타카라히 리히토
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
+</html>
+
+메모13
+
+선생님
+
+<form class="form-signin" action="/JSP/Hi.jsp" method="get">
+      <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">이름을 입력하세요.</h1>      
+      </div>
+
+      <div class="form-label-group">
+        <input type="text" id="inputName" class="form-control" placeholder="InputYourName" required="" autofocus="">
+      </div>
+      
+      <div>
+      <button class="btn btn-sg btn-primary btn-block" type="submit">확인</button>
+      </div>
+      
+    </form>
+	
+	김혜원씨
+	
+	<form class="form-signin" action="/JSP/Hi.jsp" method="GET">
+이름: <input class="form-control" type="TEXT" name="YOURNAME" placeholder=
+       "이름을 입력하세요" required autofocus>
+       <label>
+       <input type="CHECKBOX" value="remember-me">
+       "Remember me"</label>
+       Button trigger modal
+<button type="button" class="btn btn-primary btn-block"  TYPE="SUBMIT">확인</button>
+  INPUT TYPE="SUBMIT" VALUE="확인"
+<p class="mt-5 mb-3 text-muted text-center">@ 2017-2018</p>
+     
+</form>
+
+메모14
+
+<a href="http://naver.com"> 내 귀는 소라껍질-네이버.jsp</a>
+<a href="http://daum.net">바다 소리를 그리워 하다.-다음jsp</a>
+
+메모15
+네이티브 앱 키
+cbaa06c9a75b7a5562a0d5662e09eb9f
+REST API 키
+b4cfba450829604e494cadd65e070ba3
+JavaScript 키
+c8c1772ac11af328bdd331432424f185
+Admin 키
+5f9e4c38e64524cca19707841f27ab88
+
+
+http://192.168.0.10:8080/JSP/chap04/PersonalInfo.html
+
+
+<%
+    String id = request.getParameter("ID");
+    String password = request.getParameter("PASSWORD");
+    
+    if(loginCheck(id, password))
+    	session.setAttribute("LOGIN_ID", id);
+    response.sendRedirect("LoginResult.jsp");
+    %>
+    
+    <%!
+    private boolean loginCheck(String id, String password){
+    	if(id.equals("minerva") && 
+    			                password.equals("1234"))
+    		return true;
+    	
+    	else if (id.equals("ironman") && 
+    			                password.equals("4567"))
+    			return true;
+    	
+    	else if (id.equals("snowwhite") && 
+    			                password.equals("7890"))
+    			return true;
+    	
+    	else
+    		return false;
+    }
+    %>
+    
+    메모16
+    
+    D:\Workspace\Work-java\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\JSP\WEB-INF\logs
+D:\Workspace\Work-java\JSP\WebContent\WEB-INF\logs
+
+<%
+Stirng id =
+(request.getParameter("ID")==null)?"quest": request.getParameter
+
+%>
+
+${empty Param.ID ? "guest":Param.ID}
+
+var section1s = document.getElementsByClassName("section1");
+var section2s = document.getElementsByClassName("section2");
+ 
+for( var i = 0; i < section1s.length; i++ ){
+    var section1 = section1s.item(i);
+    section1.style.border = "1px solid #0000ff";
+}
+ 
+for( var i = 0; i < section2s.length; i++ ){
+    var section2 = section2s.item(i);
+    section2.style.border = "1px solid #ff0000"
+}
+
+
+
+D:\Workspace\Work-java\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\JSP\WEB-INF
+
+    
