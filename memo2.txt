@@ -1,0 +1,73 @@
+메모1
+
+서울 산업 진흥원
+경기도 홈런
+
+IT프로그램 선생님
+김상수
+rlatkdtn97@naver.com
+010-2898-7997
+유튜브 java 강의
+java fx
+
+My sql
+Root    : 12345
+kosea5 : 12345
+3306 포트
+http://localhost:8080
+http://127.
+
+메모2
+
+=_CRT_SECURE_NO_WARNINGS;
+?useUnicode=true&characterEncoding=utf8
+
+-Dfile.encoding=MS949
+
+cd.. -> cd. -> cd..
+cd k-move -> dir
+javaw -jar SwingSet2.jar
+프로그램 출력
+bin file 루트 설정후 
+java chap19.WindowExample0
+
+ipconfig/all
+
+명령어 넣는법
+java file -> Run As -> Argument -> variables -> String prompt 
+-> 명령어 넣기
+
+ctrl&shift&H -> Type Hierarchy
+
+자바 파일
+
+C:\Program Files (x86)\Java\jdk1.8.0_162\bin
+깃허브
+djkdsjksdjk
+
+yungin0605@gmail.com
+
+regedit
+
+innosetup위치
+C:\Program Files (x86)\Inno Setup 5
+
+;C: program file jdk
+
+
+메모3
+
+byte          정수
+short         정수
+int            정수
+long          정수
+float          소수
+double       소수
+char          문자하나
+boolean      참 거짓
+String         문자열
+
+메소드 오버로딩(다중정의)
+상속 오버라이딩
+
+ 14089-0756-7702 
