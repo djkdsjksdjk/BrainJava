@@ -1,0 +1,28 @@
+<%@page import="java.sql.DriverManager"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@page import="java.sql.*" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>ORACLE 데이터 베이스 연결테스트</h2>
+<%
+String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+Class.forName("oracle.jdbc.driver.OracleDriver");
+Connection conn = DriverManager.getConnection(url, "spiderman", "12345");
+
+if(conn != null){
+	out.println("ORACLE 데이터 베이스로 연결했습니다. <BR/>");
+	conn.close();
+	out.println("ORACLE 데이터 베이스로 연결을 끊습니다. <BR/>");
+}
+else{
+	out.println("ORACLE 데이터 베이스로 연결을 연결을 할수 없습니다. <BR/>");
+}
+%>
+</body>
+</html>
