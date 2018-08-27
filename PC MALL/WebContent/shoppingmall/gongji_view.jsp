@@ -1,7 +1,7 @@
-<%@ page contentType="text/html;charset=euc_kr" import="java.sql.*,oracle.dbpool.*"   %>
+<%@ page contentType="text/html;charset=UTF-8" import="java.sql.*,oracle.dbpool.*"   %>
 
 <HTML>
-	<HEAD><TITLE>ÄÄÇ»ÅÍÀü¹®¼îÇÎ¸ô</TITLE>
+	<HEAD><TITLE>ì»´í“¨í„°ì „ë¬¸ì‡¼í•‘ëª°</TITLE>
 	<script language=JavaScript src="../common/u3.js"></script>
 	<link href="../common/u3.css" type=text/css rel=stylesheet>
 </HEAD>
@@ -9,11 +9,11 @@
 <BODY leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>
         <jsp:include page="../common/basic_screen.jsp" flush="true"/>
 	
-<!--  °øÁö³»¿ëº¸±â  -->	
+<!--  ê³µì§€ë‚´ìš©ë³´ê¸°  -->	
 	<center><br>
 	  <table border=1 width=450 height=30 bordercolor=black>
 		<tr>
-			<td align=center bgcolor=0063ce><font size=2 color=white><b>°ø Áö »ç Ç×</b></td>
+			<td align=center bgcolor=0063ce><font size=2 color=white><b>ê³µ ì§€ ì‚¬ í•­</b></td>
 		</tr>
 	  </table> <br>
 <%
@@ -37,13 +37,13 @@
 %>
 	<table border=1 cellpadding="1" cellspacing="2" width=450>
 		<tr>
-			<th align="center" bgcolor="#c0c0c0"><p><font size="2">Á¦¸ñ</font></th>
+			<th align="center" bgcolor="#c0c0c0"><p><font size="2">ì œëª©</font></th>
 			<th align="center" colspan=3><p><font size="2"><b><%=title%></b></font></th>
 		</tr>
 		<tr>
-			<th align="center" bgcolor="#c0c0c0"><p><font size="2">µî·ÏÀÏ</font></th>
+			<th align="center" bgcolor="#c0c0c0"><p><font size="2">ë“±ë¡ì¼</font></th>
 			<th align="center"><font size="2"><b><%=cdate%></b></font></th>
-			<th align="center" bgcolor="#c0c0c0"><p><font size="2">Á¶È¸</font></th>
+			<th align="center" bgcolor="#c0c0c0"><p><font size="2">ì¡°íšŒ</font></th>
 			<th align="center"><font size="2"><b>&nbsp;<%=hits%>&nbsp;</b></font></th>
 		</tr>
 		<tr>
@@ -55,7 +55,7 @@
 			</table>
 		</tr>
 	</table>
-	<p align=center><font size=2><a href="gongi.jsp">¸ñ·ÏÀ¸·Î</a></font></p>
+	<p align=center><font size=2><a href="gongi.jsp">ëª©ë¡ìœ¼ë¡œ</a></font></p>
 <%
 	}
 	rs.close(); 
@@ -67,7 +67,7 @@
 		}
 %>
 	</center>
-<!--  °øÁö ³»¿ë º¸±â ³¡ -->	  
+<!--  ê³µì§€ ë‚´ìš© ë³´ê¸° ë -->	  
 	<jsp:include page="../common/basic_copyright.jsp" flush="true"/>
 </BODY>
 </HTML>

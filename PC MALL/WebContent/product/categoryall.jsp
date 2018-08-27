@@ -1,8 +1,9 @@
-<%@ page contentType="text/html;charset=euc_kr" import="java.sql.*,oracle.dbpool.*,java.util.*" %>
-
+<%@ page contentType="text/html;charset=UTF-8" import="java.sql.*,oracle.dbpool.*,java.util.*" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <HTML>
 	<HEAD>
-		<TITLE>ī�װ��� ���� �׸� ����</TITLE>
+		<TITLE>카테고리 전제 항목 보기</TITLE>
 		<script language=javascript src="../common/u3.js"></script>
 		<link href="../common/u3.css" type=text/css rel=stylesheet>
 	</HEAD>
@@ -10,7 +11,7 @@
 <BODY leftmargin=0 topmargin=0 marginwidth=0 marginheight=0 >
 	<jsp:include page="../common/basic_screen.jsp" flush="true"/>
 
-<!-- ��ǰ �з� --> 
+<!-- 상품 분류 --> 
 <%
 		DBConnectionManager pool = DBConnectionManager.getInstance();
 		Connection con = pool.getConnection("ora8");
@@ -42,7 +43,7 @@
 			<tr>
 				<td valign="top"></td><br>
 			<tr bgcolor=#7aaad5 height=30>
-				<td colspan=3 align=center bgcolor=#0000ff><font color=#ffffff><b>��ǰ �˻� ���</b> </font></td>
+				<td colspan=3 align=center bgcolor=#0000ff><font color=#ffffff><b>상품 검색 결과</b> </font></td>
 			</tr>
 			<tr><td height=10></td>
 			</tr>
@@ -50,9 +51,9 @@
 				<td colspan=3>
 					<table border=0 cellpadding=0 cellspacing=1 width=550 bgcolor=#7aaad5>
 						<tr bgcolor=#ffcccc align=center> 
-							<td height=25 width=80 align=center>��ǰ�̹���</td>
-							<td height=25  align=center>��ǰ��</td>
-							<td height=25 align=center>����</td>
+							<td height=25 width=80 align=center>상품이미지</td>
+							<td height=25  align=center>상품명</td>
+							<td height=25 align=center>가격</td>
 						</tr>
 <%
 						while(rs.next()) {
@@ -65,7 +66,8 @@
 						<tr bgcolor="#eff4f8"> 
 							<td align=center><img border=0 name=PicMedium height=30 width=30 src="image/<%=photo%>"></td>
 							<td  height=30>&nbsp;<a href="product.jsp?i=<%= id %>">[<%= c_name %>]&nbsp;<%= name %></font></a></td>
-							<td  height=30>&nbsp;<%= price %>��</font></td>
+							<c:set var="fmtPrice" value="<%=price%>"/>
+							<td width=180>&nbsp;<fmt:formatNumber value="${fmtPrice }" pattern="#,###" />&nbsp;원
 						</tr>
 <%	
 		}
@@ -85,7 +87,7 @@
 		</td>
 	</tr>
 </table>
-<!-- ��ǰ �з� �� -->
+<!-- 상품 분류 끝 -->
 	<jsp:include page="../common/basic_copyright.jsp" flush="true"/>
 </BODY>
 </HTML>

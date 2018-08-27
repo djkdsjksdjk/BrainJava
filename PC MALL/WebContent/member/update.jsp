@@ -8,35 +8,35 @@
 	Connection con = pool.getConnection("ora8");
 
 	try {
-		String mem_uid   = request.getParameter("uid");
-		String mem_pwd   = request.getParameter("pwd");
-		String mem_email = request.getParameter("email");
-		String mem_addr  = request.getParameter("addr");
-		String mem_zip   = request.getParameter("zip");
-		String mem_phone = request.getParameter("tel");
-		String mem_job   = request.getParameter("job");
-		String mem_name  = request.getParameter("name");  /////////
+		String m_uid   = request.getParameter("uid");
+		String m_pwd   = request.getParameter("pwd");
+		String m_email = request.getParameter("email");
+		String m_addr  = request.getParameter("addr");
+		String m_zip   = request.getParameter("zip");
+		String m_phone = request.getParameter("tel");
+		String m_job   = request.getParameter("job");
+		String m_name  = request.getParameter("name");  /////////
 
-        String sql = "update member set m_pwd=?,";
+        String sql = "update mber set m_pwd=?,";
 		sql = sql +  "m_email=?,m_job=?,m_phone=?,";
 		sql = sql +  "m_zip=?,m_address=?, m_name=? ";  ///////////
-		sql = sql +  "where m_uid ='" + mem_uid + "'";
+		sql = sql +  "where m_uid ='" + m_uid + "'";
 
 		PreparedStatement pstmt = con.prepareStatement(sql);
-		pstmt.setString(1, mem_pwd);
-		pstmt.setString(2, mem_email);
-		pstmt.setString(3, mem_job);
-		pstmt.setString(4, mem_phone);
-        pstmt.setString(5, mem_zip);
-		pstmt.setString(6, mem_addr);
-		pstmt.setString(7, mem_name);      ///////////////
+		pstmt.setString(1, m_pwd);
+		pstmt.setString(2, m_email);
+		pstmt.setString(3, m_job);
+		pstmt.setString(4, m_phone);
+        pstmt.setString(5, m_zip);
+		pstmt.setString(6, m_addr);
+		pstmt.setString(7, m_name);      ///////////////
 
 		pstmt.executeUpdate();
 		pstmt.close();
         pool.freeConnection("ora8", con);
         
        	 
-    	session.setAttribute("pname",mem_name);	 //회원 이름
+    	session.setAttribute("pname",m_name);	 //회원 이름
         
 %>
         <script language=javascript>

@@ -1,8 +1,8 @@
-<%@ page contentType="text/html;charset=euc_kr" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 
 <HTML>
 	<HEAD>
-		<TITLE> ╪Нгн╬хЁ╩-х╦©Ь╟║ют </TITLE>
+		<TITLE> Л┤╪М∙▒Л∙┬К┌╢-М ▄Л⌡░Й╟─Л·┘ </TITLE>
 			<LINK href="../common/u3.css" type=text/css rel=STYLESHEET>
 </HEAD>
 

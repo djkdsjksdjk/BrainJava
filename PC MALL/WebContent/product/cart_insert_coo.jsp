@@ -1,4 +1,4 @@
-<%@ page import="java.sql.*,oracle.dbpool.*" contentType="text/html; charset=EUC_KR" %>
+<%@ page import="java.sql.*,oracle.dbpool.*" contentType="text/html; charset=UTF-8" %>
 
 <%
      if (session.getAttribute("pid") == null) {
@@ -8,7 +8,7 @@
          Statement stmt1=null;
          ResultSet rs=null;
 
-	  // DBÇ® ¸Þ´ÏÀú °´Ã¼ »ý¼º »ç¿ë
+	  // DBí’€ ë©”ë‹ˆì € ê°ì²´ ìƒì„± ì‚¬ìš©
        DBConnectionManager pool = DBConnectionManager.getInstance();
        Connection con = pool.getConnection("ora8");
 

@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=euc-kr" 
+<%@ page contentType="text/html;charset=UTF-8" 
          import="java.sql.*,oracle.dbpool.*" 
          errorPage="error.jsp" %>
 
@@ -18,6 +18,6 @@
 	pool.freeConnection("ora8", con); 
 %>
 	<script language=javascript>
-		alert("È¸¿øÁ¤º¸¸¦ »èÁ¦ÇÏ¿´½À´Ï´Ù.");
+		alert("íšŒì›ì •ë³´ë¥¼ ì‚­ì œí•˜ì˜€ìŠµë‹ˆë‹¤.");
 		document.location.href='../main/index.jsp';
 	</script>

@@ -1,9 +1,9 @@
 <%@ page import="java.sql.*,oracle.dbpool.*"
-		 contentType="text/html;charset=euc_kr"  %>
+		 contentType="text/html;charset=UTF-8"  %>
 
 <html>
 	<head>
-		<title>ÄÄÇ»ÅÍ Àü¹®¼îÇÎ¸ô</title>
+		<title>ì»´í“¨í„° ì „ë¬¸ì‡¼í•‘ëª°</title>
 			<SCRIPT language=JavaScript src="../common/u3.js"></SCRIPT>
 				<LINK href="../common/u3.css" type=text/css rel=STYLESHEET>
 	</head>
@@ -11,11 +11,11 @@
 <BODY leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>
         <jsp:include page="../common/basic_screen.jsp" flush="true"/>
 
-<!--  °øµ¿±¸¸Åº¸±â ³Ö±â   -->
+<!--  ê³µë™êµ¬ë§¤ë³´ê¸° ë„£ê¸°   -->
 	<center><br>
 	  <table border=1 width=550 height=30 bordercolor=black>
 		<tr>
-			<td align=center bgcolor=0063ce><font size=2 color=white><b>°ø µ¿ ±¸ ¸Å</b></td>
+			<td align=center bgcolor=0063ce><font size=2 color=white><b>ê³µ ë™ êµ¬ ë§¤</b></td>
 		</tr>
 	  </table>
 	  <br>
@@ -26,9 +26,9 @@ try {
         
         String bid=request.getParameter("bid"); 
 
-      		 //DBÇ® ¸Þ´ÏÀú °´Ã¼ »ý¼º »ç¿ë
+      		 //DBí’€ ë©”ë‹ˆì € ê°ì²´ ìƒì„± ì‚¬ìš©
 DBConnectionManager pool = DBConnectionManager.getInstance();
-Connection con = pool.getConnection("ora8");//ÀÎÀÚ°ª ora8
+Connection con = pool.getConnection("ora8");//ì¸ìžê°’ ora8
 
         Statement stmt=con.createStatement();
 
@@ -50,36 +50,36 @@ Connection con = pool.getConnection("ora8");//ÀÎÀÚ°ª ora8
                 
 %>	
 	
-	°øµ¿±¸¸Å ±â°£: 2005³â 3¿ù 31ÀÏ ±îÁö
+	ê³µë™êµ¬ë§¤ ê¸°ê°„: 2005ë…„ 3ì›” 31ì¼ ê¹Œì§€
     <br><br>
       <table border=1 width=550 height=200 cellpadding=1 cellspacing=1>
 		<tr>
 		<td rowspan=7 width=220 align=center><img src="../productimg/<%=photo%>" width=200 height=180></td>
-		<td align=right  bgcolor=#ffff99>¸¶°¨³¯Â¥</td>
+		<td align=right  bgcolor=#ffff99>ë§ˆê°ë‚ ì§œ</td>
 		<td>&nbsp;<%=deadline%></font></td>
 		</tr>
 		<tr>
-		<td align=right  bgcolor=#ffff99>Á¦Ç°¸í</td>
+		<td align=right  bgcolor=#ffff99>ì œí’ˆëª…</td>
 		<td>&nbsp;<%=name%></td>
 		</tr>
 		<tr>
-		<td align=right  bgcolor=#ffff99>Á¦Á¶È¸»ç</td>
+		<td align=right  bgcolor=#ffff99>ì œì¡°íšŒì‚¬</td>
 		<td>&nbsp;<%=company_id%></td>
 		</tr>
 		<tr>
-		<td align=right  bgcolor=#ffff99>°øµ¿±¸¸Å°¡°Ý</td>
+		<td align=right  bgcolor=#ffff99>ê³µë™êµ¬ë§¤ê°€ê²©</td>
 		<td>&nbsp;<%=coo_price%></td>
 		</tr>
 		<tr>
-		<td align=right  bgcolor=#ffff99>½ÅÃ»¼ö·®</td>
+		<td align=right  bgcolor=#ffff99>ì‹ ì²­ìˆ˜ëŸ‰</td>
 		<td>&nbsp;<%=coo_quantity%></td>
 		</tr>
 		<tr>
-		<td align=right  bgcolor=#ffff99>Á¦Ç°¼³¸í</td>
+		<td align=right  bgcolor=#ffff99>ì œí’ˆì„¤ëª…</td>
 		<td>&nbsp;<%=content%></td>
 		</tr>
 		<tr>
-		<td colspan=2 height=50 align=center><a href="../product/check.jsp?productnum=<%=id%>">°øµ¿±¸¸Å Âü°¡ÇÏ±â<a>
+		<td colspan=2 height=50 align=center><a href="../product/check.jsp?productnum=<%=id%>">ê³µë™êµ¬ë§¤ ì°¸ê°€í•˜ê¸°<a>
 		</td>
 		</tr>
 	  </table>
@@ -94,7 +94,7 @@ Connection con = pool.getConnection("ora8");//ÀÎÀÚ°ª ora8
 }
 %>
 	  </center>
-<!-- °øµ¿±¸¸Åº¸±â ³¡  -->
+<!-- ê³µë™êµ¬ë§¤ë³´ê¸° ë  -->
 	  
    <jsp:include page="../common/basic_copyright.jsp" flush="true"/>
 

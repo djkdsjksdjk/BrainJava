@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=euc-kr" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 
 <%  
 	String productnum= request.getParameter("productnum");
@@ -6,7 +6,7 @@
 	if(session.getAttribute("pid") == null) {
 %>
 		<script language=javascript>
-		alert("╥н╠вюню╩ го╪е╬ъ гу╢о╢ы.");	    
+		alert("К║°Й╥╦Л²╦Л²└ М∙≤Л┘■Л∙╪ М∙╘К▀┬К▀╓.");	    
 		location.href="../member/login.jsp";
 		</script> 
 <%

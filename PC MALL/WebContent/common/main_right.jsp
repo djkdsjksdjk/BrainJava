@@ -68,7 +68,7 @@
 		<td bgcolor=white><img src="../img/title_bestproduct.gif"></div></td>
 	</tr>
 	<tr>
-		<td bgcolor=#dddddd><img height=1 src="" width=1>xxx</td>
+		<td bgcolor=#dddddd><img height=1 src="" width=1></td>
 	</tr>
 	<tr>
 		<td>
@@ -101,10 +101,13 @@
 						<img src="../product/image/<%=photo%>" width=90 height=90 border=0></a></td>
 				</tr>
 				<tr>
-					<td width=145><font color=blue><a href="../product/product.jsp?i=<%= id %>">[<%=name%>]</a></font></td>
+					<td width=145><font color=blue>&nbsp;<a href="../product/product.jsp?i=<%= id %>">[<%=name%>]</a></font></td>
 				</tr>
 				<tr>
-					<td><font color=red>&nbsp;[<%=price%>&nbsp;원]</font></td>
+				<td>
+					<c:set var="fmtPrice" value="<%=price%>"/>
+				<font color=red>&nbsp;[<fmt:formatNumber value="${fmtPrice }" pattern="#,###" />&nbsp;원]</font>
+				</td>
 				</tr>
 			</table>
 		</td>
@@ -166,7 +169,7 @@
 		while(rs.next()) { 
 %>
 			<tr height=21>
-				<td align=left><img src="../img/answ.gif">
+				<td align=left><img src="../img/answ1.gif">
 				<a href="javascript:readContents('<%=rs.getInt(1)%>')"><%=rs.getString(2)%></a></td>
 				<td align=center><%=rs.getString(3)%></td>
 				<td align=center><%=rs.getString(4)%></td>
@@ -224,11 +227,11 @@
 
 <!-- 상품  테이블 표시-->
 	<tr>
-		<td rowspan=3 width=5><img src="" width=8 height=8 border=0>xxx</td>
+		<td rowspan=3 width=5><img src="" width=8 height=8 border=0></td>
 		<td width=65 height=70 align=left valign=middle><A href="../product/product.jsp?i=<%= id %>">
           <img src="../product/image/<%= photo %>" width=60 height=60 border=0></A></td>
 		<td width=100><a href="../product/product.jsp?i=<%= id %>">[<%= name %>]</a><br>
-          <font class="P9" color=red>[<%= price %>&nbsp;원]</font></td>
+          <font color=red>&nbsp;[<fmt:formatNumber value="${fmtPrice }" pattern="#,###" />&nbsp;원]</font>
 	</tr>
 	<tr>
 		<td colspan= 2 width=170><%= expression%></td>

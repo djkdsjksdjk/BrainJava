@@ -1,4 +1,5 @@
 <%@ page  import="java.sql.*,oracle.dbpool.*,java.util.*" contentType="text/html;charset=utf-8" %>
+<% request.setCharacterEncoding("UTF-8"); %>
 <%
 try {
 
@@ -94,7 +95,7 @@ Connection con = pool.getConnection("ora8");//인자값 jdbc
    if (str==null) 
     kor=null;
    else
-    kor=new String(str.getBytes("ISO-8859-1"),"EUC-KR");
+    kor=new String(str.getBytes("ISO-8859-1"),"UTF-8");
    return kor;
    }
 	
@@ -113,7 +114,7 @@ public static String Replace(String original, String oldString, String newString
 <script language="Javascript">
 function alrim(){
 	alert("성공적으로 등록하였습니다.")
-	location.href="reply_list.jsp";
+	location.href="board_list.jsp";
 }
 </script>
 </head>

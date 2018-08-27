@@ -1,9 +1,9 @@
-<%@ page language="java" import="java.sql.*,oracle.dbpool.*" contentType="text/html;charset=EUC_KR" %>
+<%@ page language="java" import="java.sql.*,oracle.dbpool.*" contentType="text/html;charset=UTF-8" %>
 
 
 <html>
 <head>
-  <title>ддг╩емюЭ╧╝╪Нгн╦Т</title>
+  <title>Л╩╢М⌠╗М└╟Л═└К╛╦Л┤╪М∙▒К╙╟</title>
 <SCRIPT language=JavaScript src="../common/u3.js"></SCRIPT>
 <LINK href="../common/u3.css" type=text/css rel=STYLESHEET>
 </head>
@@ -24,7 +24,7 @@
 
 <%
 DBConnectionManager pool = DBConnectionManager.getInstance();
-Connection con = pool.getConnection("ora8");//юнюз╟╙ ora8
+Connection con = pool.getConnection("ora8");//Л²╦Л·░Й╟▓ ora8
 
 Statement stmt=null;
 ResultSet rs1=null;
@@ -34,36 +34,36 @@ String pid =(String)session.getAttribute("pid");
 try {
 
 	String sql1="select a.id,a.name,a.price,a.company_id,a.expression,a.photo,a.category,b.qty from product a, basket b where b.temp2='C' and a.id=b.product_id and b.user_id= '"+pid+"'";
-	String sql2="select mem_name,mem_ssn,mem_uid,mem_pwd,mem_zip,mem_address,mem_phone,mem_email,mem_job from member where mem_uid ='"+ pid+ "'";
+	String sql2="select m_name,m_ssn,m_uid,m_pwd,m_zip,m_address,m_phone,m_email,m_job from member where m_uid ='"+ pid+ "'";
 
 	stmt=con.createStatement();
-	rs1=stmt.executeQuery(sql1);// ╩Сг╟ а╓╨╦ ╩я╦╝╠Б
+	rs1=stmt.executeQuery(sql1);// Л┐│М▓┬ Л═∙КЁ╢ К©▄К╕╛Й╦╟
 
 %>
 
-<center>
+
 		<table>
 		<tr>
-            <td width=600><b><font face="aroha" >&nbsp;[<%=pid%>]х╦©Ь╢тюг аж╧╝го╫г ╟Ь╣©╠╦╦е Ё╩©╙ют╢о╢ы. </font></b></td>
+            <td width=600><b><font face="aroha" >&nbsp;[<%=pid%>]М ▄Л⌡░К▀≤Л²≤ Лё╪К╛╦М∙≤Л▀╓ ЙЁ╣К▐≥Й╣╛К╖╓ К┌╢Л≈╜Л·┘К▀┬К▀╓. </font></b></td>
             <td align=right>&nbsp;</td>
 		</tr>
 		</table>
-<font size=2 color="#39599c"><b><%=pid%></b></font><font size=2>╢тюл аж╧╝го╫е ╩Сг╟ю╨ ╬ф╥║©м ╟╟╫ю╢о╢ы</font>
-</center>
+<font size=2 color="#39599c"><b><%=pid%></b></font><font size=2>К▀≤Л²╢ Лё╪К╛╦М∙≤Л▀═ Л┐│М▓┬Л²─ Л∙└К·≤Л≥─ Й╟≥Л┼╣К▀┬К▀╓</font>
+
 
 
 <table border="0" cellpadding='0' cellspacing='0' width='620' align="center">
 		<tr>
-            <TD align=middle bgColor=#7aaad5><FONT color=#ffffff><B><%=pid%>╢тюг аж╧╝го╫г Ё╩©╙ют╢о╢ы.</B> </FONT></TD>
+            <TD align=middle bgColor=#7aaad5><FONT color=#ffffff><B><%=pid%>К▀≤Л²≤ Лё╪К╛╦М∙≤Л▀╓ К┌╢Л≈╜Л·┘К▀┬К▀╓.</B> </FONT></TD>
 		</TR>
 </table>
 
 <table border="0" align="center" width="620">
 	<tr>
-		<th bgcolor="#CC3300"><font color="#FFFFFF" size=2>╩Сг╟╦М</font></th>
-		<th  bgcolor="#CC3300"><font color="#FFFFFF" size=2>╪Ж╥╝</font></th>
-		<th  bgcolor="#CC3300"><font color="#FFFFFF" size=2>фг╦е╟║(©Ь)</font></th>
-		<th  bgcolor="#CC3300"><font color="#FFFFFF" size=2>гу╟Х(╪Ж╥╝*фг╦е╟║)</font></th>
+		<th bgcolor="#CC3300"><font color="#FFFFFF" size=2>Л┐│М▓┬К╙┘</font></th>
+		<th  bgcolor="#CC3300"><font color="#FFFFFF" size=2>Л┬≤К÷┴</font></th>
+		<th  bgcolor="#CC3300"><font color="#FFFFFF" size=2>М▄░К╖╓Й╟─(Л⌡░)</font></th>
+		<th  bgcolor="#CC3300"><font color="#FFFFFF" size=2>М∙╘ЙЁ└(Л┬≤К÷┴*М▄░К╖╓Й╟─)</font></th>
 	</tr>
 <%
 		while(rs1.next()) {
@@ -81,9 +81,9 @@ try {
 %>
 	<tr>
 		<td  bgcolor='#FFFFCC'><font size="2"><%= name %></font></td>
-		<td  bgcolor='#FFFFCC' align=right><font size="2"><%= qty %>╟Ё&nbsp;</font></td> 
-		<td  bgcolor='#FFFFCC' align=right width="70"><font size="2"><%=price%>©Ь</font></td>
-		<td  bgcolor='#FFFFCC' align=right width="120"><font size="2"><%=price*qty%>©Ь</font></td>
+		<td  bgcolor='#FFFFCC' align=right><font size="2"><%= qty %>Й╟°&nbsp;</font></td>
+		<td  bgcolor='#FFFFCC' align=right width="70"><font size="2"><%=price%>Л⌡░</font></td>
+		<td  bgcolor='#FFFFCC' align=right width="120"><font size="2"><%=price*qty%>Л⌡░</font></td>
 	</tr>
 		
 <%
@@ -97,7 +97,7 @@ try {
 <table align=center>
 	<tr>
 		<td>
-			<font class="aroha"><%=pid%> х╦©Ь╢тюл ╠╦╦его╫г ця╪Ж╥╝ю╨ [<%=totalqty%>╟Ё] юл╟М  ╟Аа╕го╫г╠щ╬вю╨ [<%=totalprice%>©Ь] ют╢о╢ы.</font>
+			<font class="aroha"><%=pid%> М ▄Л⌡░К▀≤Л²╢ Й╣╛К╖╓М∙≤Л▀╓ Л╢²Л┬≤К÷┴Л²─ [<%=totalqty%>Й╟°] Л²╢ЙЁ═  Й╡╟Л═°М∙≤Л▀╓Й╦┬Л∙║Л²─ [<%=totalprice%>Л⌡░] Л·┘К▀┬К▀╓.</font>
 		</td>
 	</tr>
 </table>
@@ -121,20 +121,20 @@ try {
 
 <table border="0" cellpadding='0' cellspacing='0' width='620' align="center">
        <tr bgcolor=#7aaad5>
-           <td align=middle bgcolor=#7aaad5><font color=#ffffff><b><%=pid%>╢тюг ╧Х╪шаЖ а╓╨╦ют╢о╢ы.</b> </font></td>
+           <td align=middle bgcolor=#7aaad5><font color=#ffffff><b><%=pid%>К▀≤Л²≤ К╟╟Л├║Л╖─ Л═∙КЁ╢Л·┘К▀┬К▀╓.</b> </font></td>
 		</tr>
 </table>
 
 <table width="500" border="1" cellspacing="3" cellpadding="0" align="center" background="#FFFFFF">
 	<tr>
-		<th colspan=2 align="center" bgcolor="#CC0099"><font color=white size=2>╧ъ ╪ш юн а╓ ╨╦</font></th>
+		<th colspan=2 align="center" bgcolor="#CC0099"><font color=white size=2>К╟° Л├║ Л²╦ Л═∙ КЁ╢</font></th>
 	</tr>
 	<tr>
-		<td  bgcolor='#e2edfa' width=100><font size=2>х╦©Ь юл╦╖</font></td>
+		<td  bgcolor='#e2edfa' width=100><font size=2>М ▄Л⌡░ Л²╢К╕└</font></td>
 		<td  bgcolor=F6F8FC><font size=2><%= user_name %></font></td>
 	</tr>
 	<tr>
-	<td  bgcolor='#e2edfa' width=100><font size=2>х╦©Ь ID </font></td>
+	<td  bgcolor='#e2edfa' width=100><font size=2>М ▄Л⌡░ ID </font></td>
 		<td  bgcolor=F6F8FC><font size=2><%= user_id %></font></td>
 	</tr>
 	<tr>
@@ -142,22 +142,22 @@ try {
 		<td  bgcolor=F6F8FC><font size=2><input type=text name=email size=40 value=<%= e_mail %>></font></td>
 	</tr>
 	<tr>
-		<td  bgcolor='#e2edfa' width=100><font size=2>аж╪р</font> </td>
+		<td  bgcolor='#e2edfa' width=100><font size=2>Лё╪Л├▄</font> </td>
 		<td  bgcolor=F6F8FC><font size=2><input type=text name=addr size=40  value=<%= address %>></font></td>
 	</tr>
 	<tr>
-		<td  bgcolor='#e2edfa' width=100><font size=2>юЭх╜╧Ьхё </font></td>
+		<td  bgcolor='#e2edfa' width=100><font size=2>Л═└М≥■К╡┬М≤╦ </font></td>
 		<td  bgcolor=F6F8FC><font size=2><input type=text name=tel value=<%= phone %>></td></font>
 	</tr>
 	<tr>
-		<td  bgcolor='#e2edfa' width=100><font size=2>╨Я╟М<br>(аж╧╝╫цюЭгр╦╩)</font></td>
+		<td  bgcolor='#e2edfa' width=100><font size=2>К╧└ЙЁ═<br>(Лё╪К╛╦Л▀°Л═└М∙═К╖░)</font></td>
 		<td  bgcolor=F6F8FC><font size=2><textarea name="message" rows=3 cols=50></textarea></font></td>
 	</tr>
 
 	<tr>
 		<td   bgcolor="white" colspan=2 align=center> 
-			<input type=submit name=submit value="аж╧╝го╠Б">
-			<input type=reset name=reset value="╢ы╫ц╬╡╠Б">
+			<input type=submit name=submit value="Лё╪К╛╦М∙≤Й╦╟">
+			<input type=reset name=reset value="К▀╓Л▀°Л⌠╟Й╦╟">
 		</td>
 
 	</tr>

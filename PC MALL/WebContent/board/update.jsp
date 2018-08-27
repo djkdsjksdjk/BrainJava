@@ -73,7 +73,7 @@ String b_id = request.getParameter("b_id");
    if (str==null) 
     kor=null;
    else
-    kor=new String(str.getBytes("ISO-8859-1"),"EUC-KR");
+    kor=new String(str.getBytes("ISO-8859-1"),"UTF-8");
    return kor;
    }
 	

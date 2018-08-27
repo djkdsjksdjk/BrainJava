@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=euc-kr"  %>
+<%@ page contentType="text/html;charset=UTF-8"  %>
 <%  
 	String pid = (String) session.getAttribute("pid"); 
 %>
@@ -48,13 +48,13 @@ function MM_showHideLayers() { //v3.0
   <table width=250 border=0 cellspacing=0 cellpadding=0 height=20>    
 	<tr> 
       <td width=80 onMouseOver="this.style.backgroundColor='#cdcdcd'" onMouseOut="this.style.backgroundColor=''"> 
-        <div align=center> &nbsp;<span class="layerstyle"><a href="../shoppingmall/gongi.jsp">°øÁö»çÇ×</a></span> </div>
+        <div align=center> &nbsp;<span class="layerstyle"><a href="../shoppingmall/gongi.jsp">ê³µì§€ì‚¬í•­</a></span> </div>
       </td>
       <td width=90 onMouseOver="this.style.backgroundColor='#cdcdcd'" onMouseOut="this.style.backgroundColor=''"> 
-        <div align=center><span class="layerstyle"><a href="../shoppingmall/newproduct.jsp">½Å»óÇ° ÄÚ³Ê</a></span> </div>
+        <div align=center><span class="layerstyle"><a href="../shoppingmall/newproduct.jsp">ì‹ ìƒí’ˆ ì½”ë„ˆ</a></span> </div>
       </td>
       <td width=90 onMouseOver="this.style.backgroundColor='#cdcdcd'" onMouseOut="this.style.backgroundColor=''"> 
-        <div align=center><span class="layerstyle"><a href="../shoppingmall/pc_calculation.jsp">Á¶¸³ PC °ßÀû</a></span> </div>
+        <div align=center><span class="layerstyle"><a href="../shoppingmall/pc_calculation.jsp">ì¡°ë¦½ PC ê²¬ì </a></span> </div>
       </td>
     </tr>
   </table>
@@ -64,20 +64,23 @@ function MM_showHideLayers() { //v3.0
   <table width=180 border=0 cellspacing=2 cellpadding=0 height=20>
     <tr> 
       <td width=100 onMouseOver="this.style.backgroundColor='#cdcdcd'" onMouseOut="this.style.backgroundColor=''"> 
-        <div align=center class="layerstyle"><a href="../member/modify.jsp?user_id=<%= pid %>">È¸¿øÁ¤º¸¼öÁ¤</a></div>
+        <div align=center class="layerstyle"><a href="../member/modify.jsp?user_id=<%= pid %>">íšŒì›ì •ë³´ìˆ˜ì •</a></div>
       </td>
       <td width=80 onMouseOver="this.style.backgroundColor='#cdcdcd'" onMouseOut="this.style.backgroundColor=''"> 
-        <div align=center class="layerstyle"><a href="../member/user_delete.jsp?user_id=<%= pid %>">È¸¿ø Å»Åð</a></div>
+        <div align=center class="layerstyle"><a href="../member/user_delete.jsp?user_id=<%= pid %>">íšŒì› íƒˆí‡´</a></div>
       </td>
     </tr>
   </table>
 </div>
 
 <div id="qna" style="position:absolute; left:600px; top:99px; width:100px; height:20px; z-index:100; visibility: hidden"> 
-  <table width=170 border=0 cellspacing=2 cellpadding=0 height=20>
+  <table width=230 border=0 cellspacing=2 cellpadding=0 height=20>
     <tr bgcolor="#EAEAEA">        
-      <td width=90 onMouseOver="this.style.backgroundColor='#cdcdcd'" onMouseOut="this.style.backgroundColor=''"> 
-	<div align=center><span class="layerstyle"><a href="../board/board_list.jsp">ÀÚÀ¯°Ô½ÃÆÇ</a></span> </div>
+      <td width=120 onMouseOver="this.style.backgroundColor='#cdcdcd'" onMouseOut="this.style.backgroundColor=''"> 
+	<div align=center><span class="layerstyle"><a href="../board/Boarde_list.jsp">ìžìœ ê²Œì‹œíŒ</a></span> </div>
+      </td>
+      <td width=120 onMouseOver="this.style.backgroundColor='#cdcdcd'" onMouseOut="this.style.backgroundColor=''"> 
+	<div align=center><span class="layerstyle"><a href="../board/Member_board_list.jsp">íšŒì›ê²Œì‹œíŒ</a></span> </div>
       </td>
       <td width=80 onMouseOver="this.style.backgroundColor='#cdcdcd'" onMouseOut="this.style.backgroundColor=''"> 
         <div align=center class="layerstyle"><a href="../service/inform_01.jsp">F A Q</a></div>

@@ -1,31 +1,31 @@
-	<%@ page contentType="text/html; charset=KSC5601" %>
+	<%@ page contentType="text/html;charset=UTF-8" %>
 
 	<html>
-	<head><title>ÄÄÇ»ÅÍÀü¹®¼îÇÎ¸ô</title>
+	<head><title>ì»´í“¨í„°ì „ë¬¸ì‡¼í•‘ëª°</title>
 		<LINK href="../common/u3.css" type=text/css rel=STYLESHEET>
 	
 	<script>
 	function writeCheck() {
 		if(!document.bbs_form.b_title.value){
-			alert("Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä.");
+			alert("ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš”.");
 			document.bbs_form.b_title.focus();
 			return ;
 		}
 	
 		if(!document.bbs_form.pwd.value) {
-			alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+			alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 			document.bbs_form.pwd.focus();
 			return ;
 		}
 
 		if(!document.bbs_form.b_name.value){
-			alert("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä");
+			alert("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”");
 			document.bbs_form.b_name.focus();
 			return ;
 		}
 
 		if(!document.bbs_form.b_content.value){
-			alert("³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä.");
+			alert("ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”.");
 			document.bbs_form.b_content.focus();
 			return;
 		}
@@ -41,15 +41,15 @@
 <form name=bbs_form method=post action="write.jsp">
 	  <table border=1 width=550 height=30 bordercolor=black>
 		<tr>
-			<td align=center bgcolor=0063ce><font size=3 color=#FFFFFF><b>°Ô½Ã¹° ¿Ã¸®±â</b></td>
+			<td align=center bgcolor=0063ce><font size=3 color=#FFFFFF><b>ê²Œì‹œë¬¼ ì˜¬ë¦¬ê¸°</b></td>
 		</tr>
 	  </table>
 	  <br>
 <table width=550 border=1>
 	<tr>
-	   <td width=100 align=center bgcolor="#7eaee9">µî·ÏÀÚ</td>
+	   <td width=100 align=center bgcolor="#7eaee9">ë“±ë¡ì</td>
 	   <td width=170>&nbsp;<input type="text" name="b_name" size=20 value=""></td>
-	   <td width=100 align=center bgcolor="#7eaee9">ºñ¹Ğ¹øÈ£</td>
+	   <td width=100 align=center bgcolor="#7eaee9">ë¹„ë°€ë²ˆí˜¸</td>
 	   <td width=170>&nbsp;<input type="password" name="pwd" size=15 value=""></td>
 	</tr>	
 	<tr>
@@ -57,10 +57,10 @@
 	   <td  colspan=3>&nbsp;<input type="text" name="b_email" size=30></td>
 	</tr>	
 	<tr>
-	   <td align=center bgcolor="#7eaee9">Á¦ ¸ñ</td>
+	   <td align=center bgcolor="#7eaee9">ì œ ëª©</td>
 	   <td colspan=3>&nbsp;<input type="text" name="b_title" size=40></td>
 	</tr>	
-	   <td align=center bgcolor="#7eaee9">³» ¿ë</td>
+	   <td align=center bgcolor="#7eaee9">ë‚´ ìš©</td>
 	   <td colspan=3>
    <table>
       <tr>

@@ -151,7 +151,7 @@ function MM_swapImage() {
   <table width="160" border="0" cellspacing="2" cellpadding="0" height="20" onMouseOver="MM_showHideLayers('Layer1','','hide','Layer2','','show','Layer3','','hide','Layer4','','hide')" onMouseOut="MM_showHideLayers('Layer2','','hide','Layer1','','hide','Layer4','','hide','Layer3','','hide')">
     <tr bgcolor="#EAEAEA">        
       <td width="80" onMouseOver="this.style.backgroundColor='#CDCDCD'" onMouseOut="this.style.backgroundColor=''"> 
-	<div align="center"><span class="layerstyle"><a href="../board/reply_list.jsp">자유게시판</a></span> </div>
+	<div align="center"><span class="layerstyle"><a href="../board/Boarde_list.jsp">자유게시판</a></span> </div>
       </td>
       <td width="80" onMouseOver="this.style.backgroundColor='#CDCDCD'" onMouseOut="this.style.backgroundColor=''"> 
         <div align="center" class="layerstyle"><a href="../FAQ/faq.jsp">FAQ</a></div>

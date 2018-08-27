@@ -1,11 +1,12 @@
-<%@ page  import="java.sql.*" contentType="text/html;charset=euc-kr" %>
+<%@ page  import="java.sql.*" contentType="text/html;charset=UTF-8" %>
+<% request.setCharacterEncoding("UTF-8"); %>
 
 <%
 	String b_id = request.getParameter("b_id");
 %>                                          
 <HTML>
 	<HEAD>
-		<TITLE>��ǻ���������θ�</TITLE>
+		<TITLE>컴퓨터전문쇼핑몰</TITLE>
 	</HEAD>
 	<link href="../common/u3.css" type=text/css rel=stylesheet>
 
@@ -15,7 +16,7 @@
 	<br>
 	<table cellpadding=0 cellspacing=0 border=0 width=330>
 		<tr bgcolor=#7eaee9>
-			<td align=center><font color="#ffffff"><b>�Խù��� ��й�ȣ�� �Է��ϼ���.</b></font></td>
+			<td align=center><font color="#ffffff"><b>게시물의 비밀번호를 입력하세요.</b></font></td>
 		</tr>
 	</table>
 	<table cellpadding=0 cellspacing=0 border=0 width=330>
@@ -26,7 +27,7 @@
   					<tr bgcolor="#ffffff">
 						<td align="center">
 							<input type="password" name="pwd" size=20 >
-							<input type="submit" value="Ȯ��">
+							<input type="submit" value="확인">
 						</td>
 					</tr>
 				</table>

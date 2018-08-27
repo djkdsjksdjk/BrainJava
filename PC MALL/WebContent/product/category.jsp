@@ -1,8 +1,9 @@
-<%@ page contentType="text/html;charset=euc_kr" import="java.sql.*,oracle.dbpool.*,java.util.*" %>
-
+<%@ page contentType="text/html;charset=UTF-8" import="java.sql.*,oracle.dbpool.*,java.util.*" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <HTML>
 	<HEAD>
-		<TITLE>ī�װ����� ��ǰ��� ����</TITLE>
+		<TITLE>카테고리별 상품목록 보기</TITLE>
 	<script language=JavaScript src="../common/u3.js"></script>
 	<link href="../common/u3.css" type=text/css rel=stylesheet>
 	</HEAD>
@@ -19,23 +20,23 @@
 		Statement stmt=con.createStatement();
 		ResultSet rs=stmt.executeQuery("select id, name, price, photo, cname from product_view where category  = "+ newnum );
 %>
-<!-- ī�װ����� ��ǰ��� --> 
+<!-- 카테고리별 상품목록 --> 
 <table width=630 border=0  cellpadding=0 cellspacing=0 bgcolor="#ffffff">
 	<tr bgcolor=ffffff>
 		<td valign="top">
 			<table border=0 cellpadding=0 cellspacing=0 width=550 align=center bgcolor=ffffff>
 			<br>
 				<tr bgcolor=#7aaad5 height=25>
-					<td colspan=3 align=center bgcolor=#0000ff><font color=#ffffff><b>ī�װ��� �з�</b></font></td>
+					<td colspan=3 align=center bgcolor=#0000ff><font color=#ffffff><b>카테고리 분류</b></font></td>
 				</tr>
 				<tr><td height=10></td></tr>
 				 <tr>
 					<td colspan=3>
 						<table border=0 cellpadding=0 cellspacing=1 width=550 bgcolor=#7aaad5>
 							<tr bgcolor=#ffcccc align=center> 
-								<td height=25 width=80>&nbsp;��ǰ�̹���</td>
-								<td height=25>&nbsp;��ǰ��</td>
-								<td height=25>&nbsp;����</td>
+								<td height=25 width=80>&nbsp;상품이미지</td>
+								<td height=25>&nbsp;상품명</td>
+								<td height=25>&nbsp;가격</td>
 							</tr>
 <%
 						while(rs.next()) {
@@ -48,7 +49,8 @@
 						<tr bgcolor="#eff4f8"> 
 							<td align=center><img border=0 name=PicMedium height=30 width=30 src="image/<%=photo%>"></td>
 							<td  height=30>&nbsp;<a href="product.jsp?i=<%= id %>">[<%= c_name %>]&nbsp;<%= name %></font></a></td>
-							<td  height=30>&nbsp;<%= price %>��</font></td>
+							<c:set var="fmtPrice" value="<%=price%>"/>
+					<td width=30>&nbsp;<fmt:formatNumber value="${fmtPrice }" pattern="#,###" />&nbsp;원
 						</tr>
 <%	
 		}
@@ -67,7 +69,7 @@
 		</td>
 	</tr>
 </table>
-<!-- ī�װ����� ��ǰ��� �� -->
+<!-- 카테고리별 상품목록 끝 -->
 	<jsp:include page="../common/basic_copyright.jsp" flush="true"/>
 </BODY>
 </HTML>

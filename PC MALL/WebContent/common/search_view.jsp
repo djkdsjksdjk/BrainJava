@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8" import="java.sql.*,oracle.dbpool.*"  %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 
 <HTML>
 	<HEAD>
@@ -16,18 +18,17 @@
 
 	Statement stmt=con.createStatement();
 	Statement stmt1=con.createStatement();
-	String s_word=new String(request.getParameter("srch_word").getBytes("8859_1"),"euc-kr");
+	String s_word=new String(request.getParameter("srch_word").getBytes("8859_1"),"UTF-8");
 
 	try {
 		String name,company_id,expression,photo,category;
 		int id,price,count;
-		ResultSet rs=stmt.executeQuery("select id,name,price,company_id,expression,photo,category from product where name like '%"+s_word+"%' ");
-		ResultSet rs1=stmt1.executeQuery("select count(*) from product where name like '%"+s_word+"%'");
+		ResultSet rs=stmt.executeQuery("select id,name,price,company_id,expression,photo,category from product where name like UPPER('%"+s_word+"%')");
+		ResultSet rs1=stmt1.executeQuery("select count(*) from product where name like UPPER('%"+s_word+"%')");
 
 		while(rs1.next()) {
 		count=rs1.getInt(1);
 %>   
-		<center>
 		<font color=red><%= s_word %></font> 에 대한 
 		<font color=red><%= count %></font> 개의 제품 검색결과 입니다!<br>
 <%
@@ -58,7 +59,8 @@
 			<tr bgcolor="edf5fe"> 
 				<td align=center><img border=0 name=PicMedium height=30 width=30 src="../product/image/<%=photo%>"></td>
 				<td  height=30>&nbsp;&nbsp;&nbsp;&nbsp;<a href="../product/product.jsp?i=<%= id%>"> <%=name%></a></td>
-				<td  height=30>&nbsp;&nbsp;&nbsp;&nbsp;<%=price%>원</td>
+				<c:set var="fmtPrice" value="<%=price%>"/>
+				<td width=200>&nbsp;<fmt:formatNumber value="${fmtPrice }" pattern="#,###" />&nbsp;원
 			</tr>
 <%	
 			}
@@ -73,7 +75,8 @@
 	}
 %>
 		</table>
-		</center>
+		
+		
 		<!--  검색 끝 -->
 	<jsp:include page="../common/basic_copyright.jsp" flush="true"/>
 </BODY>

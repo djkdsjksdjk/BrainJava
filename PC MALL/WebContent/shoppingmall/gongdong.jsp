@@ -1,8 +1,8 @@
-<%@ page language="java" import="java.sql.*,oracle.dbpool.*" contentType="text/html;charset=EUC_KR" %>
+<%@ page language="java" import="java.sql.*,oracle.dbpool.*" contentType="text/html;charset=UTF-8" %>
 
 <html>
 <head>
-<title>ÄÄÇ»ÅÍÀü¹®¼îÇÎ¸ô</title>
+<title>ì»´í“¨í„°ì „ë¬¸ì‡¼í•‘ëª°</title>
 
 <script language=Javascript>
 
@@ -20,18 +20,18 @@ function mywinclose() {
 <BODY leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>
         <jsp:include page="../common/basic_screen.jsp" flush="true"/>
 
-<!-- °øµ¿±¸¸Å È­¸é ¼³°è  -->
+<!-- ê³µë™êµ¬ë§¤ í™”ë©´ ì„¤ê³„  -->
 	 <center><br>
 	  <table border=1 width=550 height=25 bordercolor=black>
 		<tr>
-			<td align=center bgcolor=0063ce><font size=2 color=white><b>°ø µ¿ ±¸ ¸Å</b></td>
+			<td align=center bgcolor=0063ce><font size=2 color=white><b>ê³µ ë™ êµ¬ ë§¤</b></td>
 		</tr>
 	  </table>
 	  <br>
 
 	  <table border=1 width=270 height=40 bgcolor=#CCFFFF>
 		<tr>
-			<td><font size=2>&nbsp;ÀÔ±İ±â°£ : ÁÖ¹®ÀÏ·ÎºÎÅÍ 2ÀÏÀÌ³» <br>&nbsp;¹è¼Û±â°£ : °áÁ¦È®ÀÎ ÈÄ 3ÀÏÀÌ³»</font><br></td>
+			<td><font size=2>&nbsp;ì…ê¸ˆê¸°ê°„ : ì£¼ë¬¸ì¼ë¡œë¶€í„° 2ì¼ì´ë‚´ <br>&nbsp;ë°°ì†¡ê¸°ê°„ : ê²°ì œí™•ì¸ í›„ 3ì¼ì´ë‚´</font><br></td>
 		</tr>
 		</table>
 		<br>
@@ -41,9 +41,9 @@ try {
 		String name,company_id,content,deadline,photo;
 		int id,price,coo_price,quantity,coo_quantity;
 
-		 //DBÇ® ¸Ş´ÏÀú °´Ã¼ »ı¼º »ç¿ë
+		 //DBí’€ ë©”ë‹ˆì € ê°ì²´ ìƒì„± ì‚¬ìš©
 DBConnectionManager pool = DBConnectionManager.getInstance();
-Connection con = pool.getConnection("ora8");//ÀÎÀÚ°ª ora8
+Connection con = pool.getConnection("ora8");//ì¸ìê°’ ora8
 
         Statement stmt=con.createStatement();
 
@@ -68,7 +68,7 @@ Connection con = pool.getConnection("ora8");//ÀÎÀÚ°ª ora8
 	  <tr>
 		<td>
 
-<!--  1¹ø Å×ÀÌºí  -->
+<!--  1ë²ˆ í…Œì´ë¸”  -->
       <table width=200  border=1 cellpadding=1 cellspacing=2>
 	    <tr>
 			<td colspan=2 bgcolor=#ffccff align=center>[<%=company_id%>]<%=name%></td>
@@ -78,24 +78,24 @@ Connection con = pool.getConnection("ora8");//ÀÎÀÚ°ª ora8
 			</a></td>
 		</tr>
 		<tr>
-			<td width=120 bgcolor=#ffff99>°øµ¿±¸¸Å°¡</td>
+			<td width=120 bgcolor=#ffff99>ê³µë™êµ¬ë§¤ê°€</td>
 			<td width=80><font color=red><%=coo_price%></font></td>
 		</tr>
 		<tr>
-			<td width=120 bgcolor=#ffff99>½ÃÁß°¡</td>
+			<td width=120 bgcolor=#ffff99>ì‹œì¤‘ê°€</td>
 			<td width=80><%=price%></td>
 		</tr>
 		<tr>
-			<td width=120 bgcolor=#ffff99>ÇÑÁ¤¼ö·®</td>
+			<td width=120 bgcolor=#ffff99>í•œì •ìˆ˜ëŸ‰</td>
 			<td width=80><%=quantity%></td>
 		</tr>
 		<tr>
-		   <td width=120 bgcolor=#ffff99>½ÅÃ»¼ö·®</td>
+		   <td width=120 bgcolor=#ffff99>ì‹ ì²­ìˆ˜ëŸ‰</td>
 		   <td width=80><font color=red><%=coo_quantity%></font></td>
 		</tr>
 	   </table>
 		<br>
-<!--  1¹ø Å×ÀÌºí ³¡  -->
+<!--  1ë²ˆ í…Œì´ë¸” ë  -->
 	</td>
 <%   
 	flag=1;
@@ -105,7 +105,7 @@ Connection con = pool.getConnection("ora8");//ÀÎÀÚ°ª ora8
 %>
 	<td>
 
-<!--  2¹ø Å×ÀÌºí  -->
+<!--  2ë²ˆ í…Œì´ë¸”  -->
       <table width=200  border=1 cellpadding=1 cellspacing=2>
 	    <tr>
 			<td colspan=2 bgcolor=#ffccff align=center><font size=2>[<%=company_id%>]<%=name%></font></td>
@@ -115,24 +115,24 @@ Connection con = pool.getConnection("ora8");//ÀÎÀÚ°ª ora8
 			</a></td>
 		</tr>
 		<tr>
-			<td width=120 bgcolor=#ffff99>°øµ¿±¸¸Å°¡</td>
+			<td width=120 bgcolor=#ffff99>ê³µë™êµ¬ë§¤ê°€</td>
 			<td width=80><font  color=red><%=coo_price%></font></td>
 		</tr>
 		<tr>
-			<td width=120 bgcolor=#ffff99>½ÃÁß°¡</td>
+			<td width=120 bgcolor=#ffff99>ì‹œì¤‘ê°€</td>
 			<td width=80><%=price%></td>
 		</tr>
 		<tr>
-			<td width=120 bgcolor=#ffff99>ÇÑÁ¤¼ö·®</td>
+			<td width=120 bgcolor=#ffff99>í•œì •ìˆ˜ëŸ‰</td>
 			<td width=80><%=quantity%></td>
 		</tr>
 		<tr>
-		   <td width=120 bgcolor=#ffff99>½ÅÃ»¼ö·®</td>
+		   <td width=120 bgcolor=#ffff99>ì‹ ì²­ìˆ˜ëŸ‰</td>
 		   <td width=80><font color=red><%=coo_quantity%></font></td>
 		</tr>
 	   </table>
 		<br>
-<!--  2¹ø Å×ÀÌºí ³¡  -->
+<!--  2ë²ˆ í…Œì´ë¸” ë  -->
 	</td>
 <%   flag=2;
 	}
@@ -140,7 +140,7 @@ Connection con = pool.getConnection("ora8");//ÀÎÀÚ°ª ora8
 %>
 	<td>
 	
-<!-- 3¹ø Å×ÀÌºí  -->
+<!-- 3ë²ˆ í…Œì´ë¸”  -->
     <table width=200  border=1 cellpadding=1 cellspacing=2>
 	    <tr>
 			<td colspan=2 bgcolor=#ffccff align=center>[<%=company_id%>]<%=name%></td>
@@ -150,24 +150,24 @@ Connection con = pool.getConnection("ora8");//ÀÎÀÚ°ª ora8
 			</a></td>
 		</tr>
 		<tr>
-			<td width=120 bgcolor=#ffff99>°øµ¿±¸¸Å°¡</td>
+			<td width=120 bgcolor=#ffff99>ê³µë™êµ¬ë§¤ê°€</td>
 			<td width=80><font color=red><%=coo_price%></td>
 		</tr>
 		<tr>
-			<td width=120 bgcolor=#ffff99>½ÃÁß°¡</td>
+			<td width=120 bgcolor=#ffff99>ì‹œì¤‘ê°€</td>
 			<td width=80><%=price%></td>
 		</tr>
 		<tr>
-			<td width=120 bgcolor=#ffff99>ÇÑÁ¤¼ö·®</td>
+			<td width=120 bgcolor=#ffff99>í•œì •ìˆ˜ëŸ‰</td>
 			<td width=80><%=quantity%></td>
 		</tr>
 		<tr>
-		   <td width=120 bgcolor=#ffff99>½ÅÃ»¼ö·®</td>
+		   <td width=120 bgcolor=#ffff99>ì‹ ì²­ìˆ˜ëŸ‰</td>
 		   <td width=80><font  color=red><%=coo_quantity%></font></td>
 		</tr>
 	   </table>
 		<br>
-<!--  3¹ø Å×ÀÌºí ³¡  -->
+<!--  3ë²ˆ í…Œì´ë¸” ë  -->
 	
 	</td>
 	</tr>
@@ -175,12 +175,12 @@ Connection con = pool.getConnection("ora8");//ÀÎÀÚ°ª ora8
 %>
 
 	<%
-		}  //while ´İ±â
+		}  //while ë‹«ê¸°
 		rs.close();
 		stmt.close();
- pool.freeConnection("ora8", con); //¿¬°á ²÷±â
+ pool.freeConnection("ora8", con); //ì—°ê²° ëŠê¸°
    
-   } //try ´İ±â
+   } //try ë‹«ê¸°
    catch(Exception e) {
 	   out.println(e);
    }
@@ -188,7 +188,7 @@ Connection con = pool.getConnection("ora8");//ÀÎÀÚ°ª ora8
 	</table>
 	
 
-<!-- ================================ ¿©±â±îÁö °øµ¿±¸¸Å =================================   -->
+<!-- ================================ ì—¬ê¸°ê¹Œì§€ ê³µë™êµ¬ë§¤ =================================   -->
    <jsp:include page="../common/basic_copyright.jsp" flush="true"/>
 </body>
 </html>

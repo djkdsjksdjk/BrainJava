@@ -1,8 +1,8 @@
-<%@ page contentType="text/html;charset=euc_kr" import="java.sql.*,oracle.dbpool.*,java.util.Date"  %>
+<%@ page contentType="text/html;charset=UTF-8" import="java.sql.*,oracle.dbpool.*,java.util.Date"  %>
 
 <HTML>
 	<HEAD>
-		<TITLE>ÄÄÇ»ÅÍÀü¹®¼îÇÎ¸ô</TITLE>
+		<TITLE>ì»´í“¨í„°ì „ë¬¸ì‡¼í•‘ëª°</TITLE>
 		<script language=JavaScript src="../common/u3.js"></script>
 		<link href="../common/u3.css" type=text/css rel=stylesheet>
 	</HEAD>
@@ -10,12 +10,12 @@
 <BODY leftmargin=0 topmargin=0 marginwidth=0 marginheight=0>
         <jsp:include page="../common/basic_screen.jsp" flush="true"/>
 	
-<!-- °øÁö»çÇ× ¸ñ·Ï Ãâ·Â -->
-<center><br>
+<!-- ê³µì§€ì‚¬í•­ ëª©ë¡ ì¶œë ¥ -->
+<br>
 	  
  <table border=1 width=500 height=30 bordercolor=black>
 	<tr>
-		<td align=center bgcolor=0063ce><font size=3 color=white><b>°ø Áö »ç Ç×</b></td>
+		<td align=center bgcolor=0063ce><font size=3 color=white><b>ê³µ ì§€ ì‚¬ í•­</b></td>
 	</tr>
   </table><br>
 
@@ -24,10 +24,10 @@
        <td>
 	    <table width=450 border=1 cellpadding=0 cellspacing=1 border color=639cce>
 		<tr>
-		<th width=40 align=center nowrap bgcolor="#7eaee9"><p>¹øÈ£</th>		
-		<th width=290 align=center nowrap bgcolor="#7eaee9"><p>Á¦¸ñ</th>
-		<th width=120 align=center nowrap bgcolor="#7eaee9"><p>³¯Â¥</th>
-        <th width=40 align=center nowrap bgcolor="#7eaee9"><p>Á¶È¸</th>
+		<th width=40 align=center nowrap bgcolor="#7eaee9"><p>ë²ˆí˜¸</th>		
+		<th width=290 align=center nowrap bgcolor="#7eaee9"><p>ì œëª©</th>
+		<th width=120 align=center nowrap bgcolor="#7eaee9"><p>ë‚ ì§œ</th>
+        <th width=40 align=center nowrap bgcolor="#7eaee9"><p>ì¡°íšŒ</th>
 		</tr>
 <%
 try {
@@ -42,10 +42,10 @@ try {
 
    Statement stmt=con.createStatement();
 
-   /* ÆäÀÌÂ¡ ½ÃÀÛ  */
+   /* íŽ˜ì´ì§• ì‹œìž‘  */
    ResultSet rs=stmt.executeQuery("select count(idnum) from notice");
    if(rs.next()) {
-      datacount=rs.getInt(1);  /* ÃÑ ±Û¼ö */
+      datacount=rs.getInt(1);  /* ì´ ê¸€ìˆ˜ */
    }
    rs.close();
 
@@ -64,18 +64,18 @@ try {
 		if(abpage <=0) abpage=1;
 		}
 
-/*------- ÆäÀÌÂ¡ ³¡ ------- */
+/*------- íŽ˜ì´ì§• ë ------- */
 
 	ResultSet rs1=stmt.executeQuery("select idnum,title,body,to_char(cdate,'yy-mm-dd'),hits from notice order by idnum desc");
       
 	for(int k=1; k<abpage; k++)rs.next();
 	int k=1;
 	while(rs1.next() && k<=pagesize) {
-        idnum=rs1.getInt(1);   /* ±Û¹øÈ£ */
-		title=rs1.getString(2);  /* ±ÛÁ¦¸ñ */
-		body=rs1.getString(3);  /* ±Û³»¿ë */
-		cdate=rs1.getString(4); /* ±Û ÀÔ·Â ½Ã°£ */
-		hits=rs1.getInt(5); /* ÆäÀÌÁö Á¶È¸¼ö */
+        idnum=rs1.getInt(1);   /* ê¸€ë²ˆí˜¸ */
+		title=rs1.getString(2);  /* ê¸€ì œëª© */
+		body=rs1.getString(3);  /* ê¸€ë‚´ìš© */
+		cdate=rs1.getString(4); /* ê¸€ ìž…ë ¥ ì‹œê°„ */
+		hits=rs1.getInt(5); /* íŽ˜ì´ì§€ ì¡°íšŒìˆ˜ */
         k++;
 %>
 	<tr onMouseOver=this.style.backgroundColor='#fff8de'  onMouseOut=this.style.backgroundColor='#ffffff'>
@@ -103,16 +103,16 @@ try {
 	int gopage=1;
 	if(mypage !=1) {
 		gopage=mypage-1;
-		out.println("<a href=gongji.jsp?mypage="+gopage+"><<ÀÌÀü</a> ");
+		out.println("<a href=gongji.jsp?mypage="+gopage+"><<ì´ì „</a> ");
 	} else {
-		out.println("<<ÀÌÀü");
+		out.println("<<ì´ì „");
 	}
 
 	if(mypage!=pagecount) {
 	   gopage=mypage+1;
-	   out.println("<a href=gongji.jsp?mypage="+gopage+">´ÙÀ½>></a> ");
+	   out.println("<a href=gongji.jsp?mypage="+gopage+">ë‹¤ìŒ>></a> ");
     } else {
-	   out.println("´ÙÀ½>>");
+	   out.println("ë‹¤ìŒ>>");
     }
    
    } catch(Exception e) {
@@ -120,9 +120,9 @@ try {
    }
 %>
 
-</center>  
+ 
 	  
-<!--  °øÁö»çÇ× ¸ñ·Ï Ãâ·Â ³¡   -->
+<!--  ê³µì§€ì‚¬í•­ ëª©ë¡ ì¶œë ¥ ë   -->
 	<jsp:include page="../common/basic_copyright.jsp" flush="true"/>
 </body>
 </html>

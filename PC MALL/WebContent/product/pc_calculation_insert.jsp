@@ -1,4 +1,4 @@
-<%@ page import="java.sql.*,oracle.dbpool.*" errorPage="/error.jsp" contentType="text/html; charset=EUC_KR" %>
+<%@ page import="java.sql.*,oracle.dbpool.*" errorPage="/error.jsp" contentType="text/html; charset=UTF-8" %>
 <%-- <%@ include file="/fresh.jsp" %> --%>
 
 <%

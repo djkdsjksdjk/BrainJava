@@ -1,7 +1,7 @@
-<%@ page contentType="text/html;charset=euc_kr" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <HTML>
 	<HEAD>
-		<TITLE> ¼îÇÎ¾È³»-ÁÖ¹®°áÁ¦¹è¼Û </TITLE>
+		<TITLE> ì‡¼í•‘ì•ˆë‚´-ì£¼ë¬¸ê²°ì œë°°ì†¡ </TITLE>
 			<LINK href="../common/u3.css" type=text/css rel=STYLESHEET>
 	</head>
 
@@ -17,30 +17,30 @@
   <tr> 
     <td width="25" height="25"> </td>
     <td width="25"><img src="img/question_icon.gif" width="18" height="18"></td>
-    <td width="500"><a href="#list_01" class="font8">ÁÖ¹®Àº ¾î¶»°Ô ÇÏ³ª¿ä?</a></td>
+    <td width="500"><a href="#list_01" class="font8">ì£¼ë¬¸ì€ ì–´ë–»ê²Œ í•˜ë‚˜ìš”?</a></td>
     <td width="49"> </td>
   </tr>
   <tr> 
     <td height="25"> </td>
     <td><img src="img/question_icon.gif" width="18" height="18"></td>
-    <td><a href="#list_02" class="font8">ÁÖ¹®Àº ¾î¶»°Ô Ãë¼ÒÇÏ³ª¿ä?</a></td>
+    <td><a href="#list_02" class="font8">ì£¼ë¬¸ì€ ì–´ë–»ê²Œ ì·¨ì†Œí•˜ë‚˜ìš”?</a></td>
     <td> </td>
   </tr>
   <tr> 
     <td height="25"> </td>
     <td><img src="img/question_icon.gif" width="18" height="18"></td>
-    <td><a href="#list_03" class="font8">ÁÖ¹® »óÇ°ÀÌ ¾ðÂÅÂë µµÂøÇÒ±î¿ä?</a></td>
+    <td><a href="#list_03" class="font8">ì£¼ë¬¸ ìƒí’ˆì´ ì–¸ì©¨ì¯¤ ë„ì°©í• ê¹Œìš”?</a></td>
     <td> </td>
     <tr> 
     <td height="25"> </td>
     <td><img src="img/question_icon.gif" width="18" height="18"></td>
-    <td><a href="#list_04" class="font8">¹è¼Û·á´Â ¾î¶»°Ô µÇ³ª¿ä?</a></td>
+    <td><a href="#list_04" class="font8">ë°°ì†¡ë£ŒëŠ” ì–´ë–»ê²Œ ë˜ë‚˜ìš”?</a></td>
     <td> </td>
   </tr>
     <tr> 
     <td height="25"> </td>
     <td><img src="img/question_icon.gif" width="18" height="18"></td>
-    <td><a href="#list_05" class="font8">¹è¼ÛÁö¸¦ ¹Ù²Ù°í ½ÍÀºµ¥¿ä?</a></td>
+    <td><a href="#list_05" class="font8">ë°°ì†¡ì§€ë¥¼ ë°”ê¾¸ê³  ì‹¶ì€ë°ìš”?</a></td>
     <td> </td>
   </tr>
 </table>
@@ -49,14 +49,14 @@
   <tr>
     <td width="25" height="25"> </td>
     <td width="25"><img src="img/question_icon.gif" width="18" height="18"></td>
-    <td width="500" class="font9">ÁÖ¹®Àº ¾î¶»°Ô ÇÏ³ª¿ä?</td>
+    <td width="500" class="font9">ì£¼ë¬¸ì€ ì–´ë–»ê²Œ í•˜ë‚˜ìš”?</td>
     <td width="49"> </td>
   </tr>
   <tr>
     <td height="25"> </td>
-    <td valign="top"><img src="img/answer_icon.gif" width="18" height="18"></td>
-    <td><span class="font9">ÁÖ¹®Àº ¿øÇÏ½Ã´Â »óÇ°À» ¼±ÅÃÇÑ ÈÄ Á¦Ç° ÀÌ¹ÌÁö ÁÂÃø ÇÏ´Ü¿¡ À§Ä¡ÇÑ Àå¹Ù±¸´Ï¿¡ ´ã±â¸¦ 
-      Å¬¸¯ ÇÏ½Ã¸é µË´Ï´Ù. ÀÌ¶§ ¿øÇÏ½Ã´Â »óÇ° ¼ö·®À» Àå¹Ù±¸´Ï¿¡ ´ã±â Àü¿¡ º¯°æÀ» ÇÏ½Ã¸é µË´Ï´Ù. Àå¹Ù±¸´Ï¿¡ ´ãÀ¸½ÅÈÄ ´ÙÀ½ »óÇ°À» ±¸ÀÔÇÏ½Ã·Á ÇÑ´Ù¸é, Àå¹Ù±¸´Ï È­¸é ÇÏ´Ü¿¡ À§Ä¡ÇÑ °è¼Ó ¼îÇÎÇÏ±â¸¦ Å¬¸¯ ÇÏ½Ã¸é, ¿øÇÏ½Ã´Â ¿©·¯ °¡Áö »óÇ°À» ±¸ÀÔ ÇÏ½Ç¼ö ÀÖ½À´Ï´Ù.</span><br>
+    <td valign="top"><img src="../img/answ1.gif" width="18" height="18"></td>
+    <td><span class="font9">ì£¼ë¬¸ì€ ì›í•˜ì‹œëŠ” ìƒí’ˆì„ ì„ íƒí•œ í›„ ì œí’ˆ ì´ë¯¸ì§€ ì¢Œì¸¡ í•˜ë‹¨ì— ìœ„ì¹˜í•œ ìž¥ë°”êµ¬ë‹ˆì— ë‹´ê¸°ë¥¼ 
+      í´ë¦­ í•˜ì‹œë©´ ë©ë‹ˆë‹¤. ì´ë•Œ ì›í•˜ì‹œëŠ” ìƒí’ˆ ìˆ˜ëŸ‰ì„ ìž¥ë°”êµ¬ë‹ˆì— ë‹´ê¸° ì „ì— ë³€ê²½ì„ í•˜ì‹œë©´ ë©ë‹ˆë‹¤. ìž¥ë°”êµ¬ë‹ˆì— ë‹´ìœ¼ì‹ í›„ ë‹¤ìŒ ìƒí’ˆì„ êµ¬ìž…í•˜ì‹œë ¤ í•œë‹¤ë©´, ìž¥ë°”êµ¬ë‹ˆ í™”ë©´ í•˜ë‹¨ì— ìœ„ì¹˜í•œ ê³„ì† ì‡¼í•‘í•˜ê¸°ë¥¼ í´ë¦­ í•˜ì‹œë©´, ì›í•˜ì‹œëŠ” ì—¬ëŸ¬ ê°€ì§€ ìƒí’ˆì„ êµ¬ìž… í•˜ì‹¤ìˆ˜ ìžˆìŠµë‹ˆë‹¤.</span><br>
     </td>
     <td align="center" valign="bottom"><a href="#"><img src="img/top_icon.gif" width="28" height="36" border="0"></a></td>
   </tr>
@@ -66,14 +66,14 @@
   <tr> 
     <td width="25" height="25"> </td>
     <td width="25"><img src="img/question_icon.gif" width="18" height="18"></td>
-    <td width="500" class="font9">ÁÖ¹®À» ÇÑÈÄ Ãë¼Ò¸¦ ÇÏ°í ½ÍÀºµ¥¿ä?</td>
+    <td width="500" class="font9">ì£¼ë¬¸ì„ í•œí›„ ì·¨ì†Œë¥¼ í•˜ê³  ì‹¶ì€ë°ìš”?</td>
     <td width="49"> </td>
   </tr>
   <tr> 
     <td height="25"> </td>
-    <td valign="top"><img src="img/answer_icon.gif" width="18" height="18"></td>
-    <td><span class="font9">ÁÖ¹® Ãë¼ÒÀÇ °æ¿ì´Â ½Å¼ÓÈ÷ ÇØ ÁÖ¼Å¾ß ÇÕ´Ï´Ù. Ãë¼ÒÀÇ °æ¿ì¿¡´Â È®½ÇÇÑ Ã³¸®¸¦ À§ÇØ Á÷Á¢ ÀüÈ­¸¦ ÁÖ½Ã¸é ½Å¼ÓÇÏ°Ô Ã³¸®ÇØ µå¸®¸ç, È¨ÆäÀÌÁö ¸Þ´ºÀÇ ÁÖ¹® Á¶È¸¸¦ ÅëÇØ ÁÖ¹® Ãë¼Ò°¡ °¡´ÉÇÕ´Ï´Ù. ÀÔ±Ý ±Ý¾×°ú °°Àº ÁÖ¹® ³»¿ªÀÇ 
-	ÁÖ¹® ±Ý¾×ÀÌ °°¾Æ¾ß¸¸ »óÇ° Ãâ°í°¡ °¡´ÉÇÕ´Ï´Ù.</span><br>
+    <td valign="top"><img src="../img/answ1.gif" width="18" height="18"></td>
+    <td><span class="font9">ì£¼ë¬¸ ì·¨ì†Œì˜ ê²½ìš°ëŠ” ì‹ ì†ížˆ í•´ ì£¼ì…”ì•¼ í•©ë‹ˆë‹¤. ì·¨ì†Œì˜ ê²½ìš°ì—ëŠ” í™•ì‹¤í•œ ì²˜ë¦¬ë¥¼ ìœ„í•´ ì§ì ‘ ì „í™”ë¥¼ ì£¼ì‹œë©´ ì‹ ì†í•˜ê²Œ ì²˜ë¦¬í•´ ë“œë¦¬ë©°, í™ˆíŽ˜ì´ì§€ ë©”ë‰´ì˜ ì£¼ë¬¸ ì¡°íšŒë¥¼ í†µí•´ ì£¼ë¬¸ ì·¨ì†Œê°€ ê°€ëŠ¥í•©ë‹ˆë‹¤. ìž…ê¸ˆ ê¸ˆì•¡ê³¼ ê°™ì€ ì£¼ë¬¸ ë‚´ì—­ì˜ 
+	ì£¼ë¬¸ ê¸ˆì•¡ì´ ê°™ì•„ì•¼ë§Œ ìƒí’ˆ ì¶œê³ ê°€ ê°€ëŠ¥í•©ë‹ˆë‹¤.</span><br>
     </td>
     <td align="center" valign="bottom"><a href="#"><img src="img/top_icon.gif" width="28" height="36" border="0"></a></td>
   </tr>
@@ -83,13 +83,13 @@
   <tr> 
     <td width="25" height="25"> </td>
     <td width="25"><img src="img/question_icon.gif" width="18" height="18"></td>
-    <td width="500" class="font9">»óÇ°ÀÌ ¾ðÁ¦ÂëÀÌ³ª µµÂøÇÒ±î¿ä?</td>
+    <td width="500" class="font9">ìƒí’ˆì´ ì–¸ì œì¯¤ì´ë‚˜ ë„ì°©í• ê¹Œìš”?</td>
     <td width="49"> </td>
   </tr>
   <tr> 
     <td height="25"> </td>
-    <td valign="top"><img src="img/answer_icon.gif" width="18" height="18"></td>
-    <td><span class="font9">ÁÖ¹®Àº º¸Åë 5½ÃÀü±îÁö ÇØ´çÀÏ¿¡ Ãâ°í°¡ °¡´ÉÇÕ´Ï´Ù. »óÇ° ºÎÁ· µîÀÇ ¹®Á¦°¡ »ý±æ °æ¿ì´Â ´ÙÀ½³¯ Ãâ°í°¡ µË´Ï´Ù. ¹è¼Û¸ÞÀÏÀº Àú³á¿¡ ÀÏ·üÀûÀ¸·Î ¹ß¼ÛµË´Ï´Ù. »óÇ° ¹è¼Û À¯¹«¸¦ ¾Ë°í½ÍÀ¸½Å ºÐÀº È¸¿ø °¡ÀÔ½Ã ÀÛ¼ºÇØ ÁÖ½Å ¸ÞÀÏÀ» ÅëÇØ ½±°Ô È®ÀÎÀÌ °¡´É ÇÏ¸ç, º£¼Û¸ÞÀÏÀº ¹ÞÀ¸¼Ì´Ù¸é, º¸Åë ´ÙÀ½³¯¿¡´Â »óÇ°À» ¹ÞÀ¸½Ç¼ö ÀÖÀ¸¸ç, ÅÃ¹èÀÇ °ú´Ù ¹°·®À¸·Î ÀÎÇØ  ¹è¼ÛÀÌ Áö¿¬µÉ ¼öµµ ÀÖ½À´Ï´Ù.</span><br>
+    <td valign="top"><img src="../img/answ1.gif" width="18" height="18"></td>
+    <td><span class="font9">ì£¼ë¬¸ì€ ë³´í†µ 5ì‹œì „ê¹Œì§€ í•´ë‹¹ì¼ì— ì¶œê³ ê°€ ê°€ëŠ¥í•©ë‹ˆë‹¤. ìƒí’ˆ ë¶€ì¡± ë“±ì˜ ë¬¸ì œê°€ ìƒê¸¸ ê²½ìš°ëŠ” ë‹¤ìŒë‚  ì¶œê³ ê°€ ë©ë‹ˆë‹¤. ë°°ì†¡ë©”ì¼ì€ ì €ë…ì— ì¼ë¥ ì ìœ¼ë¡œ ë°œì†¡ë©ë‹ˆë‹¤. ìƒí’ˆ ë°°ì†¡ ìœ ë¬´ë¥¼ ì•Œê³ ì‹¶ìœ¼ì‹  ë¶„ì€ íšŒì› ê°€ìž…ì‹œ ìž‘ì„±í•´ ì£¼ì‹  ë©”ì¼ì„ í†µí•´ ì‰½ê²Œ í™•ì¸ì´ ê°€ëŠ¥ í•˜ë©°, ë² ì†¡ë©”ì¼ì€ ë°›ìœ¼ì…¨ë‹¤ë©´, ë³´í†µ ë‹¤ìŒë‚ ì—ëŠ” ìƒí’ˆì„ ë°›ìœ¼ì‹¤ìˆ˜ ìžˆìœ¼ë©°, íƒë°°ì˜ ê³¼ë‹¤ ë¬¼ëŸ‰ìœ¼ë¡œ ì¸í•´  ë°°ì†¡ì´ ì§€ì—°ë  ìˆ˜ë„ ìžˆìŠµë‹ˆë‹¤.</span><br>
     </td>
     <td align="center" valign="bottom"><a href="#"><img src="img/top_icon.gif" width="28" height="36" border="0"></a></td>
   </tr>
@@ -99,13 +99,13 @@
   <tr> 
     <td width="25" height="25"> </td>
     <td width="25"><img src="img/question_icon.gif" width="18" height="18"></td>
-    <td width="500" class="font9">¹è¼Û·á´Â ¾î¶»°Ô µÇ³ª¿ä?</td>
+    <td width="500" class="font9">ë°°ì†¡ë£ŒëŠ” ì–´ë–»ê²Œ ë˜ë‚˜ìš”?</td>
     <td width="49"> </td>
   </tr>
   <tr> 
     <td height="25"> </td>
-    <td valign="top"><img src="img/answer_icon.gif" width="18" height="18"></td>
-    <td> <span class="font9">¡Ý ±¹³» Áö¿ª -  ¹è¼Û·á ¹«·á <br>      
+    <td valign="top"><img src="../img/answ1.gif" width="18" height="18"></td>
+    <td> <span class="font9">â—Ž êµ­ë‚´ ì§€ì—­ -  ë°°ì†¡ë£Œ ë¬´ë£Œ <br>      
       </span><br>
     </td>
     <td align="center" valign="bottom"><a href="#"><img src="img/top_icon.gif" width="28" height="36" border="0"></a></td>
@@ -116,14 +116,14 @@
   <tr> 
     <td width="25" height="25"> </td>
     <td width="25"><img src="img/question_icon.gif" width="18" height="18"></td>
-    <td width="500" class="font9">¹è¼ÛÁö¸¦ ¹Ù²Ù°í ½ÍÀºµ¥¿ä?</td>
+    <td width="500" class="font9">ë°°ì†¡ì§€ë¥¼ ë°”ê¾¸ê³  ì‹¶ì€ë°ìš”?</td>
     <td width="49"> </td>
   </tr>
   <tr> 
     <td height="25"> </td>
-    <td valign="top"><img src="img/answer_icon.gif" width="18" height="18"></td>
-    <td><span class="font9">ÁÖ¹®À» ÇÏ½ÅÈÄ ¹è¼ÛÁö¸¦ ¹Ù²Ù°í ½ÍÀ¸½Ã´Ù¸é, ÀúÈñÂÊ¿¡ ²À ÀüÈ­¸¦ ÇØÁÖ¼Å¾ß ÇÕ´Ï´Ù. ¸¸¾à , 
-      »óÇ° ¹ß¼ÛÈÄ ¹è¼ÛÁöÀ» ¹Ù²Ù½Ã°íÀÚ ÇÒ¶©, ¹è¼ÛÀü ²À ÀüÈ­¸¦ ÁÖ¼Å¾ß ÇÕ´Ï´Ù. »óÇ° ¹è¼ÛÀº ÈÞÀÏ¿¡´Â ÀÌ·ç¿öÁöÁö ¾Ê½À´Ï´Ù. 
+    <td valign="top"><img src="../img/answ1.gif" width="18" height="18"></td>
+    <td><span class="font9">ì£¼ë¬¸ì„ í•˜ì‹ í›„ ë°°ì†¡ì§€ë¥¼ ë°”ê¾¸ê³  ì‹¶ìœ¼ì‹œë‹¤ë©´, ì €í¬ìª½ì— ê¼­ ì „í™”ë¥¼ í•´ì£¼ì…”ì•¼ í•©ë‹ˆë‹¤. ë§Œì•½ , 
+      ìƒí’ˆ ë°œì†¡í›„ ë°°ì†¡ì§€ì„ ë°”ê¾¸ì‹œê³ ìž í• ë•, ë°°ì†¡ì „ ê¼­ ì „í™”ë¥¼ ì£¼ì…”ì•¼ í•©ë‹ˆë‹¤. ìƒí’ˆ ë°°ì†¡ì€ íœ´ì¼ì—ëŠ” ì´ë£¨ì›Œì§€ì§€ ì•ŠìŠµë‹ˆë‹¤. 
       </span><br>
     </td>
     <td align="center" valign="bottom"><a href="#"><img src="img/top_icon.gif" width="28" height="36" border="0"></a></td>

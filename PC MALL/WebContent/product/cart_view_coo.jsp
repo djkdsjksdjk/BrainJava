@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.sql.*,oracle.dbpool.*" contentType="text/html;charset=EUC_KR" %>
+<%@ page language="java" import="java.sql.*,oracle.dbpool.*" contentType="text/html;charset=UTF-8" %>
 
 <%
      if( session.getAttribute("pid") == null) {
@@ -9,7 +9,7 @@
 
 <html>
 <head>
-  <title>ддг╩емюЭ╧╝╪Нгн╦Т</title>
+  <title>Л╩╢М⌠╗М└╟Л═└К╛╦Л┤╪М∙▒К╙╟</title>
 
 <SCRIPT language=JavaScript src="../common/u3.js"></SCRIPT>
      <link href="../common/u3.css" type=text/css rel=stylesheet>
@@ -21,7 +21,7 @@
 <!-- ====================================================================== -->
 <%
 DBConnectionManager pool = DBConnectionManager.getInstance();
-Connection con = pool.getConnection("ora8");//юнюз╟╙ ora8
+Connection con = pool.getConnection("ora8");//Л²╦Л·░Й╟▓ ora8
 
 Statement stmt=null;
 Statement stmt1=null;
@@ -64,17 +64,17 @@ try {
 <br><br>
 <table border="0" cellpadding='0' cellspacing='0' width='620' align="center">
      <tr bgcolor=#7aaad5>
-            <td align=middle bgcolor=#7aaad5><font color=#ffffff><b><%=pid%>╢тюг ╟Ь╣©╠╦╦его╢б ╦Я╥оют╢о╢ы.</b></font></td>
+            <td align=middle bgcolor=#7aaad5><font color=#ffffff><b><%=pid%>К▀≤Л²≤ ЙЁ╣К▐≥Й╣╛К╖╓М∙≤К┼■ К╙╘К║²Л·┘К▀┬К▀╓.</b></font></td>
 	</tr>
 </table>
 
 <table border="0" cellpadding='0' cellspacing='3' width='620'  align="center">
 	<tr> 
-		<th bgcolor="#CC3300"><font color="#FFFFFF" size="2">╩Сг╟╦М</font></th>
-		<th  bgcolor="#CC3300"><font color="#FFFFFF"  size=2>╪Ж╥╝</font></th>
-		<th  bgcolor="#CC3300"><font color="#FFFFFF" size=2>фг╦е╟║(©Ь)</font></th>
-		<th  bgcolor="#CC3300"><font color="#FFFFFF" size=2>гу╟Х</font></th>
-	    <th  bgcolor="#CC3300"><font color="#FFFFFF" size=2>цК╪р</font></th>
+		<th bgcolor="#CC3300"><font color="#FFFFFF" size="2">Л┐│М▓┬К╙┘</font></th>
+		<th  bgcolor="#CC3300"><font color="#FFFFFF"  size=2>Л┬≤К÷┴</font></th>
+		<th  bgcolor="#CC3300"><font color="#FFFFFF" size=2>М▄░К╖╓Й╟─(Л⌡░)</font></th>
+		<th  bgcolor="#CC3300"><font color="#FFFFFF" size=2>М∙╘ЙЁ└</font></th>
+	    <th  bgcolor="#CC3300"><font color="#FFFFFF" size=2>Л╥╗Л├▄</font></th>
 	</tr>
 
 <%
@@ -95,22 +95,22 @@ try {
 	</td>
 	<td bgcolor="#E2EDFA" width="84" >
 		<input type=text name=number value=<%=qty%> size="4">
-		<input type=submit value="╪Жа╓">
+		<input type=submit value="Л┬≤Л═∙">
     </td>
 </form>
 	 
 	<td  bgcolor="#E2EDFA" align="right" width="70">
-		 <font size="2"><%= price %>©Ь</font>
+		 <font size="2"><%= price %>Л⌡░</font>
 	</td>
     <td bgcolor="#E2EDFA" width="70" align="right">
-		<font size="2"><%= price*qty %> ©Ь</font>
+		<font size="2"><%= price*qty %> Л⌡░</font>
 	</td>
 
 <form method="post" action="cart_delete.jsp?productnum=<%=id%>">
     <td width="1" bgcolor="#E2EDFA">
       <input type=hidden name="id" value="<%=id%>">
        <input type=hidden name="tag" value="on">
-      <input type=submit value="╩Ха╕">
+      <input type=submit value="Л┌╜Л═°">
     </td>
 </form>
 
@@ -128,7 +128,7 @@ try {
 	if (stmt != null) stmt.close();
 	if (stmt1 != null) stmt1.close();
 	if (con != null) {
-        pool.freeConnection("ora8", con); //©╛╟А ╡В╠Б
+        pool.freeConnection("ora8", con); //Л≈╟Й╡╟ К│┼Й╦╟
 	}
 }%>
 

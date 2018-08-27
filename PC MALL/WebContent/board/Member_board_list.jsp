@@ -1,5 +1,20 @@
-<%@ page contentType="text/html;charset=UTF-8" 
-import="java.sql.*,oracle.dbpool.*"  %>
+<%@ page contentType="text/html;charset=utf-8" import="java.sql.*,oracle.dbpool.*"  %>
+<% request.setCharacterEncoding("UTF-8"); %>
+
+<%
+//로그인이 아닌경우
+if(session.getAttribute("pid") == null){
+	%>
+	<script type="text/javascript">
+	alert("회원전용 게시판 입니다.");
+	history.go(-1);
+	
+	</script>
+	
+<%
+}else{
+
+%>
 
 <HTML>
 	<HEAD><TITLE>컴퓨터전문쇼핑몰</TITLE>
@@ -13,7 +28,7 @@ import="java.sql.*,oracle.dbpool.*"  %>
 <br>
 	<table border=1 width=550 height=30 bordercolor=black>
 		<tr>
-			<td align=center bgcolor=0063ce><font size=3 color=#FFFFFF><b>자 유 게 시 판</b></td>
+			<td align=center bgcolor=0063ce><font size=3 color=#FFFFFF><b>회 원 게 시 판</b></td>
 		</tr>
 	</table>
 	<br>
@@ -25,12 +40,14 @@ import="java.sql.*,oracle.dbpool.*"  %>
 			<td width=100 align="center">글쓴이</td>
 			<td width=60 align="center">조회수</td>
 		</tr>
+		
+<!-- 페이징 -->
 <%!   
-	int pagesize = 10;  // 한페이지당 10개 출력물
-	int pageNUM=1;    // 페이지 번호
-	int pagecount=1 ; // 페이지 갯수 지정 변수
-	int absolutepage=1;  // 절대 위치 페이지 번호
-	int dbcount=0 ;   //  DB 안에 글 갯수 저장 변수
+int pagesize = 10;  // 한페이지당 10개 출력물
+int pageNUM=1;    // 페이지 번호
+int pagecount=1 ; // 페이지 갯수 지정 변수
+int absolutepage=1;  // 절대 위치 페이지 번호
+int dbcount=0 ;   //  DB 안에 글 갯수 저장 변수
 %>
 <%
 	try{ 
@@ -39,6 +56,7 @@ import="java.sql.*,oracle.dbpool.*"  %>
  
 		String  b_name, b_email, b_title, b_content, b_date, mailto;
 		int  b_id =0 , b_hit = 0, level=0, color=1 ;
+
 		// DB 행의 수 계산
 		Statement stmt = con.createStatement();  
 		ResultSet pageset = stmt.executeQuery("select count(b_id) from re_board");
@@ -46,27 +64,29 @@ import="java.sql.*,oracle.dbpool.*"  %>
 			dbcount = pageset.getInt(1); 
 			pageset.close();
 		}
+
         int ii = dbcount + 1;
-        
+
 		if(dbcount%pagesize == 0)   
 			pagecount = dbcount/(pagesize); // 총 페이지수 구하기
 		else
 			pagecount = dbcount/(pagesize)+1; // 총 페이지수 구하기
-			
+
 		if(request.getParameter("pageNUM") != null) {
 			pageNUM=Integer.parseInt(request.getParameter("pageNUM"));	 //지정된 페이지 보여주기
 			absolutepage=(pageNUM-1)*pagesize+1;
 			ii = ii - (pageNUM-1)*pagesize;
 		}
+
 		String sql = "select b_id, b_name, b_email, b_title, b_content, ";
 		sql = sql + " to_char(b_date,'yy-mm-dd'), b_hit, ref, step, anslevel "; 
 		sql = sql + " from re_board order by ref desc, step ";
 		sql = sql.toUpperCase().trim();
 		ResultSet rs = stmt.executeQuery(sql);
-		
+
 		for(int k=1; k<absolutepage; k++)rs.next();
 		int k=1;
-		
+
 		while(rs.next() && k<=pagesize){ 
 			b_id=rs.getInt(1);			//글번호
 			b_name=rs.getString(2);		// 글쓴이
@@ -83,7 +103,7 @@ import="java.sql.*,oracle.dbpool.*"  %>
 			}
             ii--;
  %>
-		<tr height=22 bgcolor=ffffff onMouseOver=this.style.backgroundColor='#FFF8DE'  onMouseOut=this.style.backgroundColor='#FFFFFF'>
+		<tr height=22 bgcolor=ffffff onMouseOver=this.style.backgroundColor='#FFF8DE'  onMouseOut=this.style.backgroundColor='#FFFF'>
 			<td width=50 align=center><%= ii %></td>
 			<td width=230 align="left"><a href='show.jsp?b_id=<%= b_id %>'>
 <%			
@@ -105,6 +125,7 @@ import="java.sql.*,oracle.dbpool.*"  %>
 <%
 		k++;
 		} 
+
 		rs.close();
 		stmt.close(); 
 		con.close(); 
@@ -127,7 +148,7 @@ import="java.sql.*,oracle.dbpool.*"  %>
 			 int startPage = pageNUM - temp;
 			// [이전] 링크 추가하기
 			if ((startPage-limit)>0){ %>
-				<a href='board_list.jsp?pageNUM=<%=startPage-1%>'>[이전]<a>
+				<a href='Member_board_list.jsp?pageNUM=<%=startPage-1%>'>[이전]<a>
 <% 
 			}
 			 //페이지 번호 나열하기
@@ -137,14 +158,14 @@ import="java.sql.*,oracle.dbpool.*"  %>
 <% 
 				} else { 
 %>
-					<a href='board_list.jsp?pageNUM=<%=i%>'><%=i%><a>
+					<a href='Member_board_list.jsp?pageNUM=<%=i%>'><%=i%><a>
 <%
 					}
 				 if(i >= pagecount) break;
 			 }
 			 //[다음] 링크 추가
 			if ((startPage+limit)<=pagecount){ %>
-  				<a href='board_list.jsp?pageNUM=<%=startPage+limit%>'>[다음] <a>
+  				<a href='Member_board_list.jsp?pageNUM=<%=startPage+limit%>'>[다음] <a>
 <%
 			}
 %>
@@ -158,5 +179,7 @@ import="java.sql.*,oracle.dbpool.*"  %>
 	</table>
 </form>
 	<jsp:include page="../common/basic_copyright.jsp" flush="true"/>
+<%}
+%>
 </body>
 </html>

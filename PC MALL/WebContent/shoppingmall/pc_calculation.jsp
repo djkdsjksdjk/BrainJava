@@ -1,9 +1,9 @@
-<%@ page contentType="text/html; charset=euc-kr" 
+<%@ page contentType="text/html; charset=UTF-8" 
                  import="java.sql.*,oracle.dbpool.*,java.util.*, java.text.*" %> 
 
 <HTML>
 	<HEAD>
-		<TITLE>Á¶¸³ PC °ßÀû</TITLE>
+		<TITLE>ì¡°ë¦½ PC ê²¬ì </TITLE>
 		<SCRIPT language=JavaScript src="../common/u3.js"></script>
 		<link href="../common/u3.css" type=text/css rel=stylesheet>
 	</HEAD>
@@ -11,19 +11,19 @@
 <BODY leftmargin=0 topmargin=0 marginwidth=0 marginheight=0>
     <jsp:include page="../common/basic_screen.jsp" flush="true"/>
 	
-<!--  È­¸é ¼³°è   -->
+<!--  í™”ë©´ ì„¤ê³„   -->
 <center><br>
   <table border=1 width=550 height=30 bordercolor=black>
 	<tr>
-		<td align=center bgcolor=0063ce><font color=white><b>Á¶¸³ PC °ßÀû</b></td>
+		<td align=center bgcolor=0063ce><font color=white><b>ì¡°ë¦½ PC ê²¬ì </b></td>
 	</tr>
   </table><br>
 
 <form name="buy" action="../product/basket_insert.jsp" method="post">
 <table align=center  border=0  cellpadding=0 cellspacing=3  width=550 >
 	<tr>
-		<td bgcolor="#7eaee9" align="center"><b><font color="#ffffff">±¸ºÐ</font></b></td>
-		<td bgcolor="#7eaee9" align="center"><b><font color="#ffffff">»óÇ°¸í</font></b></td>
+		<td bgcolor="#7eaee9" align="center"><b><font color="#ffffff">êµ¬ë¶„</font></b></td>
+		<td bgcolor="#7eaee9" align="center"><b><font color="#ffffff">ìƒí’ˆëª…</font></b></td>
 	</tr>
 <%
 	DBConnectionManager pool = DBConnectionManager.getInstance();
@@ -45,7 +45,7 @@
 		</td>
 		<td>
 			<select name=productnum>
-			<option value='0'>------------  ¿øÇÏ½Ã´Â ºÎÇ°À» ¸ñ·Ï¿¡¼­ ¼±ÅÃ ÇÏ¼¼¿ä  ------------</option>
+			<option value='0'>------------  ì›í•˜ì‹œëŠ” ë¶€í’ˆì„ ëª©ë¡ì—ì„œ ì„ íƒ í•˜ì„¸ìš”  ------------</option>
 <% 
         Statement stmt1 = con.createStatement();
 		ResultSet rs1=stmt1.executeQuery("select * from product where category="+id);
@@ -54,7 +54,7 @@
 			String name1=rs1.getString("name");
 			int price1=rs1.getInt("price");
 %>
-			<option value=<%= id1 %>>&nbsp;<%=name1%> &nbsp;°¡°Ý:<%= price1 %></option>
+			<option value=<%= id1 %>>&nbsp;<%=name1%> &nbsp;ê°€ê²©:<%= price1 %></option>
 <%
 		}
 		rs1.close();
@@ -75,13 +75,13 @@
   } 
 %>
 	<tr>
-		<td align=center colspan=3><br><input type="submit" value="Àå¹Ù±¸´Ï¿¡ ´ã±â"></td>
+		<td align=center colspan=3><br><input type="submit" value="ìž¥ë°”êµ¬ë‹ˆì— ë‹´ê¸°"></td>
 	</tr>
 </table>
 </form>
   
 </center>
-<!--  È­¸é ³¡   -->
+<!--  í™”ë©´ ë   -->
 	<jsp:include page="../common/basic_copyright.jsp" flush="true"/>
 </BODY>
 </HTML>

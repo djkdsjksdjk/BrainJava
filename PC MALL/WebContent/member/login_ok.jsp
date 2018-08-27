@@ -5,9 +5,9 @@
 		Connection con = pool.getConnection("ora8");
 		
 		String uid="", pwd="", name="";
-		String mem_uid = request.getParameter("uid"); 
-		String mem_pwd = request.getParameter("pwd");
-		String sql = "select m_uid, m_pwd, m_name from member where m_uid ='" + mem_uid +"'"; 
+		String m_uid = request.getParameter("uid"); 
+		String m_pwd = request.getParameter("pwd");
+		String sql = "select m_uid, m_pwd, m_name from member where m_uid ='" + m_uid +"'"; 
 		
 		Statement stmt = con.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
@@ -31,7 +31,7 @@
 
  <% }
 		
-        if(uid.equals(mem_uid) && pwd.equals(mem_pwd)) {
+        if(uid.equals(m_uid) && pwd.equals(m_pwd)) {
 			
         	//세션영역에 세션키와 값(변수)을 설정
 		    session.setAttribute("pid",uid);	 //회원아이디
@@ -66,7 +66,7 @@
 <%		 
 			//response.sendRedirect("../main/index.jsp");
 
-		 } else if(uid.equals(mem_uid) && !pwd.equals(mem_pwd)) { // !정보 불일치
+		 } else if(uid.equals(m_uid) && !pwd.equals(m_pwd)) { // !정보 불일치
 
 			 System.out.println("로그인 실패 - 패스워드 오류");
 %>

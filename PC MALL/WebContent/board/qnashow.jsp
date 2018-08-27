@@ -1,5 +1,5 @@
 <%@ page  import="java.sql.*,oracle.dbpool.*" contentType="text/html;charset=utf-8" %>
-
+<% request.setCharacterEncoding("UTF-8"); %>
 <%!
 	String name, email, title, body,cdate,mailto;
     int qnaid, hits;

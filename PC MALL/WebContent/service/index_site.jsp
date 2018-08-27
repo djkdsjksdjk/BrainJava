@@ -1,8 +1,8 @@
-<%@ page contentType="text/html;charset=euc_kr"  %>
+<%@ page contentType="text/html;charset=UTF-8"  %>
 
 <HTML>
 	<HEAD>
-		<TITLE>ÄÄÇ»ÅÍÀü¹®¼îÇÎ¸ô</TITLE>
+		<TITLE>ì»´í“¨í„°ì „ë¬¸ì‡¼í•‘ëª°</TITLE>
 			<link href="../common/u3.css" type=text/css rel=stylesheet>
 	</HEAD>
 

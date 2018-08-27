@@ -1,8 +1,8 @@
-<%@ page contentType="text/html;charset=euc_kr" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 
 <HTML>
 <HEAD>
-<TITLE> ���ξȳ�-��ǰ��ȯ </TITLE>
+<TITLE> 쇼핑안내-상품교환 </TITLE>
 <LINK href="../common/u3.css" type=text/css rel=STYLESHEET>
 </head>
 

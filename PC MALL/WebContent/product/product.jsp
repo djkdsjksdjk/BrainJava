@@ -1,8 +1,10 @@
-<%@ page language="java" import="java.sql.*,oracle.dbpool.*"  contentType="text/html;charset=euc_kr" %>
+<%@ page language="java" import="java.sql.*,oracle.dbpool.*"  contentType="text/html;charset=UTF-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 
 <html>
 <head>
-  <title>ÄÄÇ»ÅÍÀü¹®¼îÇÎ¸ô</title>
+  <title>ì»´í“¨í„°ì „ë¬¸ì‡¼í•‘ëª°</title>
   <link href="../common/u3.css" type=text/css rel=stylesheet>
 
 <script language=javascript src="../common/u3.js"></script>
@@ -11,7 +13,7 @@
 <body leftmargin=0 topmargin=0 marginwidth=0 marginheight=0>
 <jsp:include page="../common/basic_screen.jsp" flush="true"/>
 
-<!-- »óÇ°»ó¼¼Á¤º¸ Ç¥½Ã -->
+<!-- ìƒí’ˆìƒì„¸ì •ë³´ í‘œì‹œ -->
 <%
 	int productid = 0;
 	String name,company_id,expression,photo,category,cdate;
@@ -45,7 +47,7 @@
 <br><br>
 <table border=0 cellpadding=0 cellspacing=0 width=605 align=center>
    <tr bgcolor=#7aaad5 height=30>
-       <td  colspan=3 align=center bgcolor="#0000ff"><font color="#ffffff"><b> [<%= name %>]»ó¼¼ »óÇ° Á¤º¸</b></font></td>
+       <td  colspan=3 align=center bgcolor="#0000ff"><font color="#ffffff"><b> [<%= name %>]ìƒì„¸ ìƒí’ˆ ì •ë³´</b></font></td>
   </tr>
 </table><br>
 	
@@ -66,27 +68,28 @@
               <td colspan=2 align=center  bgcolor=#00ff66 width=400><font size=3><b><%=name%></b></font></td>
 		 </tr>
           <tr>
-                  <td width=90>&nbsp; »óÇ°ºÐ·ù</td>
+                  <td width=90>&nbsp; ìƒí’ˆë¶„ë¥˜</td>
                   <td width=280>&nbsp;[<%= category %>]</td>
           </tr>
           <tr>
-                  <td width=90>&nbsp; °¡       °Ý</td>
-                  <td width=280>&nbsp;[<%=price%>¿ø]</td>
+                  <td width=90>&nbsp; ê°€       ê²©</td>
+                  <c:set var="fmtPrice" value="<%=price%>"/>
+                  <td width=280>&nbsp;<fmt:formatNumber value="${fmtPrice }" pattern="#,###" />&nbsp;ì›
           </tr>
            <tr> 
-                  <td>&nbsp; Á¦Á¶ È¸»ç</td>
+                  <td>&nbsp; ì œì¡° íšŒì‚¬</td>
                   <td>&nbsp;<%=company_id  %></td>
           </tr>
           <tr> 
-                  <td>&nbsp; »óÇ° ÄÚµå</td>
+                  <td>&nbsp; ìƒí’ˆ ì½”ë“œ</td>
                   <td>&nbsp;<%= code%></td>
            </tr>
             <tr> 
-                  <td>&nbsp; µî  ·Ï  ÀÏ</td>
+                  <td>&nbsp; ë“±  ë¡  ì¼</td>
                   <td>&nbsp;<%= cdate %></td>
            </tr>
           <tr> 
-            <td>&nbsp; »ó¼¼ ¼³¸í</td>
+            <td>&nbsp; ìƒì„¸ ì„¤ëª…</td>
             <td>&nbsp;<%=expression%></td>
           </tr>
         <tr>
@@ -109,7 +112,7 @@
 		 pool.freeConnection("ora8", con);
 		}
 }%>
-<!-- »óÇ°»ó¼¼Á¤º¸ Ç¥½Ã ³¡ -->
+<!-- ìƒí’ˆìƒì„¸ì •ë³´ í‘œì‹œ ë -->
 	<jsp:include page="../common/basic_copyright.jsp" flush="true"/>
 </body>
 </html>

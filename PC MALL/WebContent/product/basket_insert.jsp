@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=euc_kr" import="java.sql.*,oracle.dbpool.*" %>
+<%@ page contentType="text/html;charset=UTF-8" import="java.sql.*,oracle.dbpool.*" %>
 
 <%
 	if( session.getAttribute("pid") == null) {

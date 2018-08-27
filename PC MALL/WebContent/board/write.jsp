@@ -8,11 +8,15 @@ Connection con = pool.getConnection("ora8");
 	
 	int b_id=0;
 
-	String b_name=makeKOR(request.getParameter("b_name"));
+	request.setCharacterEncoding("UTF-8");
+	//String b_name=makeKOR(request.getParameter("b_name"));
+	String b_name = request.getParameter("b_name");
     String pwd = request.getParameter("pwd");
-	String b_email=request.getParameter("b_email");
-	String b_title=makeKOR(request.getParameter("b_title"));
-	String b_content=makeKOR(request.getParameter("b_content"));
+	String b_email = request.getParameter("b_email");
+	//String b_title=makeKOR(request.getParameter("b_title"));
+	String b_title = request.getParameter("b_title");
+	//String b_title=makeKOR(request.getParameter("b_title"));
+	String b_content = request.getParameter("b_content");
 	String ip = request.getRemoteAddr(); // IP 알아내기
 	
  	//쿼리에 '가 들어가면 에러가 발생하므로 replace 처리해준다.
@@ -87,7 +91,7 @@ Connection con = pool.getConnection("ora8");
    if (str==null) 
     kor=null;
    else
-    kor=new String(str.getBytes("ISO-8859-1"),"EUC-KR");
+    kor=new String(str.getBytes("ISO-8859-1"),"UTF-8");
    return kor;
    }
 	

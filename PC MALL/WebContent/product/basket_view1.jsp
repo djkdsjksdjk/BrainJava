@@ -1,10 +1,10 @@
-<%@ page contentType="text/html;charset=euc_kr" import="java.sql.*,oracle.dbpool.*"  %>
+<%@ page contentType="text/html;charset=UTF-8" import="java.sql.*,oracle.dbpool.*"  %>
 
 <%
      if( session.getAttribute("pid") == null) {
 %>
 	 <script language="Javascript">
-		 alert("·Î±×ÀÎÀ» ÇÏ¼¼¿ä")
+		 alert("ë¡œê·¸ì¸ì„ í•˜ì„¸ìš”")
 		location.href="../member/login.jsp";
      </script>
 <%
@@ -13,14 +13,14 @@
 
 <HTML>
 	<HEAD>
-		<TITLE>ÄÄÇ»ÅÍÀü¹®¼îÇÎ¸ô</TITLE>
+		<TITLE>ì»´í“¨í„°ì „ë¬¸ì‡¼í•‘ëª°</TITLE>
       <link href="../common/u3.css" type=text/css rel=stylesheet>
 	</HEAD>
 
 <BODY leftmargin=0 topmargin=0 marginwidth=0 marginheight=0>
         <jsp:include page="../common/basic_screen.jsp" flush="true"/>
 
-<!-- Àå¹Ù±¸´Ï¸ñ·Ï Ç¥½Ã-->
+<!-- ìž¥ë°”êµ¬ë‹ˆëª©ë¡ í‘œì‹œ-->
 <%
 		String pid =(String)session.getAttribute("pid");
 		String productnum = request.getParameter("productnum");
@@ -58,17 +58,17 @@ try {
 <br>
 <table border=1 cellpadding=0 cellspacing=0 width=550 align=center>
 	<tr bgcolor=#7aaad5>
-		<td height=30 align=middle bgcolor=#ccffff><font size=3 color=#000000><b>[<%=pid%>]´ÔÀÇ Àå¹Ù±¸´ÏÀÔ´Ï´Ù.</b></font></td>
+		<td height=30 align=middle bgcolor=#ccffff><font size=3 color=#000000><b>[<%=pid%>]ë‹˜ì˜ ìž¥ë°”êµ¬ë‹ˆìž…ë‹ˆë‹¤.</b></font></td>
 	</tr>
 </table>
 
 <table border=1 cellpadding=0 cellspacing=3 width=620  align=center>
 	<tr height=23> 
-		<th bgcolor="#0066ff"><font color="#ffffff" >»óÇ°¸í</font></th>
-		<th  bgcolor="#0066ff"><font color="#ffffff">¼ö·®</font></th>
-		<th  bgcolor="#0066ff"><font color="#ffffff">ÆÇ¸Å°¡</font></th>
-		<th  bgcolor="#0066ff"><font color="#ffffff"> ÇÕ°è±Ý¾×</font></th>
-		<th  bgcolor="#0066ff"><font color="#ffffff">Ãë¼Ò</font></th>
+		<th bgcolor="#0066ff"><font color="#ffffff" >ìƒí’ˆëª…</font></th>
+		<th  bgcolor="#0066ff"><font color="#ffffff">ìˆ˜ëŸ‰</font></th>
+		<th  bgcolor="#0066ff"><font color="#ffffff">íŒë§¤ê°€</font></th>
+		<th  bgcolor="#0066ff"><font color="#ffffff"> í•©ê³„ê¸ˆì•¡</font></th>
+		<th  bgcolor="#0066ff"><font color="#ffffff">ì·¨ì†Œ</font></th>
 	</tr>
 <%
 	while(rs.next()) {
@@ -82,15 +82,15 @@ try {
 		<td  bgcolor="#ffffcc" align=center><a href="product.jsp?i=<%= id %>"><%=name%></a></td>
 		<td bgcolor="#e2edfa" width=84 >
 			<input type=text name=number value=<%=qty%> size=4>
-			<input type=submit value="¼öÁ¤">
+			<input type=submit value="ìˆ˜ì •">
 		</td>
 	</form>
-		<td  bgcolor="#e2edfa" align=right width=70><%= price %>¿ø</font></td>
-		<td bgcolor="#e2edfa" width=70 align=right><%= price*qty %> ¿ø</font></td>
+		<td  bgcolor="#e2edfa" align=right width=70><%= price %>ì›</font></td>
+		<td bgcolor="#e2edfa" width=70 align=right><%= price*qty %> ì›</font></td>
 	<form method=post action="basket_delete.jsp?productnum=<%=id%>">
 		<td width=1 bgcolor="#e2edfa">
 		<input type=hidden name="id" value="<%=id%>">
-		<input type=submit value="»èÁ¦">
+		<input type=submit value="ì‚­ì œ">
 		</td>
 	</form>
 	</tr>
@@ -114,7 +114,7 @@ try {
 </tr>
 </table>
 
-<!-- Àå¹Ù±¸´Ï¸ñ·Ï Ç¥½Ã ³¡ -->
+<!-- ìž¥ë°”êµ¬ë‹ˆëª©ë¡ í‘œì‹œ ë -->
    <jsp:include page="../common/basic_copyright.jsp" flush="true"/>
 
 <% } %>

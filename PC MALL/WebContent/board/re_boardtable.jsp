@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8"
 	import="java.sql.*,oracle.dbpool.*"%>
+	<% request.setCharacterEncoding("UTF-8"); %>
 <%
 	DBConnectionManager pool = DBConnectionManager.getInstance();
 	Connection con = pool.getConnection("ora8");
@@ -23,7 +24,7 @@
 	dbStmt.executeUpdate(sql);
 	dbStmt.close();
 	con.close();
-	pool.freeConnection("ora8", con); 
+	pool.freeConnection("ora8", con);
 %>
 
 <HTML>
