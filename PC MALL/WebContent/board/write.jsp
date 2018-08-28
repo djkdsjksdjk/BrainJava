@@ -2,13 +2,6 @@
 
 <%@ page import="myutil.Multipart" %>
 <%@ page import="java.net.URLEncoder" %>
-<%@page import="org.apache.log4j.*" %>
-
-<%
-   Logger logger = Logger.getLogger(this.getClass());
-   logger.debug("----로그 출력 debug----");
-   logger.info("----로그 출력 info----");
-%>
 
 
 <%
@@ -45,11 +38,9 @@ try {
     String b_email = multiPart.getParameter("b_email");
 	String b_title = multiPart.getParameter("b_title");
 	String b_content = multiPart.getParameter("b_content");
-	
+	String photo = multiPart.getParameter("upload_file");//이미지
 	//String ip = request.getRemoteAddr(); // IP 알아내기
-	String photo = multiPart.getParameter("photo");//이미지
 	String ip = "127.0.0.1";
-	
 	
  	//쿼리에 '가 들어가면 에러가 발생하므로 replace 처리해준다.
  	b_title = Replace(b_title,"'","''");
@@ -117,8 +108,8 @@ try {
 	pstmt.setString(5,b_title);
 	pstmt.setString(6,b_content);
     pstmt.setInt(7,0);
-    pstmt.setString(8, photo);
-    pstmt.setString(9, ip);
+    pstmt.setString(8,ip);
+    pstmt.setString(9,photo);
     pstmt.setInt(10,ref);
     pstmt.setInt(11,step);
     pstmt.setInt(12,level);

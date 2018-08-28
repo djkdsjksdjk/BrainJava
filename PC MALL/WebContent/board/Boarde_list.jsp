@@ -89,7 +89,7 @@ int dbcount=0 ;   //  DB 안에 글 갯수 저장 변수
 			b_content=rs.getString(5);	//글내용
 			b_date=rs.getString(6);		//작성날짜
 			b_hit=rs.getInt(7);			// 조회수
-			photo=rs.getString(8);      // 사진
+			photo=rs.getString(8);    // 사진
 			level=rs.getInt(10);		//글 레벨
 			if(!b_email.equals("")) {
 			mailto="<a href=mailto:"+b_email+">"+b_name+"</a>";
@@ -100,7 +100,6 @@ int dbcount=0 ;   //  DB 안에 글 갯수 저장 변수
  %>
 		<tr height=30 bgcolor=ffffff onMouseOver=this.style.backgroundColor="#FFF8DE"  onMouseOut=this.style.backgroundColor="#FFFFFF">
 			<td width=50 align=center><%= ii %></td>
-			<td align="right"><a href="show.jsp?b_id=<%= photo %>"><img src="../product/image"></a>
 			<td width=230 align="left"><a href='show.jsp?b_id=<%= b_id %>'>
 			
 <%			
@@ -115,7 +114,7 @@ int dbcount=0 ;   //  DB 안에 글 갯수 저장 변수
 <% 
                 } 
  %>     
- 
+  <img border=0 name=PicMedium height=30 width=30 src="../product/image/<%=photo %>"></a><td> 
              
              <%=b_title%></a></td>
 			 <td width=100 align=center><%=b_date%></td>
