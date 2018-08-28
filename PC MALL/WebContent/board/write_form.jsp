@@ -1,4 +1,15 @@
-	<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%@ page import="myutil.Multipart" %>
+<%@ page import="java.net.URLEncoder" %>
+<%@page import="org.apache.log4j.*" %>
+
+<%
+   Logger logger = Logger.getLogger(this.getClass());
+   logger.debug("----로그 출력 debug----");
+   logger.info("----로그 출력 info----");
+%>
 
 	<html>
 	<head><title>컴퓨터전문쇼핑몰</title>
@@ -38,7 +49,7 @@
     <jsp:include page="../common/basic_screen.jsp" flush="true"/>
 
 <br>
-<form name=bbs_form method=post action="write.jsp">
+<form name=bbs_form method="post" action="write.jsp" enctype="multipart/form-data">
 	  <table border=1 width=550 height=30 bordercolor=black>
 		<tr>
 			<td align=center bgcolor=0063ce><font size=3 color=#FFFFFF><b>게시물 올리기</b></td>
@@ -55,6 +66,12 @@
 	<tr>
 	   <td width=100 align=center bgcolor="#7eaee9">e-mail</td>
 	   <td  colspan=3>&nbsp;<input type="text" name="b_email" size=30></td>
+	</tr>
+	<tr>
+	<form method="post" enctype="multipart/form-data" action="imgup.jsp">
+		<td width=100 align=center bgcolor="#7eaee9">파일첨부</td>
+		<td  colspan=3>&nbsp;<input type="file"   name="upload_file"></td>
+		</form>
 	</tr>	
 	<tr>
 	   <td align=center bgcolor="#7eaee9">제 목</td>

@@ -41,7 +41,8 @@
 			<tr><td height=5></td></tr>
 		</table>
 		<table border=0 cellpadding=0 cellspacing=1 width=550 bgcolor=#7aaad5>
-			<tr bgcolor=#eff4f8 align=center> 
+			<tr bgcolor=#eff4f8 align=center>
+			
 				<td height=30 width=100 bgcolor=#ffccff>&nbsp;상품이미지</td>
 				<td height=30 bgcolor=#ffccff>&nbsp;상품명</td>
 				<td height=30 bgcolor=#ffccff>&nbsp;가격</td>

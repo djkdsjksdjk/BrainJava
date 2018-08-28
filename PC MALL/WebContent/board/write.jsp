@@ -1,23 +1,55 @@
-<%@ page  import="java.sql.*,oracle.dbpool.*,java.util.*" contentType="text/html;charset=utf-8" %>
-<%
-try {
+<%@ page  import="java.sql.*,oracle.dbpool.*,java.util.*" contentType="text/html;charset=UTF-8" %>
 
-   //DB풀 메니저 객체 생성 사용
-DBConnectionManager pool = DBConnectionManager.getInstance();
-Connection con = pool.getConnection("ora8");
+<%@ page import="myutil.Multipart" %>
+<%@ page import="java.net.URLEncoder" %>
+<%@page import="org.apache.log4j.*" %>
+
+<%
+   Logger logger = Logger.getLogger(this.getClass());
+   logger.debug("----로그 출력 debug----");
+   logger.info("----로그 출력 info----");
+%>
+
+
+<%
+
+
+try {
+	
+    //DB풀 메니저 객체 생성 사용
+	DBConnectionManager pool = DBConnectionManager.getInstance();
+	Connection con = pool.getConnection("ora8");
 	
 	int b_id=0;
 
-	request.setCharacterEncoding("UTF-8");
 	//String b_name=makeKOR(request.getParameter("b_name"));
-	String b_name = request.getParameter("b_name");
-    String pwd = request.getParameter("pwd");
-	String b_email = request.getParameter("b_email");
-	//String b_title=makeKOR(request.getParameter("b_title"));
-	String b_title = request.getParameter("b_title");
-	//String b_title=makeKOR(request.getParameter("b_title"));
-	String b_content = request.getParameter("b_content");
-	String ip = request.getRemoteAddr(); // IP 알아내기
+	
+	request.setCharacterEncoding("UTF-8");
+	
+	///////////////////// 파일 업로드 시작 ////////////////
+ 	Multipart multiPart = new Multipart(request);
+	String fileName = multiPart.getFileName("upload_file");
+	String newPath = application.getRealPath("/product/image/" + fileName);
+	multiPart.saveFile("upload_file", newPath); 
+	
+	
+	//String b_name = request.getParameter("b_name");
+	//String pwd = request.getParameter("pwd");
+	//String b_email = request.getParameter("b_email");
+	//String b_title = request.getParameter("b_title");
+	//String b_content = request.getParameter("b_content");
+	//String ip = request.getRemoteAddr(); // IP 알아내기
+	
+	String b_name = multiPart.getParameter("b_name");
+	String pwd = multiPart.getParameter("pwd");
+    String b_email = multiPart.getParameter("b_email");
+	String b_title = multiPart.getParameter("b_title");
+	String b_content = multiPart.getParameter("b_content");
+	
+	//String ip = request.getRemoteAddr(); // IP 알아내기
+	String photo = multiPart.getParameter("photo");//이미지
+	String ip = "127.0.0.1";
+	
 	
  	//쿼리에 '가 들어가면 에러가 발생하므로 replace 처리해준다.
  	b_title = Replace(b_title,"'","''");
@@ -41,7 +73,23 @@ Connection con = pool.getConnection("ora8");
 	} else {
 		b_id=1;   
 	}
-  
+
+    if(multiPart.getParameter("b_id") != null) { 
+    	ref=Integer.parseInt(multiPart.getParameter("ref"));
+        step=Integer.parseInt(multiPart.getParameter("step"));
+        level=Integer.parseInt(multiPart.getParameter("level"));
+     	String str="update re_board set step=step+1 where ref="+ref+" and step > "+ step;
+   		stmt.executeUpdate(str);
+   		stmt.close();
+        step=step+1;
+        level=level+1;
+	} else {
+    	ref=maxref+1;
+        step=0;
+        level=0;
+    }  
+			
+/* 	
     if(request.getParameter("b_id") != null) { 
     	ref=Integer.parseInt(request.getParameter("ref"));
         step=Integer.parseInt(request.getParameter("step"));
@@ -57,7 +105,10 @@ Connection con = pool.getConnection("ora8");
         level=0;
     }        
 
-	sql = "insert into re_board (B_ID, PWD, B_NAME, B_EMAIL, B_TITLE, B_CONTENT, B_HIT, B_IP, REF, STEP, ANSLEVEL, B_DATE )values(?,?,?,?,?,?,?,?,?,?,?,sysdate)";
+     */
+    
+    
+	sql = "insert into re_board (B_ID, PWD, B_NAME, B_EMAIL, B_TITLE, B_CONTENT, B_HIT, B_IP, photo, REF, STEP, ANSLEVEL, B_DATE )values(?,?,?,?,?,?,?,?,?,?,?,?,sysdate)";
 	PreparedStatement pstmt = con.prepareStatement(sql);
 	pstmt.setInt(1,b_id);
     pstmt.setString(2,pwd);
@@ -66,10 +117,11 @@ Connection con = pool.getConnection("ora8");
 	pstmt.setString(5,b_title);
 	pstmt.setString(6,b_content);
     pstmt.setInt(7,0);
-    pstmt.setString(8, ip);
-    pstmt.setInt(9,ref);
-    pstmt.setInt(10,step);
-    pstmt.setInt(11,level);
+    pstmt.setString(8, photo);
+    pstmt.setString(9, ip);
+    pstmt.setInt(10,ref);
+    pstmt.setInt(11,step);
+    pstmt.setInt(12,level);
 
 	pstmt.executeUpdate();
 	pstmt.close();
@@ -85,7 +137,9 @@ Connection con = pool.getConnection("ora8");
 	}
 %>
 
-<%! 
+<%!
+
+	
    String makeKOR(String str)throws java.io.UnsupportedEncodingException{
    String kor="";
    if (str==null) 
@@ -103,4 +157,6 @@ public static String Replace(String original, String oldString, String newString
         return original;
 }	
 
+	   
+	   
 %>

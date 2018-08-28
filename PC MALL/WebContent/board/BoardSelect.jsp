@@ -2,6 +2,14 @@
 	import="java.sql.*,oracle.dbpool.*"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@page import="org.apache.log4j.*" %>
+
+<%
+   Logger logger = Logger.getLogger(this.getClass());
+   logger.debug("----로그 출력 debug----");
+   logger.info("----로그 출력 info----");
+%>
+
 
 <HTML>
 <HEAD>
@@ -23,7 +31,7 @@
 				String s_word = new String(request.getParameter("srch_word").getBytes("8859_1"), "UTF-8");
 
 				try {
-					String b_name, b_email, b_title, b_content, b_date;
+					String b_name="집", b_email, b_title, b_content, b_date, photo;
 					int b_id, b_hit, count;
 
 					ResultSet rs = stmt.executeQuery(
@@ -51,6 +59,7 @@
 		<tr bgcolor="#7eaee9" align="center">
 			
 			<td height=30 bgcolor=#7aaad5>&nbsp;번호</td>
+			<td height=30 bgcolor=#7aaad5>&nbsp;사진</td>
 			<td height=30 width=230 bgcolor=#7aaad5>&nbsp;제목</td>
 			<td height=30 bgcolor=#7aaad5>&nbsp;날짜</td>
 			<td height=30 bgcolor=#7aaad5>&nbsp;글쓴이</td>
@@ -67,10 +76,11 @@
 						b_content=rs.getString(5);	//글내용
 						b_date=rs.getString(6);		//작성날짜
 						b_hit=rs.getInt(7);			// 조회수
+						photo = rs.getString(8);    // 사진
 						%>
 						<tr bgcolor="edf5fe"> 
 				<td  height=30>&nbsp;&nbsp;&nbsp;&nbsp;<a href=
-				                "../board/Boarde_list.jsp?i=<%=b_title%> <%=b_content%> <%=b_name%>"></a></td>
+				                "../board/Boarde_list.jsp?i= <%=b_title%> <%=b_content%> <%=b_name%>"></a></td>
 				
 			</tr>
 						<%

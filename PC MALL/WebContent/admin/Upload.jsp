@@ -11,6 +11,8 @@ String title = multipart.getParameter("TITLE");
 String description = multipart.getParameter("DESCRIPTION");
 
 String fileName = multipart.getFileName("UPLOAD_FILE");
+
+//jdbc 테이블 입력 상품등록
 String newPath = application.getRealPath("/product/image/" + fileName);
 multipart.saveFile("UPLOAD_FILE", newPath);
 

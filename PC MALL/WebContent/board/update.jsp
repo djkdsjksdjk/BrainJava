@@ -94,7 +94,7 @@ public static String Replace(String original, String oldString, String newString
 <script language="Javascript">
 function alrim(){
 	alert("성공적으로 수정하였습니다.");
-	location.href="board_list.jsp";
+	location.href="Boarde_list.jsp";
 }
 </script>
 </head>

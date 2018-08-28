@@ -58,7 +58,7 @@ import="java.sql.*,oracle.dbpool.*"  %>
 			absolutepage=(pageNUM-1)*pagesize+1;
 			ii = ii - (pageNUM-1)*pagesize;
 		}
-		String sql = "select b_id, b_name, b_email, b_title, b_content, ";
+		String sql = "select b_id, b_name, b_email, b_title, b_content, I_content ";
 		sql = sql + " to_char(b_date,'yy-mm-dd'), b_hit, ref, step, anslevel "; 
 		sql = sql + " from re_board order by ref desc, step ";
 		sql = sql.toUpperCase().trim();
