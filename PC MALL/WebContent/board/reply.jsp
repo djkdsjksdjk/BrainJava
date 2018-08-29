@@ -15,7 +15,6 @@ Connection con = pool.getConnection("ora8");//인자값 jdbc
 	String b_email=request.getParameter("email");
 	String b_title=makeKOR(request.getParameter("title"));
 	String b_content=makeKOR(request.getParameter("body"));
-	String photo=makeKOR(request.getParameter("image"));
 	String ip = request.getRemoteAddr(); // IP 알아내기
 
 
@@ -59,7 +58,7 @@ Connection con = pool.getConnection("ora8");//인자값 jdbc
         }        
 
 
-	sql = "insert into re_board values(?,?,?,?,?,?,sysdate,?,?,?,?,?)";
+	sql = "insert into re_board values(?,?,?,?,?,sysdate,?,?,?,?,?)";
 	PreparedStatement pstmt = con.prepareStatement(sql);
 	pstmt.setInt(1,b_id);
 	pstmt.setString(2,b_name);
@@ -68,11 +67,10 @@ Connection con = pool.getConnection("ora8");//인자값 jdbc
 	pstmt.setString(5,b_title);
 	pstmt.setString(6,b_content);
     pstmt.setInt(7,0);
-    pstmt.setString(8, photo);
-    pstmt.setString(9, ip);
-    pstmt.setInt(10,ref);
-    pstmt.setInt(11,step);
-    pstmt.setInt(12,level);
+    pstmt.setString(8, ip);
+    pstmt.setInt(9,ref);
+    pstmt.setInt(10,step);
+    pstmt.setInt(11,level);
 
 
 	pstmt.executeUpdate();

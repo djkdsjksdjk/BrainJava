@@ -124,7 +124,7 @@
  <%
 		        }
  %>
-				<img src="img/reply.gif" width="16" height="16"border=0>  	
+				<img src="img/reply2.gif" width="16" height="16"border=0>  	
 <% 
                 } 
  %> 

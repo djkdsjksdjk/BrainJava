@@ -13,12 +13,9 @@ try {
    Connection con = pool.getConnection("ora8");
      
    String bid=request.getParameter("b_id"); 
-
    Statement stmt = con.createStatement();
-   stmt.executeUpdate("update re_board set b_hit=b_hit+1 where b_id="+bid+"");  //조회수를 올린다
-
-   String sql="select b_id, b_name, b_email, b_title, b_content, to_char(b_date,'yy-mm-dd'),b_hit, b_ip, photo, ref, step, anslevel, pwd  from re_board where b_id="+bid; 
-
+   stmt.executeUpdate("update re_board2 set b_hit=b_hit+1 where b_id="+bid+"");  //조회수를 올린다
+   String sql="select b_id, b_name, b_email, b_title, b_content, to_char(b_date,'yy-mm-dd'),b_hit, b_ip, photo, ref, step, anslevel, pwd  from re_board2 where b_id="+bid; 
    ResultSet rs = stmt.executeQuery(sql);  
    if(rs.next()) {   
       b_id=rs.getInt(1);
@@ -62,39 +59,42 @@ try {
   <br>
 <table width="550" border="1" cellspacing="0" cellpadding="0">
 
-	<tr>
-	   <td width=120 align=center bgcolor="#7eaee9">등록자</td>
-	   <td width=170 bgcolor=ffffff>&nbsp;<%=b_name%></td>
-	   <td width=100 align=center bgcolor="#7eaee9">작성일</td>
-	   <td width=160 bgcolor=ffffff>&nbsp;<%=b_date%>
-	   </td>
-	</tr>	
-	<tr>
-	   <td width=120 align=center bgcolor="#7eaee9">E-mail 주소</td>
-	   <td colspan=3 bgcolor=ffffff>&nbsp;
-	        <a href="mailto:<%=b_email%>"><%=b_email%></a></td>
-	</tr>	
-	<tr>
-	   <td align=center bgcolor="#7eaee9">제 목</td>
-	   <td colspan=3 bgcolor=ffffff>&nbsp;<%=b_title%></td>
-	</tr>	
-	<tr>
-	   <td align=center bgcolor="#7eaee9">내 용</td>
-	   <td colspan=3 bgcolor=ffffff>
-	    <table>
-	      <tr>
-	         <td valign=top><img border=0 name=picmedium height=200 width=200 src="../product/image/<%=photo%>"></td>     
-	         <textarea cols=60 rows=15 name="content"><%=b_content%></textarea>
-	      </tr>
-	   </table>
-	   </td>
-	</tr>
+<tr>
+   <td width=120 align=center bgcolor="#7eaee9">등록자</td>
+   <td width=170 bgcolor=ffffff>&nbsp;<%=b_name%></td>
+   <td width=100 align=center bgcolor="#7eaee9">작성일</td>
+   <td width=160 bgcolor=ffffff>&nbsp;<%=b_date%>
+   </td>
+</tr>
+<tr>
+   <td width=120 align=center bgcolor="#7eaee9">E-mail 주소</td>
+   <td colspan=3 bgcolor=ffffff>&nbsp;
+        <a href="mailto:<%=b_email%>"><%=b_email%></a></td>
+</tr>
+<tr>
+   <td align=center bgcolor="#7eaee9">제 목</td>
+   <td colspan=3 bgcolor=ffffff>&nbsp;<%=b_title%></td>
+</tr>
+<tr>
+   <td align=center bgcolor="#7eaee9">내 용</td>
+   <td colspan=3 bgcolor=ffffff>
+    <table>
+      <tr>
+             
+         <textarea cols=60 rows=15 name="content"><%=b_content%></textarea>
+         <tr>
+         <td valign=top><img border=0 name=picmedium height=200 width=200 src="../product/image/<%=photo%>"></td>
+         </tr>
+      </tr>
+  </table>
+   </td>
+</tr>
 
     <tr>
-	   	<td colspan=4 align=right height=28 >
-	   	  <a href="reply_form.jsp?b_id=<%=b_id%>"><img src="img/b_re.gif" border=0></a>
-		  <a href="update_form.jsp?b_id=<%=b_id%>"><img src="img/b_modify.gif" border=0></a>
-		  <a href="delete_confirm.jsp?b_id=<%=b_id%>"><img src="img/b_delete.gif" border=0></a>
+<td colspan=4 align=right height=28 >
+  <a href="reply_form.jsp?b_id=<%=b_id%>"><img src="img/b_re.gif" border=0></a>
+  <a href="update_form.jsp?b_id=<%=b_id%>"><img src="img/b_modify.gif" border=0></a>
+  <a href="delete_confirm.jsp?b_id=<%=b_id%>"><img src="img/b_delete.gif" border=0></a>
 		   <a href="mailform.jsp?b_id=<%=b_id%>"><img src="img/singo.png" border=0></a>
 		  <a href="javascript:history.go(-1)"><img src="img/b_list.gif" border=0></a>
 	   	</td>

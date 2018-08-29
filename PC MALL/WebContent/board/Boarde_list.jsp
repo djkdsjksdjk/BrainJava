@@ -2,11 +2,8 @@
 import="java.sql.*,oracle.dbpool.*"  %>
 <%@page import="org.apache.log4j.*" %>
 
-<%
-   Logger logger = Logger.getLogger(this.getClass());
-   logger.debug("----로그 출력 debug----");
-   logger.info("----로그 출력 info----");
-%>
+
+
 
 <HTML>
 	<HEAD><TITLE>컴퓨터전문쇼핑몰</TITLE>
@@ -20,14 +17,13 @@ import="java.sql.*,oracle.dbpool.*"  %>
 <br>
 	<table border=1 width=550 height=30 bordercolor=black>
 		<tr>
-			<td align=center bgcolor=0063ce><font size=3 color=#FFFFFF><b>자 유 게 시 판</b></td>
+			<td align=center bgcolor=0063ce><font size=3 color=#FFFFFF><b>상 품 문 의 게 시 판</b></td>
 		</tr>
 	</table>
 	<br>
 	<table width=550 border=1 cellspacing=0 cellpadding=0  bordercolor="#C0C0C0">
 		<tr bgcolor="#7eaee9" height=21>
 			<td width=50 align="center" bgcolor="#7EAEE9"><font size="2" >번호</font></td>
-			<td width=100 align="center">사진</td>
 			<td width=230  align="center">제목</td>
 			<td width=100 align="center">날짜</td>
 			<td width=100 align="center">글쓴이</td>
@@ -48,12 +44,12 @@ int dbcount=0 ;   //  DB 안에 글 갯수 저장 변수
 		DBConnectionManager pool = DBConnectionManager.getInstance();
 		Connection con = pool.getConnection("ora8");
  
-		String  b_name, b_email, b_title, b_content, b_date, photo, mailto;
+		String  b_name, b_email, b_title, b_content, b_date, mailto;
 		int  b_id =0 , b_hit = 0, level=0, color=1 ;
 
 		// DB 행의 수 계산
 		Statement stmt = con.createStatement();  
-		ResultSet pageset = stmt.executeQuery("select count(b_id) from re_board");
+		ResultSet pageset = stmt.executeQuery("select count(b_id) from re_board2");
 		if( pageset.next()){
 			dbcount = pageset.getInt(1); 
 			pageset.close();
@@ -73,8 +69,8 @@ int dbcount=0 ;   //  DB 안에 글 갯수 저장 변수
 		}
 
 		String sql = "select b_id, b_name, b_email, b_title, b_content, ";
-		sql = sql + " to_char(b_date,'yy-mm-dd'), b_hit, photo, ref, step, anslevel "; 
-		sql = sql + " from re_board order by ref desc, step ";
+		sql = sql + " to_char(b_date,'yy-mm-dd'), b_hit, ref, step, anslevel "; 
+		sql = sql + " from re_board2 order by ref desc, step ";
 		sql = sql.toUpperCase().trim();
 		ResultSet rs = stmt.executeQuery(sql);
 
@@ -89,7 +85,6 @@ int dbcount=0 ;   //  DB 안에 글 갯수 저장 변수
 			b_content=rs.getString(5);	//글내용
 			b_date=rs.getString(6);		//작성날짜
 			b_hit=rs.getInt(7);			// 조회수
-			photo=rs.getString(8);    // 사진
 			level=rs.getInt(10);		//글 레벨
 			if(!b_email.equals("")) {
 			mailto="<a href=mailto:"+b_email+">"+b_name+"</a>";
@@ -100,7 +95,7 @@ int dbcount=0 ;   //  DB 안에 글 갯수 저장 변수
  %>
 		<tr height=30 bgcolor=ffffff onMouseOver=this.style.backgroundColor="#FFF8DE"  onMouseOut=this.style.backgroundColor="#FFFFFF">
 			<td width=50 align=center><%= ii %></td>
-			<td width=230 align="left"><a href='show.jsp?b_id=<%= b_id %>'>
+			<td width=230 align="left"><a href='show3.jsp?b_id=<%= b_id %>'>
 			
 <%			
 				if(level>0) { 
@@ -114,7 +109,6 @@ int dbcount=0 ;   //  DB 안에 글 갯수 저장 변수
 <% 
                 } 
  %>     
-  <img border=0 name=PicMedium height=30 width=30 src="../product/image/<%=photo %>"></a><td> 
              
              <%=b_title%></a></td>
 			 <td width=100 align=center><%=b_date%></td>
@@ -170,7 +164,7 @@ out.println(e);
 %>
 			</td>
 			<td width=180 height=30 valign=middle align=right>
-			<a href="write_form.jsp"><img src="img/m_bt10.gif" border=0 align=absmiddle></a>
+			<a href="write_form3.jsp"><img src="img/m_bt10.gif" border=0 align=absmiddle></a>
 			<a href="Boarde_list.jsp"><img src="img/m_bt06.gif" border=0 align=absmiddle></a>
 			<a href="BoardSelect.jsp"></a>
 			</td>

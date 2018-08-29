@@ -2,7 +2,12 @@
 
 <%@ page import="myutil.Multipart" %>
 <%@ page import="java.net.URLEncoder" %>
+<%@ page import="org.apache.log4j.*" %>
 
+<%! 
+	static Logger logger = Logger.getLogger("write.jsp"); 
+%>
+<% logger.info("WRITE.jsp start ~~~."); %>
 
 <%
 
@@ -38,7 +43,7 @@ try {
     String b_email = multiPart.getParameter("b_email");
 	String b_title = multiPart.getParameter("b_title");
 	String b_content = multiPart.getParameter("b_content");
-	String photo = multiPart.getParameter("upload_file");//이미지
+	String photo = fileName;//이미지
 	//String ip = request.getRemoteAddr(); // IP 알아내기
 	String ip = "127.0.0.1";
 	
@@ -52,7 +57,7 @@ try {
     int step=0;
     int level=0;
 
-    String sql = "select max(b_id),max(ref) from re_board";
+    String sql = "select max(b_id),max(ref) from re_board2";
 	Statement stmt=con.createStatement();
 	ResultSet rs=stmt.executeQuery(sql);
 	
@@ -64,12 +69,12 @@ try {
 	} else {
 		b_id=1;   
 	}
-
+	logger.info("WRITE.jsp step1 ~~~.");
     if(multiPart.getParameter("b_id") != null) { 
     	ref=Integer.parseInt(multiPart.getParameter("ref"));
         step=Integer.parseInt(multiPart.getParameter("step"));
         level=Integer.parseInt(multiPart.getParameter("level"));
-     	String str="update re_board set step=step+1 where ref="+ref+" and step > "+ step;
+     	String str="update re_board2 set step=step+1 where ref="+ref+" and step > "+ step;
    		stmt.executeUpdate(str);
    		stmt.close();
         step=step+1;
@@ -79,6 +84,9 @@ try {
         step=0;
         level=0;
     }  
+    
+     logger.info("WRITE.jsp 내용 ~~~.");
+    
 			
 /* 	
     if(request.getParameter("b_id") != null) { 
@@ -98,8 +106,9 @@ try {
 
      */
     
-    
-	sql = "insert into re_board (B_ID, PWD, B_NAME, B_EMAIL, B_TITLE, B_CONTENT, B_HIT, B_IP, photo, REF, STEP, ANSLEVEL, B_DATE )values(?,?,?,?,?,?,?,?,?,?,?,?,sysdate)";
+     logger.info("WRITE.jsp step2 ~~~.");
+     
+	sql = "insert into re_board2 (B_ID, PWD, B_NAME, B_EMAIL, B_TITLE, B_CONTENT, B_HIT, B_IP, PHOTO, REF, STEP, ANSLEVEL, B_DATE )values(?,?,?,?,?,?,?,?,?,?,?,?,sysdate)";
 	PreparedStatement pstmt = con.prepareStatement(sql);
 	pstmt.setInt(1,b_id);
     pstmt.setString(2,pwd);
@@ -118,8 +127,9 @@ try {
 	pstmt.close();
 	pool.freeConnection("ora8", con); 
 %>
+<% logger.info("WRITE.jsp 내용 ~~~."); %>
 	 <script language=javascript>
-    location.href="board_list.jsp";
+    location.href="Boarde_list.jsp";
      </script> 
 <%
 
@@ -151,3 +161,4 @@ public static String Replace(String original, String oldString, String newString
 	   
 	   
 %>
+<% logger.info("write.jsp end ~~~."); %>

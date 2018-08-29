@@ -49,7 +49,7 @@
     <jsp:include page="../common/basic_screen.jsp" flush="true"/>
 
 <br>
-<form name=bbs_form method="post" action="write.jsp" enctype="multipart/form-data">
+<form name=bbs_form method="post" action="write3.jsp" enctype="multipart/form-data">
 	  <table border=1 width=550 height=30 bordercolor=black>
 		<tr>
 			<td align=center bgcolor=0063ce><font size=3 color=#FFFFFF><b>게시물 올리기</b></td>

@@ -82,6 +82,9 @@ function MM_showHideLayers() { //v3.0
       <td width=120 onMouseOver="this.style.backgroundColor='#cdcdcd'" onMouseOut="this.style.backgroundColor=''"> 
 	<div align=center><span class="layerstyle"><a href="../board/board_list2.jsp">상품게시판</a></span> </div>
       </td>
+       <td width=120 onMouseOver="this.style.backgroundColor='#cdcdcd'" onMouseOut="this.style.backgroundColor=''"> 
+	<div align=center><span class="layerstyle"><a href="../board/Boarde_list.jsp">상품 문의 게시판</a></span> </div>
+      </td>
       <td width=80 onMouseOver="this.style.backgroundColor='#cdcdcd'" onMouseOut="this.style.backgroundColor=''"> 
         <div align=center class="layerstyle"><a href="../service/inform_01.jsp">F A Q</a></div>
       </td>
