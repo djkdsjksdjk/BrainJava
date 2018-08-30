@@ -58,7 +58,6 @@ String b_id = request.getParameter("b_id");
 	pool.freeConnection("ora8", con);
 %>
     <script language=javascript>
-    	alert("수정 하였습니다.");
     	location.href="board_list.jsp";
      </script>
 <%
@@ -94,7 +93,7 @@ public static String Replace(String original, String oldString, String newString
 <script language="Javascript">
 function alrim(){
 	alert("성공적으로 수정하였습니다.");
-	location.href="Boarde_list.jsp";
+	location.href="board_list.jsp";
 }
 </script>
 </head>

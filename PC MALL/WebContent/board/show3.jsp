@@ -1,7 +1,7 @@
 <%@ page  import="java.sql.*,oracle.dbpool.*" contentType="text/html;charset=utf-8" %>
 
 <%!
-     String b_name ,b_email,b_title,b_content,b_date,b_ip,photo,mailto;
+     String b_name ,b_email,b_title,b_content,b_date,b_ip,photo,pwd, mailto;
       int b_id , b_hit , ref=0 ;
  %>
 
@@ -27,12 +27,15 @@ try {
       b_hit=rs.getInt(7)+1;
       b_ip=rs.getString(8);
       photo=rs.getString(9);
-      ref = rs.getInt(10);  // 글 그룹
+      pwd = rs.getString(10);
+      ref = rs.getInt(11);  // 글 그룹
+      
       if(!b_email.equals("")) {
          mailto="(<font size=2><a href=mailto:"+b_email+">"+b_email+"</a></font>)";
       } else {
          mailto="";
          }
+      session.setAttribute("pwd", pwd);
    }
    rs.close(); 
    stmt.close();
@@ -83,7 +86,7 @@ try {
              
          <textarea cols=60 rows=15 name="content"><%=b_content%></textarea>
          <tr>
-         <td valign=top><img border=0 name=picmedium height=200 width=200 src="../product/image/<%=photo%>"></td>
+         <td valign=top><img border=0 name=picmedium height=500 width=500 src="../product/image/<%=photo%>"></td>
          </tr>
       </tr>
   </table>
@@ -92,9 +95,9 @@ try {
 
     <tr>
 <td colspan=4 align=right height=28 >
-  <a href="reply_form.jsp?b_id=<%=b_id%>"><img src="img/b_re.gif" border=0></a>
-  <a href="update_form.jsp?b_id=<%=b_id%>"><img src="img/b_modify.gif" border=0></a>
-  <a href="delete_confirm.jsp?b_id=<%=b_id%>"><img src="img/b_delete.gif" border=0></a>
+  
+  <a href="delete_update_confirm2.jsp?b_id=<%=b_id%>&gubun=update"><img src="img/b_modify.gif" border=0></a>
+  <a href="delete_update_confirm2.jsp?b_id=<%= b_id %>&gubun=delete"><img src="img/b_delete.gif" border=0></a>
 		   <a href="mailform.jsp?b_id=<%=b_id%>"><img src="img/singo.png" border=0></a>
 		  <a href="javascript:history.go(-1)"><img src="img/b_list.gif" border=0></a>
 	   	</td>

@@ -168,7 +168,7 @@ out.println(e);
 			<a href="Boarde_list.jsp"><img src="img/m_bt06.gif" border=0 align=absmiddle></a>
 			<a href="BoardSelect.jsp"></a>
 			</td>
-			<tr>
+			<!-- <tr>
 			<form name="srch_word" action="../board/BoardSelect.jsp" method="post">
               
 
@@ -189,7 +189,7 @@ out.println(e);
 				<input type="submit"  value="검색">
 
 			</form>
-</tr>
+</tr> -->
 
 
 			<td width=10>&nbsp;</td>

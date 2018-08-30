@@ -1,5 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" import="java.sql.*,oracle.dbpool.*"  %>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <%
 	// 로그인이 아닌경우 
 	if(session.getAttribute("pid") == null) {
@@ -51,11 +54,12 @@
 		String b_name, b_email, b_title, b_content, b_date, mailto;
 		
 		// ID,NAME,PRICE,COMPANY_ID,EXPRESSION,PHOTO,CATEGORY,CNAME,CODE,CDATE
-		String id, name, company_id, expression, photo,  cname,  cdate; 
+		String id, name, company_id, expression, photo,  cname,  cdate, pass; 
 		int  b_id =0 , b_hit = 0, level=0, color=1, price, category, code;
 
 		// DB 행의 수 계산
 		Statement stmt = con.createStatement();  
+		Statement stmt2 = con.createStatement();
 		ResultSet pageset = stmt.executeQuery("SELECT count(ID) FROM PRODUCT_VIEW");
 		//ResultSet pageset = stmt.executeQuery("select count(b_id) from re_board");
 		if( pageset.next()){
@@ -83,8 +87,8 @@
 		sql = sql.toUpperCase().trim();
 		*/
 		
-		String sql = "SELECT ID,NAME,PRICE,COMPANY_ID,EXPRESSION,PHOTO,CATEGORY,CNAME,CODE,CDATE FROM PRODUCT_VIEW ORDER BY ID DESC ";
-		ResultSet rs = stmt.executeQuery(sql);
+		String sql = "SELECT ID,NAME,PRICE,COMPANY_ID,EXPRESSION,PHOTO,CATEGORY,CNAME,CODE,CDATE,PASS FROM PRODUCT_VIEW ORDER BY ID DESC ";
+		ResultSet rs = stmt2.executeQuery(sql);
 
 		for(int k=1; k<absolutepage; k++)rs.next();
 		int k=1;
@@ -102,6 +106,7 @@
 			cname      = rs.getString(8);	// CNAME
 			code       = rs.getInt(9);		// CODE
 			cdate      = rs.getString(10);  // CDATE
+			pass       = rs.getString(11);  // PASS
 	
 			/* 			
 			if(!b_email.equals("")) {
@@ -124,7 +129,7 @@
  <%
 		        }
  %>
-				<img src="img/reply2.gif" width="16" height="16"border=0>  	
+				<img src="img/reply.gif" width="16" height="16"border=0>  	
 <% 
                 } 
  %> 
@@ -133,7 +138,11 @@
              
              
 			 <td width=230 align=center><%=name%></td>
-			 <td width=100 align=center><%=price%></td>
+			 
+			 <td width=100 align=center>
+			 <c:set var="fmtPrice" value="<%=price%>"/>
+			 &nbsp;<fmt:formatNumber value="${fmtPrice }" pattern="#,###" />원
+			 </td>
 			 <td width=60 align=center><%=company_id%></td>
 		  </tr>
 <%
@@ -168,7 +177,7 @@
 			 //페이지 번호 나열하기
 			 for(int i=startPage ; i<(startPage+limit);i++){
 				if( i == pageNUM){%>
-					&nbsp;<%=i%>&nbsp;
+					<font color="red" ><b>[<%=i%>]</b></font>
 <% 
 				} else { 
 %>

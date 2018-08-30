@@ -1,4 +1,4 @@
-<%@ page  import="java.sql.*,oracle.dbpool.*" contentType="text/html;charset=utf-8" %>
+<%@ page  import="java.sql.*,oracle.dbpool.*" contentType="text/html;charset=UTF-8" %>
 
 <%!
 String b_name ,b_email,b_title,b_content,b_date,b_ip,mailto;

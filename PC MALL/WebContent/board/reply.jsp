@@ -114,7 +114,7 @@ public static String Replace(String original, String oldString, String newString
 <script language="Javascript">
 function alrim(){
 	alert("성공적으로 등록하였습니다.")
-	location.href="board_list.jsp";
+	location.href="reply_list.jsp";
 }
 </script>
 </head>
