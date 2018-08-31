@@ -15,19 +15,19 @@ try {
    String bid=request.getParameter("b_id"); 
    Statement stmt = con.createStatement();
    stmt.executeUpdate("update re_board2 set b_hit=b_hit+1 where b_id="+bid+"");  //조회수를 올린다
-   String sql="select b_id, b_name, b_email, b_title, b_content, to_char(b_date,'yy-mm-dd'),b_hit, b_ip, photo, ref, step, anslevel, pwd  from re_board2 where b_id="+bid; 
+   String sql="select b_id, b_name, pwd, b_email, b_title, b_content, to_char(b_date,'yy-mm-dd'),b_hit, b_ip, photo, ref, step, anslevel, pwd  from re_board2 where b_id="+bid; 
    ResultSet rs = stmt.executeQuery(sql);  
    if(rs.next()) {   
       b_id=rs.getInt(1);
       b_name=rs.getString(2);
-      b_email=rs.getString(3);
-      b_title=rs.getString(4);
-      b_content=rs.getString(5);
-      b_date=rs.getString(6);
-      b_hit=rs.getInt(7)+1;
-      b_ip=rs.getString(8);
-      photo=rs.getString(9);
-      pwd = rs.getString(10);
+      pwd = rs.getString(3);
+      b_email=rs.getString(4);
+      b_title=rs.getString(5);
+      b_content=rs.getString(6);
+      b_date=rs.getString(7);
+      b_hit=rs.getInt(8)+1;
+      b_ip=rs.getString(9);
+      photo=rs.getString(10);
       ref = rs.getInt(11);  // 글 그룹
       
       if(!b_email.equals("")) {
@@ -95,7 +95,7 @@ try {
 
     <tr>
 <td colspan=4 align=right height=28 >
-  
+   <%-- <a href="reply_form3.jsp?b_id=<%=b_id%>"><img src="img/b_re.gif" border=0></a> --%>
   <a href="delete_update_confirm2.jsp?b_id=<%=b_id%>&gubun=update"><img src="img/b_modify.gif" border=0></a>
   <a href="delete_update_confirm2.jsp?b_id=<%= b_id %>&gubun=delete"><img src="img/b_delete.gif" border=0></a>
 		   <a href="mailform.jsp?b_id=<%=b_id%>"><img src="img/singo.png" border=0></a>

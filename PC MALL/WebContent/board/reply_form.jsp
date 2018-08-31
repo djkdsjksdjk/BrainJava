@@ -1,4 +1,4 @@
-<%@ page  import="java.sql.*,oracle.dbpool.*" contentType="text/html;charset=utf-8" %>
+<%@ page  import="java.sql.*,oracle.dbpool.*" contentType="text/html;charset=UTF-8" %>
 
 <%
  //DB풀 메니저 객체 생성 사용
@@ -37,29 +37,29 @@
 <script>
 function go_reply()
 {
-	var form = document.reply_form;
-	
-	if(!form.title.value){
-		alert("제목을 입력하세요.");
-		form.title.focus();
-		return ;
-	}
-	if(!form.pwd.value){
-		alert("암호를 입력하세요");
-		form.pwd.focus();
-		return ;
-	}
-	if(!form.name.value){
-		alert("이름을 입력하세요");
-		form.name.focus();
-		return ;
-	}
-	if(!form.body.value){
-		alert("내용을 입력하세요.");
-		form.body.focus();
-		return;
-	}
-	form.submit();
+   var form = document.reply_form;
+   
+   if(!form.title.value){
+      alert("제목을 입력하세요.");
+      form.title.focus();
+      return ;
+   }
+   if(!form.pwd.value){
+      alert("암호를 입력하세요");
+      form.pwd.focus();
+      return ;
+   }
+   if(!form.name.value){
+      alert("이름을 입력하세요");
+      form.name.focus();
+      return ;
+   }
+   if(!form.body.value){
+      alert("내용을 입력하세요.");
+      form.body.focus();
+      return;
+   }
+   form.submit();
 }
 
 </script>
@@ -69,9 +69,9 @@ function go_reply()
     <jsp:include page="../common/basic_screen.jsp" flush="true"/>
 <br>
   <table border=1 width=550 height=30 bordercolor=black>
-	<tr>
-		<td align=center bgcolor=0063ce><font size=3 color=#FFFFFF><b>게시물 답변</b></td>
-	</tr>
+   <tr>
+      <td align=center bgcolor=0063ce><font size=3 color=#FFFFFF><b>게시물 답변</b></td>
+   </tr>
   </table><br>
 
 <table width="550" border="1" cellspacing="0" cellpadding="0">
@@ -82,41 +82,41 @@ function go_reply()
   <input type="hidden" name="step" value="<%=step%>">
   <input type="hidden" name="level" value="<%=level%>">
 
-	<tr>
-	   <td width=110 align=center bgcolor="#7eaee9">등록자</td>
-	   <td width=180 bgcolor=ffffff>&nbsp;<input type="text" name="name" size=20></td>
-	   <td width=100 align=center bgcolor="#7eaee9">비밀번호</td>
-	   <td width=160 bgcolor=ffffff>&nbsp;<input type="password" name="pwd" size=15 value="" ></td>
-	</tr>	
-	<tr>
-	   <td width=110 align=center bgcolor="#7eaee9">E-mail 주소</td>
-	   <td  colspan=3 bgcolor=ffffff>&nbsp;<input type="text" size=30 name="email" value=""></td>
-	</tr>	
-	<tr>
-	   <td align=center bgcolor="#7eaee9">제 목</td>
-	   <td  colspan=3 bgcolor=ffffff>&nbsp;<input type="text" size=40 name="title" value="<%="[답변] "+b_title%>"></td>
-	</tr>	
-	<tr>
-	   <td align=center bgcolor="#7eaee9">내 용</td>
-	   <td  colspan=3 bgcolor=ffffff>
+   <tr>
+      <td width=110 align=center bgcolor="#7eaee9">등록자</td>
+      <td width=180 bgcolor=ffffff>&nbsp;<input type="text" name="name" size=20></td>
+      <td width=100 align=center bgcolor="#7eaee9">비밀번호</td>
+      <td width=160 bgcolor=ffffff>&nbsp;<input type="password" name="pwd" size=15 value="" ></td>
+   </tr>   
+   <tr>
+      <td width=110 align=center bgcolor="#7eaee9">E-mail 주소</td>
+      <td  colspan=3 bgcolor=ffffff>&nbsp;<input type="text" size=30 name="email" value=""></td>
+   </tr>   
+   <tr>
+      <td align=center bgcolor="#7eaee9">제 목</td>
+      <td  colspan=3 bgcolor=ffffff>&nbsp;<input type="text" size=40 name="title" value="<%="[답변] "+b_title%>"></td>
+   </tr>   
+   <tr>
+      <td align=center bgcolor="#7eaee9">내 용</td>
+      <td  colspan=3 bgcolor=ffffff>
            <table>
-		      <tr>
-		        <td><textarea cols=58 rows=15 name="body"><%=b_content%></textarea></td>
-		      </tr>
-		   </table>
-		</td>
-	</tr>
+            <tr>
+              <td><textarea cols=58 rows=15 name="body"><%=b_content%></textarea></td>
+            </tr>
+         </table>
+      </td>
+   </tr>
 
-	<tr>
-	   <td colspan=4 align=right height=25>
-		   <a href="javascript:go_reply()"><img src="img/b_reply.gif" border=0></a>
-		   <a href="javascript:history.go(-1)"><img src="img/b_cancel.gif" border=0></a>
-	   	</td>
+   <tr>
+      <td colspan=4 align=right height=25>
+         <a href="javascript:go_reply()"><img src="img/b_reply.gif" border=0></a>
+         <a href="javascript:history.go(-1)"><img src="img/b_cancel.gif" border=0></a>
+         </td>
     </TR>
 </form>
     </TD>
-	</TR>
+   </TR>
 </TABLE>
-		<jsp:include page="../common/basic_copyright.jsp" flush="true"/>
+      <jsp:include page="../common/basic_copyright.jsp" flush="true"/>
 </body>
 </html>
