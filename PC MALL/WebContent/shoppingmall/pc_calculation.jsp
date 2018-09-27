@@ -1,9 +1,10 @@
-<%@ page contentType="text/html; charset=UTF-8" 
+<%@ page contentType="text/html; charset=euc-kr" 
                  import="java.sql.*,oracle.dbpool.*,java.util.*, java.text.*" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <HTML>
 	<HEAD>
-		<TITLE>ì¡°ë¦½ PC ê²¬ì </TITLE>
+		<TITLE>Á¶¸³ PC °ßÀû</TITLE>
 		<SCRIPT language=JavaScript src="../common/u3.js"></script>
 		<link href="../common/u3.css" type=text/css rel=stylesheet>
 	</HEAD>
@@ -11,41 +12,38 @@
 <BODY leftmargin=0 topmargin=0 marginwidth=0 marginheight=0>
     <jsp:include page="../common/basic_screen.jsp" flush="true"/>
 	
-<!--  í™”ë©´ ì„¤ê³„   -->
+<!--  È­¸é ¼³°è   -->
 <center><br>
-  <table border=1 width=550 height=30 bordercolor=black>
+  <table  width=685 height=30  bgcolor=ffffff>
 	<tr>
-		<td align=center bgcolor=0063ce><font color=white><b>ì¡°ë¦½ PC ê²¬ì </b></td>
+		<td align="left" height="25" style=" padding-top: 25px;  padding-bottom: 20px;"><font color="#E6E6E6" size="25"><b>--Á¶¸³ PC °ßÀû--</b></td>
 	</tr>
   </table><br>
 
 <form name="buy" action="../product/basket_insert.jsp" method="post">
-<table align=center  border=0  cellpadding=0 cellspacing=3  width=550 >
+<table align=center  border=0  cellpadding=0 cellspacing=3  width=725 >
 	<tr>
-		<td bgcolor="#7eaee9" align="center"><b><font color="#ffffff">êµ¬ë¶„</font></b></td>
-		<td bgcolor="#7eaee9" align="center"><b><font color="#ffffff">ìƒí’ˆëª…</font></b></td>
+		<td bgcolor=black align="center" style="height: 36px"><b><font color="#ffffff">±¸ºÐ</font></b></td>
+		<td bgcolor=black align="center" style="height: 36px"><b><font color="#ffffff">»óÇ°¸í</font></b></td>
 	</tr>
 <%
 	DBConnectionManager pool = DBConnectionManager.getInstance();
 	Connection con = pool.getConnection("ora8");
-
 	int i=1;
 	int j=101;
-
 	try {
 		Statement stmt = con.createStatement();
 		ResultSet rs =stmt.executeQuery("select * from category where id between 1 and 18");
-
 		while(rs.next()){
 			int id=rs.getInt("id");
 			String name=rs.getString("name");
 %>
 	<tr bgcolor=cde6ff>
-		<td width=100><font color=black>&nbsp;<%= name %></font>
+		<td width=100 height="26"><font color=black>&nbsp;<%= name %></font>
 		</td>
 		<td>
 			<select name=productnum>
-			<option value='0'>------------  ì›í•˜ì‹œëŠ” ë¶€í’ˆì„ ëª©ë¡ì—ì„œ ì„ íƒ í•˜ì„¸ìš”  ------------</option>
+			<option value='0'>------------  ¿øÇÏ½Ã´Â ºÎÇ°À» ¸ñ·Ï¿¡¼­ ¼±ÅÃ ÇÏ¼¼¿ä  ------------</option>
 <% 
         Statement stmt1 = con.createStatement();
 		ResultSet rs1=stmt1.executeQuery("select * from product where category="+id);
@@ -54,7 +52,7 @@
 			String name1=rs1.getString("name");
 			int price1=rs1.getInt("price");
 %>
-			<option value=<%= id1 %>>&nbsp;<%=name1%> &nbsp;ê°€ê²©:<%= price1 %></option>
+			<option value=<%= id1 %>>&nbsp;<%=name1%> &nbsp;°¡°Ý:<%= price1 %></option>
 <%
 		}
 		rs1.close();
@@ -65,23 +63,20 @@
 	</tr>
 <%
 	} //end of while
-
 	rs.close();
 	stmt.close();
 	pool.freeConnection("ora8", con); 
-
   } catch (SQLException e) {
 		out.print(e);
   } 
 %>
 	<tr>
-		<td align=center colspan=3><br><input type="submit" value="ìž¥ë°”êµ¬ë‹ˆì— ë‹´ê¸°"></td>
+		<td align=right padding-right:5 colspan=3><br><input type="submit" value="Àå¹Ù±¸´Ï¿¡ ´ã±â"></td>
 	</tr>
 </table>
 </form>
   
 </center>
-<!--  í™”ë©´ ë   -->
-	<jsp:include page="../common/basic_copyright.jsp" flush="true"/>
+<!--  È­¸é ³¡   -->
 </BODY>
 </HTML>

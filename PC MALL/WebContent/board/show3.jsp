@@ -86,7 +86,7 @@ try {
              
          <textarea cols=60 rows=15 name="content"><%=b_content%></textarea>
          <tr>
-         <td valign=top><img border=0 name=picmedium height=500 width=500 src="../product/image/<%=photo%>"></td>
+         <td valign=top><img border=0 name=picmedium height=300 width=300 src="../product/image/<%=photo%>"></td>
          </tr>
       </tr>
   </table>

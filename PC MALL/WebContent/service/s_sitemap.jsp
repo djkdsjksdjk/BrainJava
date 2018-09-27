@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8"  %>
+<%@ page contentType="text/html;charset=euc_kr"  %>
 
 <% String user_id= (String) session.getAttribute("pid");%>
 
@@ -7,83 +7,142 @@
 <body link="#000000" vlink="#000000" alink="#FF6633">
 
 <br><br>
-<table  width=410 height=25 border=1  cellspacing=0 cellpadding=0 topmargin=0>
-	<tr valign=middle bgcolor=ffffff>
-		<td align=center bgcolor=#ffccff><font  size=4><b>ì‚¬ì´íŠ¸ ë§µ</b></font></td>
+<table  width=560 height=40  cellspacing=0 cellpadding=0 topmargin=0>
+	<tr valign=middle bgcolor=>
+		<td align=left bgcolor=><font color="#E6E6E6" size=10><b>»çÀÌÆ® ¸Ê</b></font></td>
 	</tr>
 </table>
+
+<table width=664 height=20 style="padding-bottom: 9px" >
+     <tr  bgcolor="#E6E6E6">
+     	<td align=left bgcolor= "#E6E6E6"></td>
+	</tr>
+
+</table>
+
   
-<table width=400 border=1 cellspacing="1" cellpadding="0">
+<table width=666 border=0 cellspacing="1" cellpadding="0">
 	<tr align="center" valign="top"> 
-		<td width=200>
-			<table width=100 border=0 cellspacing="0" cellpadding="0">
+		<td width=292 height="330" style="padding-right:30px ">
+			<table width=220 border=0 cellspacing="0" cellpadding="0">
 				<tr> 
-					<td height=30><b><font color="#0000FF" size=3>ì‡¼í•‘ëª°</font></b><br>
+					<td height=55><b><font color="#0000FF" size=5>¼îÇÎ¸ô</font></b><br>&nbsp;
 						<img src="img/middle_line_01.gif" border=0 width=200></td>
 				</tr>                           
-				<tr>
-					<td><a href="../shoppingmall/gongi.jsp" id="dami"> &nbsp;ê³µì§€ì‚¬í•­</a></td>
+				<tr >
+					<td  ><font size=4><a href="../shoppingmall/gongi.jsp" id="dami"> &nbsp;¡Ü°øÁö»çÇ×</a></td>
+					
 				</tr>
+				<tr height=10>
+						<td></td>
+						</tr>
 				 <tr>
-					<td><a href="../shoppingmall/newproduct.jsp"> &nbsp;ì‹ ìƒí’ˆ ì½”ë„ˆ</a></td>
+					<td><font size=4><a href="../shoppingmall/newproduct.jsp"> &nbsp;¡Ü½Å»óÇ° ÄÚ³Ê</a></td>
 				</tr>
+				<tr height=10>
+						<td></td>
+						</tr>
 				<tr>
-					<td><a href="../shoppingmall/pc_calculation.jsp"> &nbsp;ì¡°ë¦½PCê²¬ì </a></td>
+					<td><font size=4><a href="../shoppingmall/pc_calculation.jsp"> &nbsp;¡ÜÁ¶¸³PC°ßÀû</a></td>
 				</tr>
-				<tr>
-					<td><a href="../shoppingmall/gongdong.jsp"> &nbsp;ê³µë™êµ¬ë§¤</a></td>
-				</tr>
+			
 			</table>
-
+			
+		<td width=88 height="330" style="padding-right:50px ">
+			<table width=9 border=0 cellspacing="0" cellpadding="0">
+			
+			</table>
+     
 		</td>
-		<td width=200>
-			<table width="50%" border=0 cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+		
+		<td width=352 align="left" style="padding-right:14px ">
+			<table width="287" border=0 cellspacing="0" cellpadding="0" bgcolor="#ffffff">
 				<tr> 
-					<td height=30><b><font color="#0000FF" size=3>ë‚´íŽ˜ì´ì§€</font></b><br>
+					<td height=60><b><font color="#0000FF" size=5>³»ÆäÀÌÁö</font></b><br>&nbsp;
 						<img src="img/middle_line_01.gif" border=0 width=200></td>
 				</tr>
+				
 				<tr>
-					<td><a href="../member/user.jsp"> &nbsp;íšŒì›ê°€ìž…</a></td>
+					<td><font size=4><a href="../member/user.jsp"> &nbsp;¡ÜÈ¸¿ø°¡ÀÔ</a></td>
 				</tr>
+				<tr height=10>
+						<td></td>
+						</tr>
 				<tr>
-					<td><a href="../member/modify.jsp?user_id=<%=user_id%>"> &nbsp;íšŒì›ì •ë³´ìˆ˜ì •</a></td>
+
+					<td><font size=4><a href="../board/Mywrite.jsp"> &nbsp;¡Ü³»°¡ ¾´ °Ô½Ã¹°</a></td>
+
 				</tr>
+				<tr height=10>
+						<td></td>
+						</tr>
 				<tr>
-					<td><a href="../member/delete.jsp?user_id=<%=user_id%>"> &nbsp;íšŒì›íƒˆí‡´</a></td>
+					<td><font size=4><a href="../member/modify.jsp?user_id=<%=user_id%>"> &nbsp;¡ÜÈ¸¿øÁ¤º¸¼öÁ¤</a></td>
 				</tr>
+				<tr height=10>
+						<td></td>
+						</tr>
 				<tr>
-					<td><a href="../product/basket_view.jsp"> &nbsp;ìž¥ë°”êµ¬ë‹ˆ</a></td>
+					<td><font size=4><font size=4><a href="../member/delete.jsp?user_id=<%=user_id%>"> &nbsp;¡ÜÈ¸¿øÅ»Åð</a></td>
+				</tr>
+				<tr height=10>
+						<td></td>
+						</tr>
+				<tr>
+					<td><font size=4><a href="../product/basket_view.jsp"> &nbsp;¡ÜÀå¹Ù±¸´Ï</a></td>
 				</tr>
 			</table>
 		</td>
 
-	<table width="50%" border=1 cellspacing="0" cellpadding="0">
-			<tr align="center" height=30> 
-				<td width=200>
-					<table width="50%" border=0 cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+	<table width="666" border=0 cellspacing="0" cellpadding="0">
+			<tr align="center" height=210 valign="top"> 
+				<td width=292 height=330  style="padding-right:30px ">
+					<table width="224" border=0 cellspacing="0" cellpadding="0" bgcolor="#ffffff">
 						<tr> 
-							<td height=30><b><font color="#0000FF" size=3>ë¬»ê³ ë‹µí•˜ê¸°</font></b><br>
+							<td height=50><b><font color="#0000FF" size=5>¹¯°í´äÇÏ±â</font></b><br>&nbsp;
 								<img src="img/middle_line_01.gif" border=0 width=200></td>
+						</tr>
+						<tr height=10>
+						<td></td>
 						</tr>                           
 						<tr>
-							<td><a href="../board/board_list.jsp"> &nbsp;ìžìœ ê²Œì‹œíŒ</a></td>
+							<td><font size=4><a href="../board/reply_list.jsp"> &nbsp;¡ÜÀÚÀ¯°Ô½ÃÆÇ</a></td>
+						</tr>
+						<tr height=10>
+						<td></td>
 						</tr>
 						<tr>
-							<td><a href="../service/inform_01.jsp"> &nbsp;FAQ</a></td>
+							<td><font size=4><a href="../service/inform_01.jsp"> &nbsp;¡ÜFAQ</a></td>
 						</tr>
 					</table> 
 				</td>
-				<td width=200>
-					<table width="50%" border=0 cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+				
+			<td width=88 height="330" style="padding-right:50px ">
+			     <table width=9 border=0 cellspacing="0" cellpadding="0">
+			
+			  </table>
+     
+		</td>
+     				
+				<td width=352 valign="top" align="left" >
+					<table width= 245 style="padding-right:12px " border=0 cellspacing="0" cellpadding="0" bgcolor="#ffffff">
 						<tr> 
-							<td height=30><b><font color="#0000FF" size=3>ê¸° íƒ€</font></b><br>
+							<td height=50><font size=4><b><font color="#0000FF" size=5>±â Å¸</font></b><br>&nbsp;
+							
 							<img src="img/middle_line_01.gif" border=0 width=200></td>
+							
+						</tr>
+						
+						
+						
+						<tr>
+							<td><font size=4><a href="../member/login_form.jsp"> &nbsp;¡Ü·Î±×ÀÎ</a></td>
+						</tr>
+						<tr height=10>
+						<td></td>
 						</tr>
 						<tr>
-							<td><a href="../member/login.jsp"> &nbsp;ë¡œê·¸ì¸</a></td>
-						</tr>
-						<tr>
-							<td><a href="../service/company_intro.jsp"> &nbsp;íšŒì‚¬ì†Œê°œ</a></td>
+							<td><font size=4><a href="../service/company_intro.jsp"> &nbsp;¡ÜÈ¸»ç¼Ò°³</a></td>
 						</tr>
 					</table>
 				</td>

@@ -10,6 +10,6 @@
 <BODY leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>
     <jsp:include page="../common/basic_screen.jsp" flush="true"/>
 	<jsp:include page="insert_form.jsp" flush="true"/>
-	<jsp:include page="../common/basic_copyright.jsp" flush="true"/>
+
 </body>
 </html>

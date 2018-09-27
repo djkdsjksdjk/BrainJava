@@ -39,7 +39,7 @@
 %>	    
 
 <html>
-<head><title>컴퓨터전문쇼핑몰</title>
+<head><title>전자제품쇼핑몰</title>
 		<link href="../common/u3.css" type=text/css rel=stylesheet>
 </head>
 

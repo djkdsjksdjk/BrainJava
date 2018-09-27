@@ -25,20 +25,16 @@
 			<%
 				DBConnectionManager pool = DBConnectionManager.getInstance();
 				Connection con = pool.getConnection("ora8");
-
 				Statement stmt = con.createStatement();
 				Statement stmt1 = con.createStatement();
 				String s_word = new String(request.getParameter("srch_word").getBytes("8859_1"), "UTF-8");
-
 				try {
 					String b_name="집", b_email, b_title, b_content, b_date, photo;
 					int b_id, b_hit, count;
-
 					ResultSet rs = stmt.executeQuery(
 							"select b_name, b_title, b_content from re_board where b_name like UPPER('%"+s_word+"%')");
 					ResultSet rs1 = stmt1
 							.executeQuery("select count(*) from re_board where b_name like UPPER('%"+s_word+"%')");
-
 					while (rs1.next()) {
 						count = rs1.getInt(1);
 			%>
@@ -67,7 +63,6 @@
 		</tr>
 
 			<%
-
 					while(rs.next()){ 
 						b_id=rs.getInt(1);			//글번호
 						b_name=rs.getString(2);		// 글쓴이
@@ -100,6 +95,6 @@
 
 
 		<!--  검색 끝 -->
-		<jsp:include page="../common/basic_copyright.jsp" flush="true" />
+		
 </BODY>
 </HTML>

@@ -127,6 +127,6 @@ try {
 		}
 %>
 <!-- =========================== -->
-	<jsp:include page="../common/basic_copyright.jsp" flush="true"/>
+
 </BODY>
 </HTML>

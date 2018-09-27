@@ -47,7 +47,7 @@
 			<td><font size=3>입금기간 : 주문일로부터 3일이내<br>배송기간 : 결제 확인후 2일이내</font><br></td>
 		</tr><br>
 		<tr> 
-			<td align=center><img src="../img/thanks.gif" width="150" height="150"></td>
+			<td align=center><img src="../img/roki.jpg" width="150" height="150"></td>
 		</tr>
 		<tr bgcolor="#ffffff">
 			<td align="center"><%= user_id %>님<br>저희 사이트를 이용해 주셔서 감사합니다.<br></td>
@@ -57,6 +57,6 @@
 			</td>
 		</tr>
 </table>
-   <jsp:include page="../common/basic_copyright.jsp" flush="true"/>
+
 </BODY>
 </HTML>

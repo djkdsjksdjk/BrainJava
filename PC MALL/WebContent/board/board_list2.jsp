@@ -3,7 +3,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<%@ page import="org.apache.log4j.*" %>
+<%@ page import="myutil.Category, java.util.*" %>
+
+<%! 
+	static Logger logger = Logger.getLogger("board_list2.jsp"); 
+%>
+
 <%
+  
 	// 로그인이 아닌경우 
 	if(session.getAttribute("pid") == null) {
 %>		
@@ -12,7 +20,7 @@
 			history.go(-1); 
 		</script>
 <% 
-	} else {  
+    } else {  
 %>
 
 <HTML>
@@ -47,6 +55,8 @@
 	int dbcount=0 ;   //  DB 안에 글 갯수 저장 변수
 %>
 <%
+
+
 	try{ 
 		DBConnectionManager pool = DBConnectionManager.getInstance();
 		Connection con = pool.getConnection("ora8");
@@ -56,11 +66,18 @@
 		// ID,NAME,PRICE,COMPANY_ID,EXPRESSION,PHOTO,CATEGORY,CNAME,CODE,CDATE
 		String id, name, company_id, expression, photo,  cname,  cdate, pass; 
 		int  b_id =0 , b_hit = 0, level=0, color=1, price, category, code;
+		
+		String selectCategory = "SELECT id, name FROM CATEGORY ORDER BY ID ASC";
+				
 
 		// DB 행의 수 계산
 		Statement stmt = con.createStatement();  
 		Statement stmt2 = con.createStatement();
+		//Statement stmt3 = con.createStatement();
+		
 		ResultSet pageset = stmt.executeQuery("SELECT count(ID) FROM PRODUCT_VIEW");
+		//ResultSet categoryRS = stmt3.executeQuery(selectCategory);
+		
 		//ResultSet pageset = stmt.executeQuery("select count(b_id) from re_board");
 		if( pageset.next()){
 			dbcount = pageset.getInt(1); 
@@ -157,7 +174,7 @@
 	out.println(e);
 	}
 %>
-
+   <c:set var="categoryList" value="${categoryList}" scope="session" /> 
 	</table>
 	<table width=550 bgcolor=000000 border=0 cellpadding=0 cellspacing=0>
 		<tr bgcolor=ffffff>
@@ -199,10 +216,7 @@
 			</td>
 			<td width=10>&nbsp;</td>
 		</tr>
-	</table>
-	
-
-	
+	</table>	
 </form>
 	<jsp:include page="../common/basic_copyright.jsp" flush="true"/>
 </body>

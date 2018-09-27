@@ -1,10 +1,8 @@
-<%@ page  contentType="text/html;charset=UTF-8" import="java.sql.*,oracle.dbpool.*" %> 
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
+<%@ page  contentType="text/html;charset=euc-kr" import="java.sql.*,oracle.dbpool.*" %> 
 
 <HTML>
 	<HEAD>
-		<TITLE>ì»´í“¨í„°ì „ë¬¸ì‡¼í•‘ëª°</TITLE>
+		<TITLE>ÄÄÇ»ÅÍÀü¹®¼îÇÎ¸ô</TITLE>
 		<script language=JavaScript src="../common/u3.js"></script>
 		<link href="../common/u3.css" type=text/css rel=stylesheet>
 	</HEAD>
@@ -12,21 +10,20 @@
 <BODY leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>
     <jsp:include page="../common/basic_screen.jsp" flush="true"/>
 	
-<!--  ì‹ ìƒí’ˆ í™”ë©´    -->
+<!--  ½Å»óÇ° È­¸é    -->
 	<br>
-	<table border=1 width=500 height=30>
+	<table  width=685  height=30>
 		<tr>
-			<td align=center bgcolor=0063ce><font size=2 color=white><b>ì‹  ìƒ í’ˆ</b></td>
+			<td align="left" height="25" style=" padding-top: 25px;  padding-bottom: 20px;"><font color="#E6E6E6" size="25"><b>--½Å »ó Ç°--</b></td>
 		</tr>
 	</table><br>
-	<table width="500" border=0 cellpadding=1 cellspacing=1>
+	<table width="725" border=0 cellpadding=1 cellspacing=1>
 <%
 	try {
 		String name,company_id,expression,photo;
 		int id,price;
 		DBConnectionManager pool = DBConnectionManager.getInstance();
 		Connection con = pool.getConnection("ora8");
-
 		Statement stmt=con.createStatement();
 		ResultSet rs=stmt.executeQuery("select id,name,price,company_id,expression,photo from product order by cdate desc, id desc");
 		
@@ -43,70 +40,64 @@
 %>
 		<tr>
 			<td>
-				<!-- ========= ì™¼ìª½ í…Œì´ë¸” ========== -->
-				<table width="250" border=1 cellpadding=1 cellspacing=2 align=center bordercolor=#990000>
+				<!-- ========= ¿ÞÂÊ Å×ÀÌºí ========== -->
+				<table width="362" border=3 cellpadding=1 cellspacing=2 align=center bordercolor="#E6E6E6" >
 				<tr>
 					<td colspan=2 align="center"><a href="../product/product.jsp?i=<%= id%>">
-					<img src="../product/image/<%=photo%>" width=100 height=100 border=0></a></td>
+					<img src="../product/image/<%=photo%>" width=200 height=200 border=0></a></td>
 				</tr>
 				<tr>
-					<td width=60 align=right bgcolor=#7eaee9>ìƒí’ˆëª…</td>
+					<td width=100 align=center bgcolor=#7eaee9><font color="white">»óÇ°¸í</font></td>
 					<td bgcolor=cde6ff>&nbsp;&nbsp;<%=name%></td>
 				</tr>
 				<tr>
-					<td width=60 align=right bgcolor=#7eaee9>ê°€ê²©</td>
-					<c:set var="fmtPrice" value="<%=price%>"/>
-					<td bgcolor=cde6ff>
-					&nbsp;<fmt:formatNumber value="${fmtPrice }" pattern="#,###" />&nbsp;ì›
+					<td width=100 align=center bgcolor=#7eaee9><font color="white">°¡°Ý</font></td>
+					<td bgcolor=cde6ff>&nbsp;&nbsp;<%=price%>&nbsp;¿ø</td>
 				</tr>
 				<tr>
-					<td width=60 align=right bgcolor=#7eaee9>ì œì¡°íšŒì‚¬</td>
+					<td width=100 align=center bgcolor=#7eaee9><font color="white">Á¦Á¶È¸»ç</font></td>
 					<td bgcolor=cde6ff>&nbsp;&nbsp;<%=company_id%></td>
 				</tr>
 				<tr>
-					<td width=60 align=right><font  color=blue>ì œí’ˆì„¤ëª…</font></td>
+					<td width=100  height=35 align=center><font  color=blue>Á¦Ç°¼³¸í</font></td>
 					<td>&nbsp;&nbsp;<%=expression%></td>
 				</tr>
 				</table>
-			    <!-- ë -->
+			    <!-- ³¡ -->
 <%      
 		flag=1;            
-
 		} else {
 %>
 		</td>
 		<td>
-			<!-- ì˜¤ë¥¸ìª½  í…Œì´ë¸” -->
-			<table width="250" border=1 cellpadding=1 cellspacing=2 align=center bordercolor=#990000>
+			<!-- ¿À¸¥ÂÊ  Å×ÀÌºí -->
+			<table width="362" border=3 cellpadding=1 cellspacing=2 align=center bordercolor="#E6E6E6" >
 			<tr>
 				<td colspan=2 align="center"><a href="../product/product.jsp?i=<%= id%>">
-				<img src="../product/image/<%=photo%>" width=100 height=100 border=0></a></td>
+				<img src="../productimg/image/<%=photo%>" width=200 height=200 border=0></a></td>
 			</tr>
 			<tr>
-				<td width=60 align=right bgcolor=#7eaee9>ìƒí’ˆëª…</td>
+				<td width=100 align=center bgcolor=#7eaee9><font color="white">»óÇ°¸í</font></td>
 				<td bgcolor=cde6ff>&nbsp;&nbsp;<%=name%></td>
 			</tr>
 			<tr>
-				<td width=60 align=right bgcolor=#7eaee9>ê°€ê²©</td>
-				<c:set var="fmtPrice" value="<%=price%>"/>
-					<td bgcolor=cde6ff>
-					&nbsp;<fmt:formatNumber value="${fmtPrice }" pattern="#,###" />&nbsp;ì›
+				<td width=100 align=center bgcolor=#7eaee9><font color="white">°¡°Ý</font></td>
+				<td bgcolor=cde6ff>&nbsp;&nbsp;<%=price%>&nbsp;¿ø</td>
 			</tr>
 			<tr>
-				<td width=60 align=right bgcolor=#7eaee9>ì œì¡°íšŒì‚¬</td>
+				<td width=100 align=center bgcolor=#7eaee9><font color="white">Á¦Á¶È¸»ç</font></td>
 				<td bgcolor=cde6ff>&nbsp;&nbsp;<%=company_id%></td>
 			</tr>
 			<tr>
-				<td width=60 align=right><font color=blue>ì œí’ˆì„¤ëª…</td>
+				<td width=100  height=35 align=center><font color=blue>Á¦Ç°¼³¸í</font></td>
 				<td>&nbsp;&nbsp;<%=expression%></td>
 			</tr>
 			</table>
-			<!--ë -->	
+			<!--³¡ -->	
 		</td>
 	</tr>
 <%
 	flag=0;
-
      stop = stop + 1;
 	 if( stop > 2) break;
 	} //while
@@ -119,9 +110,9 @@
 }
 %>
 	</table>
-	 
 
-<!--  í™”ë©´ ë   -->
-	<jsp:include page="../common/basic_copyright.jsp" flush="true"/>
+
+<!--  È­¸é ³¡   -->
+
 </BODY>
 </HTML>
